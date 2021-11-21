@@ -1,0 +1,736 @@
+2021-10-13 10:40:13 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.0.21.Final
+2021-10-13 10:40:13 [main] INFO  com.example.admin.KafkaTest - Starting KafkaTest on AmydeMacBook-Pro.local with PID 7162 (started by amy in /Users/amy/lucky/demo2/demo/admin)
+2021-10-13 10:40:13 [main] INFO  com.example.admin.KafkaTest - The following profiles are active: offline
+2021-10-13 10:40:14 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'redisTemplate' defined in class path resource [com/example/mybatisplus/commons/config/RedisTemplateConfig.class]: Cannot register bean definition [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=redisTemplateConfig; factoryMethodName=redisTemplate; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/example/mybatisplus/commons/config/RedisTemplateConfig.class]] for bean 'redisTemplate': There is already [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=redisConfiguration; factoryMethodName=redisTemplate; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/example/admin/commons/config/RedisConfiguration.class]] bound.
+2021-10-13 10:40:14 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-10-13 10:40:14 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'redisTemplate', defined in class path resource [com/example/mybatisplus/commons/config/RedisTemplateConfig.class], could not be registered. A bean with that name has already been defined in class path resource [com/example/admin/commons/config/RedisConfiguration.class] and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+2021-10-13 10:40:14 [main] INFO  com.example.admin.KafkaTest - Starting KafkaTest on AmydeMacBook-Pro.local with PID 7162 (started by amy in /Users/amy/lucky/demo2/demo/admin)
+2021-10-13 10:40:14 [main] INFO  com.example.admin.KafkaTest - The following profiles are active: offline
+2021-10-13 10:40:14 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'redisTemplate' defined in class path resource [com/example/mybatisplus/commons/config/RedisTemplateConfig.class]: Cannot register bean definition [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=redisTemplateConfig; factoryMethodName=redisTemplate; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/example/mybatisplus/commons/config/RedisTemplateConfig.class]] for bean 'redisTemplate': There is already [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=redisConfiguration; factoryMethodName=redisTemplate; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/example/admin/commons/config/RedisConfiguration.class]] bound.
+2021-10-13 10:40:14 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-10-13 10:40:14 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'redisTemplate', defined in class path resource [com/example/mybatisplus/commons/config/RedisTemplateConfig.class], could not be registered. A bean with that name has already been defined in class path resource [com/example/admin/commons/config/RedisConfiguration.class] and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+2021-10-13 10:40:14 [main] ERROR o.springframework.test.context.TestContextManager - Caught exception while allowing TestExecutionListener [org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@2d778add] to prepare test instance [com.example.admin.KafkaTest@21337f7b]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:118)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener.prepareTestInstance(SpringBootDependencyInjectionTestExecutionListener.java:43)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:244)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:33)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:230)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)
+Caused by: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'redisTemplate' defined in class path resource [com/example/mybatisplus/commons/config/RedisTemplateConfig.class]: Cannot register bean definition [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=redisTemplateConfig; factoryMethodName=redisTemplate; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/example/mybatisplus/commons/config/RedisTemplateConfig.class]] for bean 'redisTemplate': There is already [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=redisConfiguration; factoryMethodName=redisTemplate; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/example/admin/commons/config/RedisConfiguration.class]] bound.
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.registerBeanDefinition(DefaultListableBeanFactory.java:945)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:286)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:144)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:120)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:331)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:236)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:280)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:96)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:707)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:533)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:405)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:124)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)
+	... 25 common frames omitted
+2021-10-13 10:41:43 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.0.21.Final
+2021-10-13 10:41:44 [main] INFO  com.example.admin.KafkaTest - Starting KafkaTest on AmydeMacBook-Pro.local with PID 7177 (started by amy in /Users/amy/lucky/demo2/demo/admin)
+2021-10-13 10:41:44 [main] INFO  com.example.admin.KafkaTest - The following profiles are active: offline
+2021-10-13 10:41:45 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'redisTemplate' defined in class path resource [com/example/mybatisplus/commons/config/RedisTemplateConfig.class]: Cannot register bean definition [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=redisTemplateConfig; factoryMethodName=redisTemplate; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/example/mybatisplus/commons/config/RedisTemplateConfig.class]] for bean 'redisTemplate': There is already [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=redisConfiguration; factoryMethodName=redisTemplate; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/example/admin/commons/config/RedisConfiguration.class]] bound.
+2021-10-13 10:41:45 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-10-13 10:41:45 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'redisTemplate', defined in class path resource [com/example/mybatisplus/commons/config/RedisTemplateConfig.class], could not be registered. A bean with that name has already been defined in class path resource [com/example/admin/commons/config/RedisConfiguration.class] and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+2021-10-13 10:41:45 [main] INFO  com.example.admin.KafkaTest - Starting KafkaTest on AmydeMacBook-Pro.local with PID 7177 (started by amy in /Users/amy/lucky/demo2/demo/admin)
+2021-10-13 10:41:45 [main] INFO  com.example.admin.KafkaTest - The following profiles are active: offline
+2021-10-13 10:41:45 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'redisTemplate' defined in class path resource [com/example/mybatisplus/commons/config/RedisTemplateConfig.class]: Cannot register bean definition [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=redisTemplateConfig; factoryMethodName=redisTemplate; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/example/mybatisplus/commons/config/RedisTemplateConfig.class]] for bean 'redisTemplate': There is already [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=redisConfiguration; factoryMethodName=redisTemplate; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/example/admin/commons/config/RedisConfiguration.class]] bound.
+2021-10-13 10:41:45 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-10-13 10:41:45 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'redisTemplate', defined in class path resource [com/example/mybatisplus/commons/config/RedisTemplateConfig.class], could not be registered. A bean with that name has already been defined in class path resource [com/example/admin/commons/config/RedisConfiguration.class] and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+2021-10-13 10:41:45 [main] ERROR o.springframework.test.context.TestContextManager - Caught exception while allowing TestExecutionListener [org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@2d778add] to prepare test instance [com.example.admin.KafkaTest@21337f7b]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:118)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener.prepareTestInstance(SpringBootDependencyInjectionTestExecutionListener.java:43)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:244)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:33)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:230)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)
+Caused by: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'redisTemplate' defined in class path resource [com/example/mybatisplus/commons/config/RedisTemplateConfig.class]: Cannot register bean definition [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=redisTemplateConfig; factoryMethodName=redisTemplate; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/example/mybatisplus/commons/config/RedisTemplateConfig.class]] for bean 'redisTemplate': There is already [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=redisConfiguration; factoryMethodName=redisTemplate; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/example/admin/commons/config/RedisConfiguration.class]] bound.
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.registerBeanDefinition(DefaultListableBeanFactory.java:945)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:286)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:144)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:120)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:331)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:236)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:280)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:96)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:707)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:533)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:405)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:124)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)
+	... 25 common frames omitted
+2021-10-13 11:04:31 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.0.21.Final
+2021-10-13 11:04:31 [main] INFO  com.example.admin.KafkaTest - Starting KafkaTest on AmydeMacBook-Pro.local with PID 7435 (started by amy in /Users/amy/lucky/demo2/demo/admin)
+2021-10-13 11:04:31 [main] INFO  com.example.admin.KafkaTest - The following profiles are active: offline
+2021-10-13 11:04:33 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-10-13 11:04:33 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-10-13 11:04:33 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 38ms. Found 0 Redis repository interfaces.
+2021-10-13 11:04:34 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'aopAccessLoggerSupportAutoConfiguration' of type [com.example.admin.commons.config.AopAccessLoggerSupportAutoConfiguration$$EnhancerBySpringCGLIB$$c838c37c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-10-13 11:04:34 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'aopAccessLoggerSupport' of type [com.example.admin.commons.aop.AopAccessLoggerSupport] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-10-13 11:04:34 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 0 (http)
+2021-10-13 11:04:34 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-auto-1"]
+2021-10-13 11:04:34 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-10-13 11:04:34 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-10-13 11:04:35 [main] INFO  o.a.c.c.ContainerBase.[Tomcat].[localhost].[/girl] - Initializing Spring embedded WebApplicationContext
+2021-10-13 11:04:35 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3101 ms
+2021-10-13 11:04:35 [main] INFO  c.e.admin.commons.config.LoggerTaskExecutorConfig - loggerTaskExecutor.coreSize:16
+2021-10-13 11:04:37 [main] INFO  io.searchbox.client.AbstractJestClient - Setting server pool to a list of 1 servers: [http://172.16.0.63:29200]
+2021-10-13 11:04:37 [main] INFO  io.searchbox.client.JestClientFactory - Using multi thread/connection supporting pooling connection manager
+2021-10-13 11:04:37 [main] INFO  io.searchbox.client.JestClientFactory - Using custom GSON instance
+2021-10-13 11:04:37 [main] INFO  io.searchbox.client.JestClientFactory - Node Discovery disabled...
+2021-10-13 11:04:37 [main] INFO  io.searchbox.client.JestClientFactory - Idle connection reaping disabled...
+2021-10-13 11:04:37 [main] INFO  org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 100
+	auto.offset.reset = earliest
+	bootstrap.servers = [192.168.11.116:9092]
+	check.crcs = true
+	client.dns.lookup = default
+	client.id = 
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = my_test_group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	session.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2021-10-13 11:04:38 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 2.3.1
+2021-10-13 11:04:38 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 18a913733fb71c01
+2021-10-13 11:04:38 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1634094278127
+2021-10-13 11:04:38 [main] INFO  org.apache.kafka.clients.consumer.KafkaConsumer - [Consumer clientId=consumer-1, groupId=my_test_group] Subscribed to topic(s): order_test
+2021-10-13 11:04:38 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService
+2021-10-13 11:04:38 [main] INFO  org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 100
+	auto.offset.reset = earliest
+	bootstrap.servers = [192.168.11.116:9092]
+	check.crcs = true
+	client.dns.lookup = default
+	client.id = 
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = my_test_group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	session.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2021-10-13 11:04:38 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 2.3.1
+2021-10-13 11:04:38 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 18a913733fb71c01
+2021-10-13 11:04:38 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1634094278164
+2021-10-13 11:04:38 [main] INFO  org.apache.kafka.clients.consumer.KafkaConsumer - [Consumer clientId=consumer-2, groupId=my_test_group] Subscribed to topic(s): order_test
+2021-10-13 11:04:38 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService
+2021-10-13 11:04:38 [main] INFO  org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 100
+	auto.offset.reset = earliest
+	bootstrap.servers = [192.168.11.116:9092]
+	check.crcs = true
+	client.dns.lookup = default
+	client.id = 
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = my_test_group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	session.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2021-10-13 11:04:38 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 2.3.1
+2021-10-13 11:04:38 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 18a913733fb71c01
+2021-10-13 11:04:38 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1634094278177
+2021-10-13 11:04:38 [main] INFO  org.apache.kafka.clients.consumer.KafkaConsumer - [Consumer clientId=consumer-3, groupId=my_test_group] Subscribed to topic(s): order_test
+2021-10-13 11:04:38 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService
+2021-10-13 11:04:38 [main] INFO  org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 100
+	auto.offset.reset = earliest
+	bootstrap.servers = [192.168.11.116:9092]
+	check.crcs = true
+	client.dns.lookup = default
+	client.id = 
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = my_test_group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	session.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2021-10-13 11:04:38 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 2.3.1
+2021-10-13 11:04:38 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 18a913733fb71c01
+2021-10-13 11:04:38 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1634094278187
+2021-10-13 11:04:38 [main] INFO  org.apache.kafka.clients.consumer.KafkaConsumer - [Consumer clientId=consumer-4, groupId=my_test_group] Subscribed to topic(s): order_test
+2021-10-13 11:04:38 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService
+2021-10-13 11:04:38 [main] INFO  org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 100
+	auto.offset.reset = earliest
+	bootstrap.servers = [192.168.11.116:9092]
+	check.crcs = true
+	client.dns.lookup = default
+	client.id = 
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = my_test_group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	session.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2021-10-13 11:04:38 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 2.3.1
+2021-10-13 11:04:38 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 18a913733fb71c01
+2021-10-13 11:04:38 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1634094278199
+2021-10-13 11:04:38 [main] INFO  org.apache.kafka.clients.consumer.KafkaConsumer - [Consumer clientId=consumer-5, groupId=my_test_group] Subscribed to topic(s): order_test
+2021-10-13 11:04:38 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService
+2021-10-13 11:04:38 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-auto-1"]
+2021-10-13 11:04:38 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 60030 (http) with context path '/girl'
+2021-10-13 11:04:38 [main] INFO  com.example.admin.KafkaTest - Started KafkaTest in 7.494 seconds (JVM running for 9.074)
+2021-10-13 11:04:38 [main] INFO  com.example.admin.commons.componet.PermApplication - controller request url:/auth
+2021-10-13 11:04:38 [main] INFO  com.example.admin.commons.componet.PermApplication - controller request url:/demo
+2021-10-13 11:04:38 [main] INFO  com.example.admin.commons.componet.PermApplication - controller request url:/perm
+2021-10-13 11:04:38 [main] INFO  com.example.admin.commons.componet.PermApplication - auth:perm:edit,desc:编辑
+2021-10-13 11:04:38 [main] INFO  com.example.admin.commons.componet.PermApplication - url:/perm
+2021-10-13 11:04:38 [main] INFO  com.example.admin.commons.componet.PermApplication - auth:perm:list,desc:查询
+2021-10-13 11:04:38 [main] INFO  com.example.admin.commons.componet.PermApplication - url:/perm
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-1-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-2, groupId=my_test_group] Error while fetching metadata with correlation id 2 : {order_test=LEADER_NOT_AVAILABLE}
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-1-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-2, groupId=my_test_group] Cluster ID: 8sOZMTZET8aROo7jmQ9nXA
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-1-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-2, groupId=my_test_group] Discovered group coordinator 192.168.11.116:9092 (id: 2147482646 rack: null)
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-1-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-2, groupId=my_test_group] Revoking previously assigned partitions []
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-1-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - my_test_group: partitions revoked: []
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-1-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-2, groupId=my_test_group] (Re-)joining group
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-2-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-3, groupId=my_test_group] Error while fetching metadata with correlation id 2 : {order_test=LEADER_NOT_AVAILABLE}
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-2-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-3, groupId=my_test_group] Cluster ID: 8sOZMTZET8aROo7jmQ9nXA
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-2-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-3, groupId=my_test_group] Discovered group coordinator 192.168.11.116:9092 (id: 2147482646 rack: null)
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-2-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-3, groupId=my_test_group] Revoking previously assigned partitions []
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-2-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - my_test_group: partitions revoked: []
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-2-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-3, groupId=my_test_group] (Re-)joining group
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-4-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-5, groupId=my_test_group] Error while fetching metadata with correlation id 2 : {order_test=LEADER_NOT_AVAILABLE}
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-4-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-5, groupId=my_test_group] Cluster ID: 8sOZMTZET8aROo7jmQ9nXA
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-3-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-4, groupId=my_test_group] Error while fetching metadata with correlation id 2 : {order_test=LEADER_NOT_AVAILABLE}
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-4-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-5, groupId=my_test_group] Discovered group coordinator 192.168.11.116:9092 (id: 2147482646 rack: null)
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-3-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-4, groupId=my_test_group] Cluster ID: 8sOZMTZET8aROo7jmQ9nXA
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-4-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-5, groupId=my_test_group] Revoking previously assigned partitions []
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-4-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - my_test_group: partitions revoked: []
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-4-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-5, groupId=my_test_group] (Re-)joining group
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-3-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-4, groupId=my_test_group] Discovered group coordinator 192.168.11.116:9092 (id: 2147482646 rack: null)
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-3-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-4, groupId=my_test_group] Revoking previously assigned partitions []
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-3-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - my_test_group: partitions revoked: []
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-1, groupId=my_test_group] Error while fetching metadata with correlation id 2 : {order_test=LEADER_NOT_AVAILABLE}
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-3-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-4, groupId=my_test_group] (Re-)joining group
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-1, groupId=my_test_group] Cluster ID: 8sOZMTZET8aROo7jmQ9nXA
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=my_test_group] Discovered group coordinator 192.168.11.116:9092 (id: 2147482646 rack: null)
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-1-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-2, groupId=my_test_group] (Re-)joining group
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=my_test_group] Revoking previously assigned partitions []
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - my_test_group: partitions revoked: []
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=my_test_group] (Re-)joining group
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-2-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-3, groupId=my_test_group] (Re-)joining group
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-3-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-4, groupId=my_test_group] (Re-)joining group
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-4-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-5, groupId=my_test_group] (Re-)joining group
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=my_test_group] (Re-)joining group
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-2-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-3, groupId=my_test_group] (Re-)joining group
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-3-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-4, groupId=my_test_group] (Re-)joining group
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-4-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-5, groupId=my_test_group] (Re-)joining group
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-1-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-2, groupId=my_test_group] (Re-)joining group
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=my_test_group] Successfully joined group with generation 2
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-4-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-5, groupId=my_test_group] Successfully joined group with generation 2
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-4-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-5, groupId=my_test_group] Setting newly assigned partitions: 
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-1-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-2, groupId=my_test_group] Successfully joined group with generation 2
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-1-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-2, groupId=my_test_group] Setting newly assigned partitions: 
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-3-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-4, groupId=my_test_group] Successfully joined group with generation 2
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-1-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - my_test_group: partitions assigned: []
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-4-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - my_test_group: partitions assigned: []
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-3-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-4, groupId=my_test_group] Setting newly assigned partitions: 
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-3-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - my_test_group: partitions assigned: []
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=my_test_group] Setting newly assigned partitions: order_test-0
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-2-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-3, groupId=my_test_group] Successfully joined group with generation 2
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-2-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-3, groupId=my_test_group] Setting newly assigned partitions: 
+2021-10-13 11:04:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-2-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - my_test_group: partitions assigned: []
+2021-10-13 11:04:39 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-1, groupId=my_test_group] Found no committed offset for partition order_test-0
+2021-10-13 11:04:39 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.clients.consumer.internals.SubscriptionState - [Consumer clientId=consumer-1, groupId=my_test_group] Resetting offset for partition order_test-0 to offset 0.
+2021-10-13 11:04:39 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - my_test_group: partitions assigned: [order_test-0]
+2021-10-13 11:04:39 [main] INFO  org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: 
+	acks = 1
+	batch.size = 16384
+	bootstrap.servers = [192.168.11.116:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = default
+	client.id = 
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = false
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 0
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2021-10-13 11:04:39 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 2.3.1
+2021-10-13 11:04:39 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 18a913733fb71c01
+2021-10-13 11:04:39 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1634094279106
+2021-10-13 11:04:39 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: 8sOZMTZET8aROo7jmQ9nXA
+2021-10-13 11:04:39 [org.springframework.kafka.KafkaListenerEndpointContainer#0-3-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-4, groupId=my_test_group] Member consumer-4-38ca7472-6e0a-4901-be08-ef5c99c04c72 sending LeaveGroup request to coordinator 192.168.11.116:9092 (id: 2147482646 rack: null)
+2021-10-13 11:04:39 [org.springframework.kafka.KafkaListenerEndpointContainer#0-4-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-5, groupId=my_test_group] Member consumer-5-ad536a04-bdad-4abe-8ab5-4de71ec9dccb sending LeaveGroup request to coordinator 192.168.11.116:9092 (id: 2147482646 rack: null)
+2021-10-13 11:04:39 [org.springframework.kafka.KafkaListenerEndpointContainer#0-2-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-3, groupId=my_test_group] Member consumer-3-f5fc3fe1-1a02-4a6d-99a9-6700a3a7839e sending LeaveGroup request to coordinator 192.168.11.116:9092 (id: 2147482646 rack: null)
+2021-10-13 11:04:39 [org.springframework.kafka.KafkaListenerEndpointContainer#0-4-C-1] INFO  org.apache.kafka.clients.consumer.KafkaConsumer - [Consumer clientId=consumer-5, groupId=my_test_group] Unsubscribed all topics or patterns and assigned partitions
+2021-10-13 11:04:39 [org.springframework.kafka.KafkaListenerEndpointContainer#0-3-C-1] INFO  org.apache.kafka.clients.consumer.KafkaConsumer - [Consumer clientId=consumer-4, groupId=my_test_group] Unsubscribed all topics or patterns and assigned partitions
+2021-10-13 11:04:39 [org.springframework.kafka.KafkaListenerEndpointContainer#0-4-C-1] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler - Shutting down ExecutorService
+2021-10-13 11:04:39 [org.springframework.kafka.KafkaListenerEndpointContainer#0-1-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-2, groupId=my_test_group] Member consumer-2-a9562d0c-278e-4d52-8907-03ec6a190d3c sending LeaveGroup request to coordinator 192.168.11.116:9092 (id: 2147482646 rack: null)
+2021-10-13 11:04:39 [org.springframework.kafka.KafkaListenerEndpointContainer#0-2-C-1] INFO  org.apache.kafka.clients.consumer.KafkaConsumer - [Consumer clientId=consumer-3, groupId=my_test_group] Unsubscribed all topics or patterns and assigned partitions
+2021-10-13 11:04:39 [org.springframework.kafka.KafkaListenerEndpointContainer#0-2-C-1] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler - Shutting down ExecutorService
+2021-10-13 11:04:39 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.AbstractCoordinator - [Consumer clientId=consumer-1, groupId=my_test_group] Member consumer-1-eda77b8f-207b-4959-b156-d74e8e6f9f9d sending LeaveGroup request to coordinator 192.168.11.116:9092 (id: 2147482646 rack: null)
+2021-10-13 11:04:39 [org.springframework.kafka.KafkaListenerEndpointContainer#0-1-C-1] INFO  org.apache.kafka.clients.consumer.KafkaConsumer - [Consumer clientId=consumer-2, groupId=my_test_group] Unsubscribed all topics or patterns and assigned partitions
+2021-10-13 11:04:39 [org.springframework.kafka.KafkaListenerEndpointContainer#0-1-C-1] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler - Shutting down ExecutorService
+2021-10-13 11:04:39 [org.springframework.kafka.KafkaListenerEndpointContainer#0-3-C-1] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler - Shutting down ExecutorService
+2021-10-13 11:04:39 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.KafkaConsumer - [Consumer clientId=consumer-1, groupId=my_test_group] Unsubscribed all topics or patterns and assigned partitions
+2021-10-13 11:04:39 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler - Shutting down ExecutorService
+2021-10-13 11:04:39 [kafka-producer-network-thread | producer-1] INFO  c.e.admin.commons.componet.provider.OrderProvider - send-success:{"createTime":1634094279038,"orderId":0,"orderNum":"486e7abf-928e-4e13-b95c-63322c932668"}
+2021-10-13 11:04:39 [kafka-producer-network-thread | producer-1] INFO  c.e.admin.commons.componet.provider.OrderProvider - send-success:{"createTime":1634094279159,"orderId":1,"orderNum":"4e47d3ac-648c-40eb-b5c2-3cb60ed22f81"}
+2021-10-13 11:04:39 [kafka-producer-network-thread | producer-1] INFO  c.e.admin.commons.componet.provider.OrderProvider - send-success:{"createTime":1634094279159,"orderId":2,"orderNum":"a99bba09-7907-4917-b531-4ffefb92f3e6"}
+2021-10-13 11:04:39 [kafka-producer-network-thread | producer-1] INFO  c.e.admin.commons.componet.provider.OrderProvider - send-success:{"createTime":1634094279159,"orderId":3,"orderNum":"720f5fdd-6ba2-4ee1-8db0-9224d931fc50"}
+2021-10-13 11:04:39 [kafka-producer-network-thread | producer-1] INFO  c.e.admin.commons.componet.provider.OrderProvider - send-success:{"createTime":1634094279160,"orderId":4,"orderNum":"86368306-9e70-4a37-847e-32f00c2d13f1"}
+2021-10-13 11:04:39 [org.springframework.kafka.KafkaListenerEndpointContainer#0-2-C-1] INFO  o.s.k.l.KafkaMessageListenerContainer$ListenerConsumer - my_test_group: Consumer stopped
+2021-10-13 11:04:39 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.k.l.KafkaMessageListenerContainer$ListenerConsumer - my_test_group: Consumer stopped
+2021-10-13 11:04:39 [org.springframework.kafka.KafkaListenerEndpointContainer#0-1-C-1] INFO  o.s.k.l.KafkaMessageListenerContainer$ListenerConsumer - my_test_group: Consumer stopped
+2021-10-13 11:04:39 [org.springframework.kafka.KafkaListenerEndpointContainer#0-4-C-1] INFO  o.s.k.l.KafkaMessageListenerContainer$ListenerConsumer - my_test_group: Consumer stopped
+2021-10-13 11:04:39 [org.springframework.kafka.KafkaListenerEndpointContainer#0-3-C-1] INFO  o.s.k.l.KafkaMessageListenerContainer$ListenerConsumer - my_test_group: Consumer stopped
+2021-10-13 11:04:39 [SpringContextShutdownHook] INFO  org.apache.kafka.clients.producer.KafkaProducer - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.

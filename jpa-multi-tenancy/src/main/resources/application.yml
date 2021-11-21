@@ -1,0 +1,32 @@
+server:
+  port: 9001
+  servlet:
+    context-path: /jpa
+
+logging:
+  level:
+    root: info
+
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8   # 设置全局时区
+  jpa:
+    show-sql: true
+      #create：每次运行程序时，都会重新创建表，故而数据会丢失
+      #create-drop：每次运行程序时会先创建表结构，然后待程序结束时清空表
+      #update：每次运行程序，没有表时会创建表，如果对象发生改变会更新表结构，原有数据不会清空，只会更新（推荐使用）
+    #validate：运行程序会校验数据与数据库的字段类型是否相同，字段不同会报错
+    #none: 禁用 DDL 处理
+    hibernate:
+      ddl-auto: update
+  profiles:
+    active: offline
+
+  redis:
+    #轮询时间，默认为-1，不轮询
+    timeBetweenEvictionRunsMillies: 30000
+    #空闲时是否检查连接池中的连接是否有效，默认为false
+    testWhileIdle: true
+    #获取连接时是否检测是否有效，默认false
+    testOnBorrow: true

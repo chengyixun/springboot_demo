@@ -1,0 +1,14 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: md
+  data:
+    mongodb:
+      uri: mongodb://gaia:gaia@101.132.101.70:27018/dataScience
+
+
+
+
+

@@ -1,0 +1,31 @@
+server:
+  port: 9004
+
+
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8   # \u8BBE\u7F6E\u5168\u5C40\u65F6\u533A
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/mp_crud?useUnicode=true&characterEncoding=utf-8&useSSL=false&rewriteBatchedStatements=true
+    username: root
+    password: root
+
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: deleted  # 全局逻辑删除的实体字段名
+      logic-delete-value: 1 # 逻辑已删除值(默认为1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为0)
+      id-type: auto
+
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+  #mapper-locations: classpath*:mapper/user/*.xml
+  type-enums-package: com.example.mybatisplus.commons.enums
+  type-aliases-package: com.example.mybatisplus.entity
+
+
+
