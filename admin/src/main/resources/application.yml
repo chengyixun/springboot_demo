@@ -21,5 +21,15 @@ spring:
     testOnBorrow: true
 
 
+  task:
+    execution:
+      thread-name-prefix: My-Async-Task-
+      pool:
+        core-size: 2
+        max-size: 5
+        queue-capacity: 10
+        keep-alive: 60s
+        allow-core-thread-timeout: false
+
   profiles:
     active: @profiles.active@

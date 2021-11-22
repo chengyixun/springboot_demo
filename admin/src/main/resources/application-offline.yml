@@ -12,6 +12,9 @@ spring:
     database: 0
 
 
+
+
+
   kafka:
     bootstrap-servers: 192.168.11.116:9092
     producer:
@@ -43,6 +46,8 @@ spring:
     listener:
       #在侦听器容器中运行的线程数。
       concurrency: 5
+
+
 
 mybatis-plus:
   global-config:
