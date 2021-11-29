@@ -16,9 +16,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
@@ -29,6 +31,8 @@ import java.util.stream.Stream;
  */
 @Slf4j
 public class StreamTest {
+
+  private static Random random = new Random();
 
   public List<Person> personList() {
     List<Person> personList = Lists.newArrayList();
@@ -934,24 +938,37 @@ public class StreamTest {
       strs.add("f");
       System.out.println(strs);
     }
-    }
-
-  /**
-   * 集合转换成  Collection接口的toArray方法
-   */
-  @Test
-  public void testCollectionToArray(){
-
   }
 
+  /** 集合转换成 Collection接口的toArray方法 */
   @Test
-  public void testContinue(){
+  public void testCollectionToArray() {}
+
+  @Test
+  public void testContinue() {
     for (int i = 0; i < 5; i++) {
-      if(  i == 3){
+      if (i == 3) {
         continue;
       }
       System.out.println(i);
     }
   }
 
+  @Test
+  public void testBoxed() {
+    List<Integer> list = Arrays.asList(1, 2, 3, 5, 6);
+    // to Int Stream
+    IntStream intStream = list.stream().mapToInt(m -> m);
+    // to Stream Integer
+    Stream<Integer> integerStream = intStream.boxed();
+
+    List<Integer> collect = list.stream().collect(Collectors.toList());
+  }
+
+  @Test
+  public void testIntegerStream() {
+    List<Integer> collect = random.ints(0, 100)
+            .limit(10).boxed().collect(Collectors.toList());
+    System.out.println(collect);
+  }
 }

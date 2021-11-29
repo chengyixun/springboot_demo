@@ -43,17 +43,18 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee>
   }
 
   @Override
+  @Transactional(rollbackFor = Exception.class)
   public void queryAndSave(Employee employee) {
     QueryWrapper<Employee> wrapper = new QueryWrapper<>();
     wrapper.eq("name", employee.getName());
-    Employee employee1 = employeeMapper.selectOne(wrapper);
-
     try {
-      Thread.sleep(2 * 1000);
-    } catch (InterruptedException e) {
+      employeeMapper.update(employee, wrapper);
+      int a = 1, b = 0, c = 0;
+      c = a / b;
+    } catch (Exception e) {
       log.error("error:{}", e);
+      /** @Transactional 中使用 try catch ,catch 中如何不抛出异常，事务失效 */
+      throw new RuntimeException(e);
     }
-    employee1.setEmail("2222@qq.com");
-    updateById(employee1);
   }
 }
