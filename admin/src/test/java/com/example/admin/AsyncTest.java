@@ -29,8 +29,9 @@ public class AsyncTest {
 
   @Test
   public void test1() {
+    log.info(">>>begin to deal other Task!1111111");
     asyncTask.dealNoReturnTask();
-    log.info(">>>begin to deal other Task!");
+    log.info(">>>begin to deal other Task!222222");
     /* try {
         log.info(">>>begin to deal other Task!");
         Thread.sleep(1000);
@@ -87,4 +88,6 @@ public class AsyncTest {
     map.put("key_1","value_1");
 
   }
+
+
 }

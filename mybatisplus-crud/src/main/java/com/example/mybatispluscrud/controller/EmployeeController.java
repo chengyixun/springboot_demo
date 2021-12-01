@@ -27,12 +27,17 @@ public class EmployeeController {
   }
 
   @PostMapping
-  public void save(@RequestBody Employee employee){
+  public void save(@RequestBody Employee employee) {
     employeeService.delAndSave(employee);
   }
 
   @PostMapping("/save")
-  public void save2(@RequestBody Employee employee){
+  public void save2(@RequestBody Employee employee) {
     employeeService.queryAndSave(employee);
+  }
+
+  @GetMapping("/test1")
+  public void testTransaction1() {
+    employeeService.testNoTRequestHasT();
   }
 }

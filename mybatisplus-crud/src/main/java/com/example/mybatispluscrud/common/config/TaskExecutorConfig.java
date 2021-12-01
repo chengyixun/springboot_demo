@@ -20,7 +20,7 @@ public class TaskExecutorConfig {
   @Bean
   public Executor loggerTaskExecutor() {
     int coreSize = Runtime.getRuntime().availableProcessors() * 2;
-    log.info(" Taskxecutor.coreSize:{}", coreSize);
+    log.info(" TaskExecutor.coreSize:{}", coreSize);
     return new ThreadPoolExecutor(
         coreSize, 100, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>());
   }

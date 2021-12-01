@@ -47,14 +47,23 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee>
   public void queryAndSave(Employee employee) {
     QueryWrapper<Employee> wrapper = new QueryWrapper<>();
     wrapper.eq("name", employee.getName());
-    try {
-      employeeMapper.update(employee, wrapper);
-      int a = 1, b = 0, c = 0;
-      c = a / b;
-    } catch (Exception e) {
-      log.error("error:{}", e);
-      /** @Transactional 中使用 try catch ,catch 中如何不抛出异常，事务失效 */
-      throw new RuntimeException(e);
-    }
+    employee.setEmail("update second");
+    employeeMapper.update(employee, wrapper);
+    int a = 1, b = 0, c = 0;
+    c = a / b;
+  }
+
+  /** 当前方法 调用 有事务注解的方法 事务失效 */
+  @Override
+  //  @Transactional(rollbackFor = Exception.class)
+  public void testNoTRequestHasT() {
+    log.info(
+        ">>> test current method no transaction,but invoke current service other method has transaction ");
+    Employee employee = Employee.builder().name("小菜").build();
+    QueryWrapper<Employee> wrapper = new QueryWrapper<>();
+    wrapper.eq("name", employee.getName());
+    employee.setEmail("update first");
+    employeeMapper.update(employee, wrapper);
+    queryAndSave(employee);
   }
 }
