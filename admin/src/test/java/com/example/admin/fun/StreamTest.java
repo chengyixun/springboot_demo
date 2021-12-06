@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.springframework.util.CollectionUtils;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
@@ -15,10 +16,15 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Random;
 import java.util.Set;
+import java.util.TreeSet;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -38,7 +44,7 @@ public class StreamTest {
     List<Person> personList = Lists.newArrayList();
     personList.add(new Person("Tom", 8900, 20, "male", "New York", "2021-06-01", "1,2"));
     personList.add(new Person("Jack", 7000, 30, "male", "Washington", "2021-05-01", "1,2,3,4"));
-    personList.add(new Person("Lily", 7000, 40, "female", "Washington", "2021-03-01", "1,2,5"));
+    personList.add(new Person("Tom", 7000, 40, "female", "Washington", "2021-03-01", "1,2,5"));
     personList.add(new Person("Anni", 8200, 19, "female", "New York", "2021-04-01", "6,7"));
     personList.add(new Person("Owen", 9500, 31, "male", "New York", "2021-05-01", "8,9"));
     personList.add(new Person("Alisa", 7900, 50, "female", "New York", "2021-07-01", "1,2,3,4"));
@@ -57,12 +63,16 @@ public class StreamTest {
   public List<Blog> blogs() {
     List<Blog> blogs = Lists.newArrayList();
     blogs.add(Blog.builder().code("A").currentCode("B").build());
+
     blogs.add(Blog.builder().code("Y").currentCode("C").build());
+    blogs.add(Blog.builder().code("H").currentCode("Y").build());
+
     blogs.add(Blog.builder().code("D").currentCode("E").build());
     blogs.add(Blog.builder().code("D").currentCode("F").build());
     blogs.add(Blog.builder().code("D").currentCode("G").build());
+
     blogs.add(Blog.builder().code("K").currentCode("I").build());
-    blogs.add(Blog.builder().code("F").currentCode("I").build());
+    blogs.add(Blog.builder().code("L").currentCode("I").build());
     return blogs;
   }
 
@@ -796,6 +806,9 @@ public class StreamTest {
   }
 
   @Test
+  public void testParallelStream2() {}
+
+  @Test
   public void testSort3() {
     List<Blog> blogs = blogs();
     // 未组装前的数据
@@ -840,6 +853,62 @@ public class StreamTest {
     List<Blog> blogs = blogs();
   }
 
+  @Test
+  public void testMapRefactor12() {
+    List<Blog> blogs = blogs();
+    Map<String, Long> longMap =
+        blogs.stream()
+            .flatMap(f -> Stream.of(f.getCode(), f.getCurrentCode()))
+            .collect(Collectors.groupingBy(k -> k, Collectors.counting()));
+
+    Map<String, List<String>> result = new HashMap<>();
+
+    for (Map.Entry<String, Long> entry : longMap.entrySet()) {
+      String key = entry.getKey();
+      Long value = entry.getValue();
+      if (Objects.nonNull(value) && value > 1) {
+        List<String> values = Lists.newArrayList();
+        blogs.forEach(
+            b -> {
+              if (key.equals(b.getCode())) {
+                values.add(b.getCurrentCode());
+              }
+              if (key.equals(b.getCurrentCode())) {
+                values.add(b.getCode());
+              }
+            });
+        result.put(key, values);
+      }
+    }
+
+    blogs.stream()
+        .filter(
+            c ->
+                CollectionUtils.isEmpty(result.get(c.getCode()))
+                    && CollectionUtils.isEmpty(result.get(c.getCurrentCode())))
+        .forEach(
+            f -> result.put(f.getCode(), Lists.newArrayList(f.getCurrentCode())));
+
+    System.out.println(result);
+  }
+  /**
+   * 2. 判断 1:1 N:1 1:N 关系
+   *    A B
+   *
+   * <p>Y C
+   *    H Y
+   *
+   * <p>D E
+   *    D F
+   *    D G
+   *
+   * <p>K I
+   *    L I
+   *
+   * <p>先判断哪些是重复的，比如D I，抠出来，然后
+   *
+   * <p>先判断 mode
+   */
   @Test
   public void testMap12() {
     List<Blog> blogs = blogs();
@@ -967,8 +1036,69 @@ public class StreamTest {
 
   @Test
   public void testIntegerStream() {
-    List<Integer> collect = random.ints(0, 100)
-            .limit(10).boxed().collect(Collectors.toList());
+    List<Integer> collect = random.ints(0, 100).limit(10).boxed().collect(Collectors.toList());
     System.out.println(collect);
+    AtomicInteger atomicInteger = new AtomicInteger();
+  }
+
+  /** 1. Map 以前没有添加过相同的键，则put()和putIfAbsent()方法都返回的是null 2. putIfAbsent -> onlyIfAbsent 3. put */
+  @Test
+  public void testMapPutApi() {
+    Map<String, String> map = new HashMap<>();
+    System.out.println(map.put("Tom", "11"));
+    System.out.println(map.get("Tom"));
+
+    System.out.println(map.put("Tom", "22"));
+    System.out.println(map.get("Tom"));
+
+    System.out.println(map.putIfAbsent("Jack", "55"));
+    System.out.println(map.get("Jack"));
+
+    System.out.println(map.putIfAbsent("Jack", "99"));
+    System.out.println(map.get("Jack"));
+  }
+
+  /** 集合按照某个字段去重 */
+  @Test
+  public void testByFieldDistinct0() {
+    List<Person> people = personList();
+    ArrayList<Person> collect =
+        people.stream()
+            .collect(
+                Collectors.collectingAndThen(
+                    Collectors.toCollection(
+                        () -> new TreeSet<>(Comparator.comparing(Person::getName))),
+                    ArrayList::new));
+
+    System.out.println(collect);
+  }
+
+  @Test
+  public void testByFieldDistinct1() {
+    List<Person> people = personList();
+    List<Person> collect =
+        people.stream().filter(distinctByKey(f -> f.getName())).collect(Collectors.toList());
+
+    System.out.println(collect);
+  }
+
+  @Test
+  public void testByFieldDistinct2() {
+    List<Person> people = personList();
+    List<Person> collect =
+        people.stream().filter(distinctByKey2(f -> f.getName())).collect(Collectors.toList());
+
+    System.out.println(collect);
+  }
+
+  // 根据对象属性去重
+  public static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
+    Map<Object, Boolean> seen = new ConcurrentHashMap<>();
+    return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
+  }
+
+  public static <T> Predicate<T> distinctByKey2(Function<? super T, ?> key) {
+    Set<Object> set = ConcurrentHashMap.newKeySet();
+    return t -> set.add(key.apply(t));
   }
 }

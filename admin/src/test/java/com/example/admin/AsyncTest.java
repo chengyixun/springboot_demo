@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.HashMap;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Future;
 
@@ -79,15 +78,12 @@ public class AsyncTest {
     log.info("任务全部完成，总耗时：" + (end - start) + "毫秒");
   }
 
-
+  // TODO: 2021/12/6 need demo to test!!
   @Test
-  public void test4(){
-  //  CompletableFuture.supplyAsync(()-> 10,new  ThreadPoolTaskExecutor());
-
-    HashMap<String,String> map = new HashMap<>();
-    map.put("key_1","value_1");
-
+  public void testBlockQueue() {
+    // BlockingQueue<String> queues
   }
 
-
+  @Test
+  public void testCompletableFuture() {}
 }
