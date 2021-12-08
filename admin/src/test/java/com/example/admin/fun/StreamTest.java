@@ -851,6 +851,11 @@ public class StreamTest {
   @Test
   public void testMap13() {
     List<Blog> blogs = blogs();
+    List<Blog> currentBlogs = blogs.stream().filter(f -> f.getCode().equals("D")).collect(Collectors.toList());
+
+    currentBlogs.forEach(o -> o.setCurrentCode("DD"));
+
+    System.out.println(currentBlogs);
   }
 
   @Test
@@ -909,67 +914,7 @@ public class StreamTest {
    *
    * <p>先判断 mode
    */
-  @Test
-  public void testMap12() {
-    List<Blog> blogs = blogs();
-    // 1.找出重复字段
-    Map<String, Long> collect2 =
-        blogs.stream().collect(Collectors.groupingBy(Blog::getCode, Collectors.counting()));
-    Map<String, Long> collect3 =
-        blogs.stream().collect(Collectors.groupingBy(Blog::getCurrentCode, Collectors.counting()));
-    collect2.putAll(collect3);
 
-    // 找出重复的字段
-    List<String> dupCodes =
-        collect2.entrySet().stream()
-            .filter(f -> f.getValue() > 1)
-            .map(m -> m.getKey())
-            .collect(Collectors.toList());
-
-    List<String> collect =
-        blogs.stream()
-            .flatMap(m -> Stream.of(m.getCode(), m.getCurrentCode()))
-            .collect(Collectors.toList());
-    // 去掉重复的组合
-    Map<String, List<String>> mapOne =
-        blogs.stream()
-            .filter(f -> !dupCodes.contains(f.getCode()) && !dupCodes.contains(f.getCurrentCode()))
-            .collect(
-                Collectors.groupingBy(
-                    Blog::getCode, Collectors.mapping(Blog::getCurrentCode, Collectors.toList())));
-
-    if (!CollectionUtils.isEmpty(dupCodes)) {
-
-      // 重复的组合
-      Map<String, List<String>> dupMap =
-          blogs.stream()
-              .filter(f -> dupCodes.contains(f.getCode()))
-              .collect(
-                  Collectors.groupingBy(
-                      Blog::getCode,
-                      Collectors.mapping(Blog::getCurrentCode, Collectors.toList())));
-
-      mapOne.putAll(dupMap);
-      Map<String, List<String>> dup2Map =
-          blogs.stream()
-              .filter(f -> dupCodes.contains(f.getCurrentCode()))
-              .collect(
-                  Collectors.groupingBy(
-                      Blog::getCurrentCode,
-                      Collectors.mapping(Blog::getCode, Collectors.toList())));
-
-      mapOne.putAll(dup2Map);
-      System.out.println(mapOne);
-    }
-  }
-
-  /**
-   * 2. 判断 1:1 N:1 1:N 关系 A B y c D E D F D G K I F I
-   *
-   * <p>先判断哪些是重复的，比如D I，抠出来，然后
-   *
-   * <p>先判断 mode
-   */
   @Test
   public void testMap17() {
     int abs = Math.abs(-10);
