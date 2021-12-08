@@ -36,4 +36,6 @@ public class RedisConfigurationTest {
         lettuceConnectionFactory.getClusterConfiguration().getClusterNodes();
     log.info("redis nodes:{}", clusterNodes);
   }
+
+
 }

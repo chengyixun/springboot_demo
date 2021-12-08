@@ -11,6 +11,14 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/mp_crud?useUnicode=true&characterEncoding=utf-8&useSSL=false&rewriteBatchedStatements=true
     username: root
     password: root
+  redis:
+    host: 47.101.76.214
+    port: 19000
+    password: codis123456
+
+
+
+
 
 mybatis-plus:
   global-config:
