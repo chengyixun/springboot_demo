@@ -7,6 +7,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.dao.DataAccessException;
+import org.springframework.data.redis.connection.RedisConnection;
+import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -46,5 +49,35 @@ public class RedisTest {
     redisTemplate.opsForValue().set("key3", employees);
     List<Employee> value = (List<Employee>) redisTemplate.opsForValue().get("key3");
     log.info("key:{},value:{}", "key3", value);
+  }
+
+  // https://www.jianshu.com/p/0d4aea41a70c
+  @Test
+  public void test4() {
+    Boolean delete = redisTemplate.delete("key3");
+    if(delete){
+      List<Employee> employees = Lists.newArrayList();
+      redisTemplate.opsForValue().set("key3", employees);
+      List<Employee> value = (List<Employee>) redisTemplate.opsForValue().get("key3");
+      log.info("key:{},value:{}", "key3", value);
+    }
+  }
+
+  // TODO: 2021/12/9  pipelined 测试 待完善
+  @Test
+  public void testPipelined() {
+    List list = redisTemplate.executePipelined(new RedisCallback<Object>() {
+      @Override
+      public Object doInRedis(RedisConnection redisConnection) throws DataAccessException {
+        redisConnection.openPipeline();
+        for (int i = 0; i < 10000; i++) {
+          String key = "key_" + i;
+        //  redisConnection.
+          redisConnection.zCount(key.getBytes(), 0,Integer.MAX_VALUE);
+        }
+        return null;
+      }
+    }, redisTemplate.getValueSerializer());
+
   }
 }
