@@ -85,5 +85,12 @@ public class AsyncTest {
   }
 
   @Test
-  public void testCompletableFuture() {}
+  public void testCompletableFuture() {
+     CompletableFuture.runAsync(new Runnable() {
+      @Override
+      public void run() {
+        log.info("当前线程:{}", Thread.currentThread().getName());
+      }
+    });
+  }
 }

@@ -11,8 +11,8 @@ import java.util.Map;
  * @author Liyaohui
  * @date 5/31/21
  */
-@Document(collection = "biz_tab")
 @Data
+@Document(collection = "biz_tab")
 public class TabModel extends BaseModel {
 
   /** 语言 */
