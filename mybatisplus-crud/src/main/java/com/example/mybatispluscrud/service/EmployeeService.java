@@ -17,4 +17,6 @@ public interface EmployeeService extends IService<Employee> {
     void queryAndSave(Employee employee);
 
     void testNoTRequestHasT();
+
+    void updateById(Long id);
 }

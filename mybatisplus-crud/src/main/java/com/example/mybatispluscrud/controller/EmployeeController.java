@@ -4,6 +4,7 @@ import com.example.mybatispluscrud.entity.Employee;
 import com.example.mybatispluscrud.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,5 +40,10 @@ public class EmployeeController {
   @GetMapping("/test1")
   public void testTransaction1() {
     employeeService.testNoTRequestHasT();
+  }
+
+  @PostMapping("/update/{id}")
+  public void updateByIdTest(@PathVariable Long id) {
+    employeeService.updateById(id);
   }
 }

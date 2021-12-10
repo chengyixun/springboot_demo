@@ -66,4 +66,11 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee>
     employeeMapper.update(employee, wrapper);
     queryAndSave(employee);
   }
+
+  @Override
+  @Transactional(rollbackFor = Exception.class)
+  public void updateById(Long id) {
+    Employee e = Employee.builder().id(id).name("测试_update_2").build();
+    employeeMapper.updateById(e);
+  }
 }

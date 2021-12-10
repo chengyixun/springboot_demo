@@ -7,10 +7,18 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8   # \u8BBE\u7F6E\u5168\u5C40\u65F6\u533A
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/mp_crud?useUnicode=true&characterEncoding=utf-8&useSSL=false&rewriteBatchedStatements=true
-    username: root
-    password: root
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/mp_crud?useUnicode=true&characterEncoding=utf-8&useSSL=false&rewriteBatchedStatements=true
+      username: root
+      password: root
+      # 事务查询超时时间
+      transaction-query-timeout: 6000
+      query-timeout: 6000
+      #最小空闲连接数
+      initial-size: 8
+
+
   redis:
     host: 47.101.76.214
     port: 19000
