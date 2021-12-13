@@ -29,6 +29,8 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+import static java.util.stream.Collectors.toSet;
+
 /**
  * {@link StreamTest} stream: 1.不存储数据 2.不改变数据源，通常情况下会产生一个新的集合或一个值。 3.具有延迟执行特性，只有调用终端操作时，中间操作才会执行。
  *
@@ -44,10 +46,10 @@ public class StreamTest {
     List<Person> personList = Lists.newArrayList();
     personList.add(new Person("Tom", 8900, 20, "male", "New York", "2021-06-01", "1,2"));
     personList.add(new Person("Jack", 7000, 30, "male", "Washington", "2021-05-01", "1,2,3,4"));
-    personList.add(new Person("Tom", 7000, 40, "female", "Washington", "2021-03-01", "1,2,5"));
+    personList.add(new Person("Tom2", 7000, 20, "female", "Washington", "2021-03-01", "1,2,5"));
     personList.add(new Person("Anni", 8200, 19, "female", "New York", "2021-04-01", "6,7"));
     personList.add(new Person("Owen", 9500, 31, "male", "New York", "2021-05-01", "8,9"));
-    personList.add(new Person("Alisa", 7900, 50, "female", "New York", "2021-07-01", "1,2,3,4"));
+    personList.add(new Person("Alisa", 7900, 30, "female", "New York", "2021-07-01", "1,2,3,4"));
     return personList;
   }
 
@@ -243,8 +245,11 @@ public class StreamTest {
   }
 
   /**
-   * 映射(map/flatMap) 可以将一个流的元素按照一定的规则映射到另外一个流中， map：接收一个函数作为参数，该函数会被应用到每个元素上，并将其映射到一个新的元素。
-   * flatMap：接收一个函数作为参数，将流中的每个值都换成另外一个流，然后把所有的流练成一个流
+   * 映射(map/flatMap) 可以将一个流的元素按照一定的规则映射到另外一个流中，
+   *
+   * <p>map：接收一个函数作为参数，该函数会被应用到每个元素上，并将其映射到一个新的元素。
+   *
+   * <p>flatMap：接收一个函数作为参数，将流中的每个值都换成另外一个流，然后把所有的流练成一个流
    */
   @Test
   public void test6() {
@@ -275,17 +280,38 @@ public class StreamTest {
     System.out.println("处理前的集合：" + list);
     System.out.println("处理后的集合：" + listNew);
   }
-  /*
-   *
-   * List<SlotCover> slotCovers =
-   * slotCoverService.findByTaskIdAndStartDateAndEndDate(taskId, startTime,
-   * endTime); return slotCovers.stream().flatMap(s -> { String[] slotStartTimes =
-   * s.getSlotStartTimes().split(","); return Arrays.stream(slotStartTimes).map(l
-   * -> SlotCoverVo.of(l, s));
-   * }).collect(Collectors.toMap(SlotCoverVo::getSlotStartTimes,
-   * Function.identity()));
-   *
+
+  /***
+   * mapToLong api 配合 boxed()
+   * 调用 LongStream.boxed 方法收集为 Stream<Long> 类型；
    */
+  @Test
+  public void testMapToLong() {
+    List<String> numbers = Arrays.asList("22", "19", "89", "90");
+    List<Long> results =
+        numbers.stream().mapToLong(Long::valueOf).boxed().collect(Collectors.toList());
+    log.info("result:{}", results);
+  }
+
+  /**
+   * map 适用于对每个元素进行简单的转换，
+   *
+   * <p>flatMap 适用于对数组流进行平铺后合并，两个方法的应用场景不一样。
+   */
+  @Test
+  public void testFlatMap2() {
+    String[] arr1 = {"https://", "www", ".", "javastack", ".", "cn"};
+    String[] arr2 = {"公众号", ":", "Java技术栈"};
+    String[] arr3 = {"作者", ":", "栈长"};
+    System.out.println("=====arrays list=====");
+    List<String[]> result1 = Stream.of(arr1, arr2, arr3).collect(Collectors.toList());
+    System.out.println(result1);
+
+    System.out.println("=====flatMap list=====");
+    List<String> result2 =
+        Stream.of(arr1, arr2, arr3).flatMap(Arrays::stream).collect(Collectors.toList());
+    System.out.println(result2);
+  }
 
   @Test
   public void testFlatMap() {
@@ -851,7 +877,8 @@ public class StreamTest {
   @Test
   public void testMap13() {
     List<Blog> blogs = blogs();
-    List<Blog> currentBlogs = blogs.stream().filter(f -> f.getCode().equals("D")).collect(Collectors.toList());
+    List<Blog> currentBlogs =
+        blogs.stream().filter(f -> f.getCode().equals("D")).collect(Collectors.toList());
 
     currentBlogs.forEach(o -> o.setCurrentCode("DD"));
 
@@ -891,30 +918,23 @@ public class StreamTest {
             c ->
                 CollectionUtils.isEmpty(result.get(c.getCode()))
                     && CollectionUtils.isEmpty(result.get(c.getCurrentCode())))
-        .forEach(
-            f -> result.put(f.getCode(), Lists.newArrayList(f.getCurrentCode())));
+        .forEach(f -> result.put(f.getCode(), Lists.newArrayList(f.getCurrentCode())));
 
     System.out.println(result);
   }
   /**
-   * 2. 判断 1:1 N:1 1:N 关系
-   *    A B
+   * 2. 判断 1:1 N:1 1:N 关系 A B
    *
-   * <p>Y C
-   *    H Y
+   * <p>Y C H Y
    *
-   * <p>D E
-   *    D F
-   *    D G
+   * <p>D E D F D G
    *
-   * <p>K I
-   *    L I
+   * <p>K I L I
    *
    * <p>先判断哪些是重复的，比如D I，抠出来，然后
    *
    * <p>先判断 mode
    */
-
   @Test
   public void testMap17() {
     int abs = Math.abs(-10);
@@ -1045,5 +1065,25 @@ public class StreamTest {
   public static <T> Predicate<T> distinctByKey2(Function<? super T, ?> key) {
     Set<Object> set = ConcurrentHashMap.newKeySet();
     return t -> set.add(key.apply(t));
+  }
+
+  @Test
+  public void test90() {
+    List<Person> persons = personList();
+    Map<Integer, Set<Integer>> collect =
+        persons.stream()
+            .collect(
+                Collectors.groupingBy(
+                    Person::getAge,
+                    Collectors.mapping(p -> getCreateTime(p.getCreateTime()), toSet())));
+
+    System.out.println(collect);
+  }
+
+  private Integer getCreateTime(String createTime) {
+    if (createTime.equals("2021-06-01")) {
+      return 1;
+    }
+    return 2;
   }
 }
