@@ -31,8 +31,9 @@ public class LoggerTaskExecutorConfig {
     taskExecutor.setMaxPoolSize(5);
     taskExecutor.setQueueCapacity(2000);
     taskExecutor.setKeepAliveSeconds(60);
-    taskExecutor.setThreadNamePrefix("C-Async-task-");
+    taskExecutor.setThreadNamePrefix("X-Async-task-");
     taskExecutor.setRejectedExecutionHandler(new ThreadPoolExecutor.DiscardPolicy());
+    taskExecutor.initialize();
     return taskExecutor;
     // return new ThreadPoolExecutor(coreSize, 100, 0L, TimeUnit.MILLISECONDS, new
     // LinkedBlockingQueue<>());

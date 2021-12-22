@@ -3,6 +3,7 @@ package com.example.admin.fun;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Ordering;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.assertj.core.util.Lists;
 import org.junit.Test;
 import org.springframework.util.CollectionUtils;
@@ -1085,5 +1086,14 @@ public class StreamTest {
       return 1;
     }
     return 2;
+  }
+
+
+  @Test
+  public void test91(){
+    StringBuilder operationIds = new StringBuilder();
+    if(StringUtils.isEmpty(operationIds)){
+      System.out.println("111");
+    }
   }
 }

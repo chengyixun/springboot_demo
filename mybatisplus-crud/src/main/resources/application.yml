@@ -17,15 +17,10 @@ spring:
       query-timeout: 6000
       #最小空闲连接数
       initial-size: 8
-
-
+  # 本地redis没有密码
   redis:
-    host: 47.101.76.214
-    port: 19000
-    password: codis123456
-
-
-
+    host: 127.0.0.1
+    port: 6379
 
 mybatis-plus:
   global-config:

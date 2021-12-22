@@ -10,28 +10,6 @@ multitenancy:
       minIdle:  10
       poolName: master-database-connection-pool
 
-spring:
-  mail:
-    #    host: smtp.163.com
-    #    username: wangyu_test2021@163.com
-    #    password: OVNHDEVWSPCFTSDP
-    #    default-encoding: UTF-8
-    host: smtp.gmail.com
-    username: wangyuamy102@gmail.com
-    password: Gaia@2021
-    default-encoding: UTF-8
-    protocol: smtp
-    # port: 587
-    properties:
-      mail:
-        smtp:
-          auth: true
-          port: 465
-          starttls:
-            enable: true
-            required: true
-          ssl:
-            enable: true
   messages:
     basename: i18n.messages
     encoding: UTF-8
@@ -49,10 +27,6 @@ spring:
         max-idle: 8     #连接池中的最大空闲连接
         min-idle: 0     #连接池中的最小空闲连接
 
-
-mail:
-  from: ${spring.mail.username}
-  to: wangyuamy102@gmail.com
 
 
 

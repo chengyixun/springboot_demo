@@ -4,26 +4,7 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/jpa?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
     password: root
-  mail:
-    #    host: smtp.163.com
-    #    username: wangyu_test2021@163.com
-    #    password: OVNHDEVWSPCFTSDP
-    #    default-encoding: UTF-8
-    host: smtp.partner.outlook.cn
-    username: Amy.Wang@gaiaworks.cn
-    password: Gaia@2021
-    default-encoding: UTF-8
-    protocol: smtp
-    port: 587
-    properties:
-      mail:
-        smtp:
-          starttls:
-            required: true
 
-mail:
-  from: ${spring.mail.username}
-  to: Amy.Wang@gaiaworks.cn
 
 
 

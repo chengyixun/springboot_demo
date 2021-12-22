@@ -24,6 +24,8 @@ public class AuthUser {
 
 	private String name;
 
+	private Integer age;
+
 	private LocalDateTime createTime = LocalDateTime.now();
 
 	private List<String> users;
