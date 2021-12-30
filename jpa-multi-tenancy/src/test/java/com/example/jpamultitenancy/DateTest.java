@@ -170,6 +170,25 @@ public class DateTest {
   }
 
   @Test
+  public void testRange3() {
+    // 当前是周一
+    String c1 = "2021-09-06";
+    String c2 = "2021-09-12";
+
+    String s1 = "2021-09-06";
+    String s2 = "2021-09-07";
+    Range<String> c = Range.closed(c1, c2);
+    Range<String> s = Range.closed(s1, s2);
+
+    if (c.isConnected(s)) {
+      Range<String> intersection = c.intersection(s);
+      System.out.println("connect");
+      System.out.println(intersection.lowerEndpoint());
+      System.out.println(intersection.upperEndpoint());
+    }
+  }
+
+  @Test
   public void testDuration() {
     String beginTime = "12:00";
     String endTime = "13:00";

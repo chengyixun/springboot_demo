@@ -3,7 +3,6 @@ package com.example.admin.fun;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Ordering;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.assertj.core.util.Lists;
 import org.junit.Test;
 import org.springframework.util.CollectionUtils;
@@ -1088,12 +1087,12 @@ public class StreamTest {
     return 2;
   }
 
-
   @Test
-  public void test91(){
-    StringBuilder operationIds = new StringBuilder();
-    if(StringUtils.isEmpty(operationIds)){
-      System.out.println("111");
-    }
+  public void test91() {
+    List<String> dates =
+        Lists.newArrayList("2021-12-01", "2021-12-03", "2021-12-02", "2021-12-09", "2021-12-08");
+
+    List<String> currentDates = dates.stream().sorted().collect(Collectors.toList());
+
   }
 }

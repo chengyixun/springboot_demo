@@ -18,5 +18,8 @@ public class LogoutSuccessHandlerImpl implements LogoutSuccessHandler {
       HttpServletRequest httpServletRequest,
       HttpServletResponse httpServletResponse,
       Authentication authentication)
-      throws IOException, ServletException {}
+      throws IOException, ServletException {
+
+
+  }
 }

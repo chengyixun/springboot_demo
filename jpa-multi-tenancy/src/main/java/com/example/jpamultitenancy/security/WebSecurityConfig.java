@@ -93,6 +93,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .disable();
 
     httpSecurity.logout().logoutUrl("/logout").logoutSuccessHandler(logoutSuccessHandler);
+
     // 添加 JWT filter
     httpSecurity.addFilterBefore(
         authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
