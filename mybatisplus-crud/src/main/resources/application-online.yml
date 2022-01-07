@@ -15,14 +15,14 @@ spring:
     host: 127.0.0.1
     port: 6379
 
- # bootstrap:
-   # namespaces: application
-
 apollo:
-  cacheDir: /Users/amy
-  meta: http://106.54.227.205:8080
+  value:
+    demoKey1: 2222
+  bootstrap:
+    namespaces: test1
+
 mpc:
   common:
-    algorithmCloudUrl: https://127.0.0.1:8080/offline
+    algorithmCloudUrl: https://127.0.0.1:8080/online
 
 
