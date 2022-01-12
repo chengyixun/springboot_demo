@@ -30,7 +30,7 @@ app:
 
 apollo:
   bootstrap:
-    enabled: false
+    enabled: true
   meta: http://106.54.227.205:8080
 
 

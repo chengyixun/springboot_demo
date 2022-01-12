@@ -63,6 +63,8 @@ public class ApolloConfigChangeListener implements ApplicationContextAware {
                       change.getOldValue(),
                       change.getNewValue(),
                       change.getChangeType()));
+              // 更新@ConfigurationProperties注解的bean的属性值，还会更新日志系统的相关配置，例如日志级别等
+              // EnvironmentChangeEvent会被两个监听者监听，LoggingRebinder和ConfigurationPropertiesRebinder
               applicationContext.publishEvent(
                   new EnvironmentChangeEvent(changeEvent.changedKeys()));
               refreshScope.refreshAll();

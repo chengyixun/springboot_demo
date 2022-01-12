@@ -575,6 +575,7 @@ public class StreamTest {
     list2.add("b");
     list2.add("d");
     list1.retainAll(list2);
+
     System.out.println(list1); // 输出[a, b]
 
     long count = 2;
