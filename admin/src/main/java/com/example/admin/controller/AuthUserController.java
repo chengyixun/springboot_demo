@@ -19,30 +19,31 @@ import java.util.List;
 @RequestMapping("/auth")
 public class AuthUserController {
 
-    @GetMapping("/get")
-    public AuthUser authUser() {
-        AuthUser authUser = new AuthUser();
-        authUser.setId("111");
-        return authUser;
-    }
-    @GetMapping("/users")
-    public List<AuthUser> authUser2() {
-        AuthUser authUser = new AuthUser();
-        authUser.setId("111");
-        return Lists.newArrayList(authUser);
-    }
+	@GetMapping("/get")
+	public AuthUser authUser() {
+		AuthUser authUser = new AuthUser();
+		authUser.setId("111");
+		return authUser;
+	}
 
-    @GetMapping("/menu")
-    public Menu menu() {
-        Menu menu = new Menu();
-        menu.setId("111");
-        return menu;
-    }
+	@GetMapping("/users")
+	public List<AuthUser> authUser2() {
+		AuthUser authUser = new AuthUser();
+		authUser.setId("111");
+		return Lists.newArrayList(authUser);
+	}
 
-    @GetMapping("/menus")
-    public List<Menu> list() {
-        Menu menu = new Menu();
-        menu.setId("111");
-        return Lists.newArrayList(menu);
-    }
+	@GetMapping("/menu")
+	public Menu menu() {
+		Menu menu = new Menu();
+		menu.setId("111");
+		return menu;
+	}
+
+	@GetMapping("/menus")
+	public List<Menu> list() {
+		Menu menu = new Menu();
+		menu.setId("111");
+		return Lists.newArrayList(menu);
+	}
 }

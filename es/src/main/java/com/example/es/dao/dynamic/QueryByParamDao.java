@@ -16,22 +16,22 @@ import java.util.List;
  */
 public interface QueryByParamDao<E> extends Dao {
 
-    <Q extends Param> List<E> query(Q var1);
+	<Q extends Param> List<E> query(Q var1);
 
-    <Q extends Param> Long count(Q var1);
+	<Q extends Param> Long count(Q var1);
 
-    default PageResult<E> selectPage(QueryParam queryParam) {
-        PageResult<E> pageResult = new PageResult<>();
-        Long count = this.count(queryParam);
-        pageResult.setPage(queryParam);
-        pageResult.setTotal(count);
-        if (count == 0L) {
-            pageResult.setData((E) Collections.EMPTY_LIST);
-        } else {
-            pageResult.setData((E) this.query(queryParam));
-        }
+	default PageResult<E> selectPage(QueryParam queryParam) {
+		PageResult<E> pageResult = new PageResult<>();
+		Long count = this.count(queryParam);
+		pageResult.setPage(queryParam);
+		pageResult.setTotal(count);
+		if (count == 0L) {
+			pageResult.setData((E) Collections.EMPTY_LIST);
+		} else {
+			pageResult.setData((E) this.query(queryParam));
+		}
 
-        return pageResult;
+		return pageResult;
 
-    }
+	}
 }

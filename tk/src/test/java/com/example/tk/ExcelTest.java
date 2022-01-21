@@ -102,18 +102,16 @@ public class ExcelTest {
 		System.out.println(join);
 	}
 
-
-	public List<String> getValues(Integer i){
+	public List<String> getValues(Integer i) {
 		List<UserVO> userVOS = new ArrayList<>();
 		userVOS.add(UserVO.builder().name("nacy").age(21L).sex("男").build());
 		userVOS.add(UserVO.builder().name("lily").age(33L).sex("女").build());
 
 		UserVO m = userVOS.get(i);
-		return Stream.of(m.getName(), m.getSex(), String.valueOf(m.getAge()))
-				.collect(Collectors.toList());
+		return Stream.of(m.getName(), m.getSex(), String.valueOf(m.getAge())).collect(Collectors.toList());
 	}
 
-	public UserVO getValue(Integer i){
+	public UserVO getValue(Integer i) {
 		List<UserVO> userVOS = new ArrayList<>();
 		userVOS.add(UserVO.builder().name("nacy").age(21L).sex("男").build());
 		userVOS.add(UserVO.builder().name("lily").age(33L).sex("女").build());
@@ -121,7 +119,6 @@ public class ExcelTest {
 		return userVOS.get(i);
 
 	}
-
 
 	@Test
 	public void testFlat() {
@@ -132,18 +129,17 @@ public class ExcelTest {
 		List<UserVO> userVOS = new ArrayList<>();
 		userVOS.add(UserVO.builder().name("nacy").age(21L).sex("男").build());
 		userVOS.add(UserVO.builder().name("lily").age(33L).sex("女").build());
-		AtomicInteger index=new AtomicInteger(1);
-
+		AtomicInteger index = new AtomicInteger(1);
 
 		List<Object> collect = IntStream.of(1, userVOS.size()).mapToObj(m -> getValue(m)).flatMap(m -> {
-		return 	Stream.of(m.getName(), m.getSex(), String.valueOf(m.getAge()));
+			return Stream.of(m.getName(), m.getSex(), String.valueOf(m.getAge()));
 		}).collect(Collectors.toList());
 
 	}
 
 	@Test
-	public void testE(){
+	public void testE() {
 		Integer index = TabooEnum.getIndex("X-ray");
-        System.out.println(index);
+		System.out.println(index);
 	}
 }

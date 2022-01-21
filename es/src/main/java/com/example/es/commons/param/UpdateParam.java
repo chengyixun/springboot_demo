@@ -11,8 +11,8 @@ import lombok.Data;
 @Data
 public class UpdateParam<T> extends Param {
 
-    private T data;
+	private T data;
 
-    // TODO: 2021-01-12
+	// TODO: 2021-01-12
 
 }

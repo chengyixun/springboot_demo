@@ -14,7 +14,7 @@ import lombok.Data;
 @Builder
 public class Blog {
 
-    private String code;
+	private String code;
 
-    private String currentCode;
+	private String currentCode;
 }

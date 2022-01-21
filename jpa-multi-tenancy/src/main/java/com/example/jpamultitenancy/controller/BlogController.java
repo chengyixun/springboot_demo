@@ -13,25 +13,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @ClassName: BlogController @Author: amy @Description: BlogController @Date: 2021/6/16 @Version:
- * 1.0
+ * @ClassName: BlogController @Author: amy @Description: BlogController @Date:
+ *             2021/6/16 @Version: 1.0
  */
 @RestController
 @RequestMapping("/biz/blog")
 public class BlogController {
 
-  @Autowired private BlogService blogService;
+	@Autowired
+	private BlogService blogService;
 
-  @GetMapping
-  @PreAuthorize("@el.check('blog:list')")
-  public ResponseEntity<Object> list() {
-    return new ResponseEntity<>(blogService.list(), HttpStatus.OK);
-  }
+	@GetMapping
+	@PreAuthorize("@el.check('blog:list')")
+	public ResponseEntity<Object> list() {
+		return new ResponseEntity<>(blogService.list(), HttpStatus.OK);
+	}
 
-  @PostMapping
-  @PreAuthorize("@el.check('blog:add')")
-  public ResponseEntity<Object> create(@RequestBody Blog blog) {
-    blogService.create(blog);
-    return new ResponseEntity<>(HttpStatus.OK);
-  }
+	@PostMapping
+	@PreAuthorize("@el.check('blog:add')")
+	public ResponseEntity<Object> create(@RequestBody Blog blog) {
+		blogService.create(blog);
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
 }

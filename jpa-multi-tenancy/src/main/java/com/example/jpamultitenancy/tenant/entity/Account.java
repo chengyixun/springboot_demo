@@ -15,7 +15,10 @@ import javax.persistence.Table;
 import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
 
-/** @ClassName: Account @Author: amy @Description: Account @Date: 2021/6/28 @Version: 1.0 */
+/**
+ * @ClassName: Account @Author: amy @Description: Account @Date:
+ *             2021/6/28 @Version: 1.0
+ */
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,14 +27,15 @@ import javax.validation.constraints.NotNull;
 @Table(name = "biz_account")
 public class Account extends BaseEntity {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @NotNull(groups = Update.class)
-  private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NotNull(groups = Update.class)
+	private Long id;
 
-  private String name;
+	private String name;
 
-  private Double money;
+	private Double money;
 
-  @Version private int version;
+	@Version
+	private int version;
 }

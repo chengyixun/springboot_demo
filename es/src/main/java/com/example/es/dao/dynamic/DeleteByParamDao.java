@@ -11,5 +11,5 @@ import org.springframework.web.servlet.tags.Param;
  */
 public interface DeleteByParamDao extends Dao {
 
-    <Q extends Param> int delete(Q var1);
+	<Q extends Param> int delete(Q var1);
 }

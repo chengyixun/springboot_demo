@@ -15,8 +15,8 @@ spring:
     host: 127.0.0.1
     port: 6379
 
- # bootstrap:
-   # namespaces: application
+    # bootstrap:
+    # namespaces: application
 
 apollo:
   cacheDir: /Users/amy

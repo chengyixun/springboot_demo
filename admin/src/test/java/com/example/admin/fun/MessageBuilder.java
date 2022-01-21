@@ -9,5 +9,5 @@ package com.example.admin.fun;
 @FunctionalInterface
 public interface MessageBuilder {
 
-  String buildMessage();
+	String buildMessage();
 }

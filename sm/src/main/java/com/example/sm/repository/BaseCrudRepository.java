@@ -13,10 +13,6 @@ import tk.mybatis.mapper.common.example.SelectByExampleMapper;
  * @author Liyaohui
  * @date 7/15/21
  */
-public interface BaseCrudRepository<T extends BaseModel>
-    extends BaseRepository,
-        BaseSelectMapper<T>,
-        BaseInsertMapper<T>,
-        BaseUpdateMapper<T>,
-        BaseDeleteMapper<T>,
-        SelectByExampleMapper<T> {}
+public interface BaseCrudRepository<T extends BaseModel> extends BaseRepository, BaseSelectMapper<T>,
+		BaseInsertMapper<T>, BaseUpdateMapper<T>, BaseDeleteMapper<T>, SelectByExampleMapper<T> {
+}

@@ -14,8 +14,8 @@ import lombok.Data;
 @AllArgsConstructor
 public class User {
 
-    private String code;
+	private String code;
 
-    /** 年龄 */
-    private int age;
+	/** 年龄 */
+	private int age;
 }

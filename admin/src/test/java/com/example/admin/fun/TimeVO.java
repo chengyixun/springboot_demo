@@ -24,34 +24,31 @@ import java.util.stream.Stream;
 @NoArgsConstructor
 public class TimeVO {
 
-  // 格式：yyyy-MM-dd
-  private String beginTime;
+	// 格式：yyyy-MM-dd
+	private String beginTime;
 
-  private String endTime;
+	private String endTime;
 
-  public static void main(String[] args) {
-    List<TimeVO> timeVOS = Lists.newArrayList();
-    timeVOS.add(TimeVO.builder().beginTime("2021-07-01").endTime("2021-07-06").build());
-    timeVOS.add(TimeVO.builder().beginTime("2021-07-05").endTime("2021-07-14").build());
-    timeVOS.add(TimeVO.builder().beginTime("2021-08-07").endTime("2021-08-19").build());
-    timeVOS.add(TimeVO.builder().beginTime("2021-07-15").endTime("2021-07-30").build());
+	public static void main(String[] args) {
+		List<TimeVO> timeVOS = Lists.newArrayList();
+		timeVOS.add(TimeVO.builder().beginTime("2021-07-01").endTime("2021-07-06").build());
+		timeVOS.add(TimeVO.builder().beginTime("2021-07-05").endTime("2021-07-14").build());
+		timeVOS.add(TimeVO.builder().beginTime("2021-08-07").endTime("2021-08-19").build());
+		timeVOS.add(TimeVO.builder().beginTime("2021-07-15").endTime("2021-07-30").build());
 
-    List<String> result = timeVOS.stream()
-            .sorted(Comparator.comparing(TimeVO::getBeginTime))
-            .flatMap(m -> Stream.of(m.getBeginTime(), m.getEndTime()))
-            .collect(Collectors.toList());
+		List<String> result = timeVOS.stream().sorted(Comparator.comparing(TimeVO::getBeginTime))
+				.flatMap(m -> Stream.of(m.getBeginTime(), m.getEndTime())).collect(Collectors.toList());
 
-    System.out.println(result);
+		System.out.println(result);
 
+		boolean ordered = Ordering.from(Comparator.comparing(Object::toString)).isOrdered(result);
 
-    boolean ordered = Ordering.from(Comparator.comparing(Object::toString)).isOrdered(result);
+		System.out.println(ordered);
 
-    System.out.println(ordered);
+		boolean ordered1 = Ordering.natural().isOrdered(result);// 此处输出字符串的字典顺序 == usingToString()
+		System.out.println(ordered1);
 
-    boolean ordered1 = Ordering.natural().isOrdered(result);// 此处输出字符串的字典顺序 == usingToString()
-    System.out.println(ordered1);
-
-    boolean ordered2 = Ordering.usingToString().isOrdered(result);
-    System.out.println(ordered2);
-  }
+		boolean ordered2 = Ordering.usingToString().isOrdered(result);
+		System.out.println(ordered2);
+	}
 }

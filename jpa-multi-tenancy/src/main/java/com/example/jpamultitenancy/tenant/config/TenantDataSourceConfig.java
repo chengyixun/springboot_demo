@@ -25,98 +25,84 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @ClassName: TenantDataSourceConfig @Author: amy @Description: TenantDataSourceConfig @Date:
- * 2021/7/4 @Version: 1.0
+ * @ClassName: TenantDataSourceConfig @Author: amy @Description:
+ *             TenantDataSourceConfig @Date: 2021/7/4 @Version: 1.0
  */
 @Slf4j
 @Configuration
 @EnableTransactionManagement
-@ComponentScan(
-    basePackages = {
-      "com.example.jpamultitenancy.tenant.entity",
-      "com.example.jpamultitenancy.tenant.repository"
-    })
-@EnableJpaRepositories(
-    basePackages = {
-      "com.example.jpamultitenancy.tenant.repository",
-      "com.example.jpamultitenancy.tenant.service"
-    },
-    entityManagerFactoryRef = "tenantEntityManagerFactory",
-    transactionManagerRef = "tenantTransactionManager")
+@ComponentScan(basePackages = { "com.example.jpamultitenancy.tenant.entity",
+		"com.example.jpamultitenancy.tenant.repository" })
+@EnableJpaRepositories(basePackages = { "com.example.jpamultitenancy.tenant.repository",
+		"com.example.jpamultitenancy.tenant.service" }, entityManagerFactoryRef = "tenantEntityManagerFactory", transactionManagerRef = "tenantTransactionManager")
 public class TenantDataSourceConfig {
 
-  @Bean("jpaVendorAdapter")
-  public JpaVendorAdapter jpaVendorAdapter() {
-    return new HibernateJpaVendorAdapter();
-  }
+	@Bean("jpaVendorAdapter")
+	public JpaVendorAdapter jpaVendorAdapter() {
+		return new HibernateJpaVendorAdapter();
+	}
 
-  /**
-   * The Multi tenant connection provider
-   *
-   * @return
-   */
-  @Bean(name = "datasourceBasedMultiTenantConnectionProvider")
-  @ConditionalOnBean(name = "masterEntityManagerFactory")
-  public MultiTenantConnectionProvider multiTenantConnectionProvider() {
-    return new DataSourceBasedMultiTenantConnectionProviderImpl();
-  }
+	/**
+	 * The Multi tenant connection provider
+	 *
+	 * @return
+	 */
+	@Bean(name = "datasourceBasedMultiTenantConnectionProvider")
+	@ConditionalOnBean(name = "masterEntityManagerFactory")
+	public MultiTenantConnectionProvider multiTenantConnectionProvider() {
+		return new DataSourceBasedMultiTenantConnectionProviderImpl();
+	}
 
-  /**
-   * The Multi tenant identifier resolver
-   *
-   * @return
-   */
-  @Bean(name = "currentTenantIdentifierResolver")
-  public CurrentTenantIdentifierResolver currentTenantIdentifierResolver() {
-    return new CurrentTenantIdentifierResolverImpl();
-  }
+	/**
+	 * The Multi tenant identifier resolver
+	 *
+	 * @return
+	 */
+	@Bean(name = "currentTenantIdentifierResolver")
+	public CurrentTenantIdentifierResolver currentTenantIdentifierResolver() {
+		return new CurrentTenantIdentifierResolverImpl();
+	}
 
-  /**
-   * 首先定义事务，注入多租户信息：connectionProvider、 tenantIdentifierResolver
-   *
-   * @param connectionProvider
-   * @param tenantIdentifierResolver
-   * @return
-   */
-  @Bean(name = "tenantEntityManagerFactory")
-  @ConditionalOnBean(name = "datasourceBasedMultiTenantConnectionProvider")
-  public LocalContainerEntityManagerFactoryBean entityManagerFactory(
-      @Qualifier("datasourceBasedMultiTenantConnectionProvider")
-          MultiTenantConnectionProvider connectionProvider,
-      @Qualifier("currentTenantIdentifierResolver")
-          CurrentTenantIdentifierResolver tenantIdentifierResolver) {
-    LocalContainerEntityManagerFactoryBean localBean = new LocalContainerEntityManagerFactoryBean();
-    localBean.setPackagesToScan(
-        new String[] {
-          User.class.getPackage().getName(),
-          UserRepository.class.getPackage().getName(),
-          UserService.class.getPackage().getName()
-        });
-    localBean.setJpaVendorAdapter(jpaVendorAdapter());
-    localBean.setPersistenceUnitName("tenant-database-persistence-unit");
-    Map<String, Object> properties = new HashMap<>();
-    // 重点 多租户的配置  DATABASE SCHEMA
-    properties.put(Environment.MULTI_TENANT, MultiTenancyStrategy.SCHEMA);
-    properties.put(Environment.MULTI_TENANT_CONNECTION_PROVIDER, connectionProvider);
-    properties.put(Environment.MULTI_TENANT_IDENTIFIER_RESOLVER, tenantIdentifierResolver);
-    properties.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
-    properties.put(Environment.SHOW_SQL, true);
-    properties.put(Environment.FORMAT_SQL, true);
-    properties.put(Environment.HBM2DDL_AUTO, "update");
-    localBean.setJpaPropertyMap(properties);
-    return localBean;
-  }
+	/**
+	 * 首先定义事务，注入多租户信息：connectionProvider、 tenantIdentifierResolver
+	 *
+	 * @param connectionProvider
+	 * @param tenantIdentifierResolver
+	 * @return
+	 */
+	@Bean(name = "tenantEntityManagerFactory")
+	@ConditionalOnBean(name = "datasourceBasedMultiTenantConnectionProvider")
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory(
+			@Qualifier("datasourceBasedMultiTenantConnectionProvider") MultiTenantConnectionProvider connectionProvider,
+			@Qualifier("currentTenantIdentifierResolver") CurrentTenantIdentifierResolver tenantIdentifierResolver) {
+		LocalContainerEntityManagerFactoryBean localBean = new LocalContainerEntityManagerFactoryBean();
+		localBean.setPackagesToScan(new String[] { User.class.getPackage().getName(),
+				UserRepository.class.getPackage().getName(), UserService.class.getPackage().getName() });
+		localBean.setJpaVendorAdapter(jpaVendorAdapter());
+		localBean.setPersistenceUnitName("tenant-database-persistence-unit");
+		Map<String, Object> properties = new HashMap<>();
+		// 重点 多租户的配置 DATABASE SCHEMA
+		properties.put(Environment.MULTI_TENANT, MultiTenancyStrategy.SCHEMA);
+		properties.put(Environment.MULTI_TENANT_CONNECTION_PROVIDER, connectionProvider);
+		properties.put(Environment.MULTI_TENANT_IDENTIFIER_RESOLVER, tenantIdentifierResolver);
+		properties.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
+		properties.put(Environment.SHOW_SQL, true);
+		properties.put(Environment.FORMAT_SQL, true);
+		properties.put(Environment.HBM2DDL_AUTO, "update");
+		localBean.setJpaPropertyMap(properties);
+		return localBean;
+	}
 
-  /**
-   * 创建事务管理器，将租户配置信息注入事务
-   *
-   * @param entityManagerFactory
-   * @return
-   */
-  @Bean(name = "tenantTransactionManager")
-  public JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
-    JpaTransactionManager transactionManager = new JpaTransactionManager();
-    transactionManager.setEntityManagerFactory(entityManagerFactory);
-    return transactionManager;
-  }
+	/**
+	 * 创建事务管理器，将租户配置信息注入事务
+	 *
+	 * @param entityManagerFactory
+	 * @return
+	 */
+	@Bean(name = "tenantTransactionManager")
+	public JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
+		JpaTransactionManager transactionManager = new JpaTransactionManager();
+		transactionManager.setEntityManagerFactory(entityManagerFactory);
+		return transactionManager;
+	}
 }

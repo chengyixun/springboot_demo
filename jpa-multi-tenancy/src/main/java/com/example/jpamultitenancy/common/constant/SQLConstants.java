@@ -8,9 +8,9 @@ package com.example.jpamultitenancy.common.constant;
  */
 public interface SQLConstants {
 
-  String SORT = "sort";
-  String CREATE_TIME = "createTime";
-  String ID = "id";
-  String DELETED = "deleted";
-  String STATUS = "status";
+	String SORT = "sort";
+	String CREATE_TIME = "createTime";
+	String ID = "id";
+	String DELETED = "deleted";
+	String STATUS = "status";
 }

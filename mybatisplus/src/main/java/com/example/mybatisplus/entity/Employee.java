@@ -8,7 +8,10 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
-/** @ClassName: Employee @Author: amy @Description: Employee @Date: 2021/8/27 @Version: 1.0 */
+/**
+ * @ClassName: Employee @Author: amy @Description: Employee @Date:
+ *             2021/8/27 @Version: 1.0
+ */
 @Data
 @TableName(value = "biz_employee")
 @Builder
@@ -16,15 +19,15 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Employee {
 
-  private Long id;
+	private Long id;
 
-  private String name;
+	private String name;
 
-  private Integer age;
+	private Integer age;
 
-  private String email;
+	private String email;
 
-  private Long managerId;
+	private Long managerId;
 
-  private LocalDateTime createTime;
+	private LocalDateTime createTime;
 }

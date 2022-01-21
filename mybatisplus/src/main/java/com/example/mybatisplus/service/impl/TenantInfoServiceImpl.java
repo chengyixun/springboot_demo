@@ -7,9 +7,9 @@ import com.example.mybatisplus.service.TenantInfoService;
 import org.springframework.stereotype.Service;
 
 /**
- * @ClassName: TenantInfoServiceImpl @Author: amy @Description: TenantInfoServiceImpl @Date:
- * 2021/10/11 @Version: 1.0
+ * @ClassName: TenantInfoServiceImpl @Author: amy @Description:
+ *             TenantInfoServiceImpl @Date: 2021/10/11 @Version: 1.0
  */
 @Service
-public class TenantInfoServiceImpl extends ServiceImpl<TenantInfoMapper, TenantInfo>
-    implements TenantInfoService {}
+public class TenantInfoServiceImpl extends ServiceImpl<TenantInfoMapper, TenantInfo> implements TenantInfoService {
+}

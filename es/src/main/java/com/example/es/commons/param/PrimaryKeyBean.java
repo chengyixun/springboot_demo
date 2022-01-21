@@ -8,9 +8,9 @@ package com.example.es.commons.param;
  */
 public interface PrimaryKeyBean<PK> {
 
-    String ID = "id";
+	String ID = "id";
 
-    PK getId();
+	PK getId();
 
-    void setId(PK var1);
+	void setId(PK var1);
 }

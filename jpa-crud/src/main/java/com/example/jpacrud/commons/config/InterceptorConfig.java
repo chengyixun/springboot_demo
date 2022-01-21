@@ -12,31 +12,31 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import java.util.Locale;
 
 /**
- * @ClassName: InterceptorConfig @Author: amy @Description: InterceptorConfig @Date:
- * 2021/7/12 @Version: 1.0
+ * @ClassName: InterceptorConfig @Author: amy @Description:
+ *             InterceptorConfig @Date: 2021/7/12 @Version: 1.0
  */
 @Configuration
 @Slf4j
 public class InterceptorConfig implements WebMvcConfigurer {
 
-  @Override
-  public void addInterceptors(InterceptorRegistry registry) {
-    registry.addInterceptor(localeChangeInterceptor()).addPathPatterns("/**");
-  }
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(localeChangeInterceptor()).addPathPatterns("/**");
+	}
 
-  /** 配置国际化 */
-  @Bean
-  public LocaleResolver localeResolver() {
-    SessionLocaleResolver slr = new SessionLocaleResolver();
-    // 默认使用的语言
-    slr.setDefaultLocale(Locale.SIMPLIFIED_CHINESE);
-    return slr;
-  }
+	/** 配置国际化 */
+	@Bean
+	public LocaleResolver localeResolver() {
+		SessionLocaleResolver slr = new SessionLocaleResolver();
+		// 默认使用的语言
+		slr.setDefaultLocale(Locale.SIMPLIFIED_CHINESE);
+		return slr;
+	}
 
-  @Bean
-  public LocaleChangeInterceptor localeChangeInterceptor() {
-    LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
-    localeChangeInterceptor.setParamName("lang");
-    return localeChangeInterceptor;
-  }
+	@Bean
+	public LocaleChangeInterceptor localeChangeInterceptor() {
+		LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
+		localeChangeInterceptor.setParamName("lang");
+		return localeChangeInterceptor;
+	}
 }

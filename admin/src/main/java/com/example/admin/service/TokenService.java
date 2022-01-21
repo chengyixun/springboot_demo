@@ -12,8 +12,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 public interface TokenService {
 
-    void checkToken(HttpServletRequest request);
+	void checkToken(HttpServletRequest request);
 
-
-    ResponseMessage createToken();
+	ResponseMessage createToken();
 }

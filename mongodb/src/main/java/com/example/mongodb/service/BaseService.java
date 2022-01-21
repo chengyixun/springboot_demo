@@ -10,5 +10,5 @@ import org.slf4j.LoggerFactory;
  * @version ${project.version} - 2020/10/19
  */
 public interface BaseService {
-  Logger logger = LoggerFactory.getLogger(BaseService.class);
+	Logger logger = LoggerFactory.getLogger(BaseService.class);
 }

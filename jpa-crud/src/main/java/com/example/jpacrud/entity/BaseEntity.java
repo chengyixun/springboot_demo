@@ -37,22 +37,22 @@ import java.sql.Timestamp;
 @Getter
 @Setter
 @MappedSuperclass
-@EntityListeners(AuditingEntityListener.class) //开启审计监听
+@EntityListeners(AuditingEntityListener.class) // 开启审计监听
 public class BaseEntity implements Serializable {
 
-  @CreatedBy
-  @Column(name = "create_by", updatable = false)
-  private String createBy;
+	@CreatedBy
+	@Column(name = "create_by", updatable = false)
+	private String createBy;
 
-  @LastModifiedBy
-  @Column(name = "update_by")
-  private String updateBy;
+	@LastModifiedBy
+	@Column(name = "update_by")
+	private String updateBy;
 
-  @CreationTimestamp
-  @Column(name = "create_time", updatable = false)
-  private Timestamp createTime;
+	@CreationTimestamp
+	@Column(name = "create_time", updatable = false)
+	private Timestamp createTime;
 
-  @UpdateTimestamp
-  @Column(name = "update_time")
-  private Timestamp updateTime;
+	@UpdateTimestamp
+	@Column(name = "update_time")
+	private Timestamp updateTime;
 }

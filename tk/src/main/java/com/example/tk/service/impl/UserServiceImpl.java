@@ -28,7 +28,6 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserMapper userMapper;
 
-
 	@Override
 	public void save(User user) {
 		userMapper.insertSelective(user);
@@ -47,17 +46,15 @@ public class UserServiceImpl implements UserService {
 		return userMapper.selectAll();
 	}
 
-
 	@Override
 	public void importExcel(MultipartFile file) {
 		List<UserVO> users = ExcelUtil.readExcel(UserVO.class, file);
-		log.info("excel import：{}",users);
+		log.info("excel import：{}", users);
 	}
 
 	@Override
 	public void easyImportExcel(MultipartFile file) {
 
 	}
-
 
 }

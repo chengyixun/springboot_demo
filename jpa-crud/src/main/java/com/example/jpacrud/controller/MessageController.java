@@ -13,36 +13,32 @@ import org.springframework.web.bind.annotation.RestController;
 import static com.example.jpacrud.commons.constant.I18nConstant.Exception.HTTP_PARAM_NOT_EXIST;
 
 /**
- * @ClassName: MessageController @Author: amy @Description: MessageController @Date:
- * 2021/7/1 @Version: 1.0
+ * @ClassName: MessageController @Author: amy @Description:
+ *             MessageController @Date: 2021/7/1 @Version: 1.0
  */
 @RestController
 @RequestMapping("/api/multi")
 @Slf4j
 public class MessageController {
 
-  @GetMapping("/lang")
-  public JsonNode lang() {
-    String sign = MessageUtils.get("login.sign");
-    String ok = MessageUtils.get("login.ok");
-    ObjectNode result = JsonUtils.object();
-    result.put("sign", sign);
-    result.put("ok", ok);
-    return result;
-  }
+	@GetMapping("/lang")
+	public JsonNode lang() {
+		String sign = MessageUtils.get("login.sign");
+		String ok = MessageUtils.get("login.ok");
+		ObjectNode result = JsonUtils.object();
+		result.put("sign", sign);
+		result.put("ok", ok);
+		return result;
+	}
 
-  @GetMapping("/error")
-  public void error() {
-    log.info(MessageUtils.get(HTTP_PARAM_NOT_EXIST));
-  }
+	@GetMapping("/error")
+	public void error() {
+		log.info(MessageUtils.get(HTTP_PARAM_NOT_EXIST));
+	}
 
-
-
-  @GetMapping("/enum")
-  public void testEnums() {
-    log.info("success:{},error:{}",ResultEnum.SUCCESS.getMessage(),ResultEnum.ERROR.getMessage());
-  }
-
-
+	@GetMapping("/enum")
+	public void testEnums() {
+		log.info("success:{},error:{}", ResultEnum.SUCCESS.getMessage(), ResultEnum.ERROR.getMessage());
+	}
 
 }

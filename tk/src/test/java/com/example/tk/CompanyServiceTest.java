@@ -34,7 +34,6 @@ public class CompanyServiceTest {
 	@Autowired
 	private CompanyMapper companyMapper;
 
-
 	@Test
 	public void testQuery1() {
 		List<Company> list = companyService.list();
@@ -49,8 +48,7 @@ public class CompanyServiceTest {
 				// 设置查询列
 				.selectProperties("companyId")
 				// 动态sql
-				.and().andLike("companyName", "%test%")
-				.andEqualTo("xxx.yy","value");
+				.and().andLike("companyName", "%test%").andEqualTo("xxx.yy", "value");
 
 		List<Company> companies = companyMapper.selectByExample(example);
 

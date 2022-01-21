@@ -16,17 +16,17 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 public @interface PermissionOperation {
 
-    /**
-     * key值
-     *
-     * @return
-     */
-    String code();
+	/**
+	 * key值
+	 *
+	 * @return
+	 */
+	String code();
 
-    /**
-     * 描述
-     *
-     * @return
-     */
-    String describe() default "";
+	/**
+	 * 描述
+	 *
+	 * @return
+	 */
+	String describe() default "";
 }

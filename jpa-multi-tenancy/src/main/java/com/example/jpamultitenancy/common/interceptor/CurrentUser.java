@@ -11,20 +11,21 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class CurrentUser {
 
-  private CurrentUser() {}
+	private CurrentUser() {
+	}
 
-  private static final ThreadLocal<CurrentLoginUser> CONTEXT = new ThreadLocal<>();
+	private static final ThreadLocal<CurrentLoginUser> CONTEXT = new ThreadLocal<>();
 
-  public static void upload() {
-    CONTEXT.remove();
-  }
+	public static void upload() {
+		CONTEXT.remove();
+	}
 
-  public static void set(CurrentLoginUser currentLoginUser) {
-    upload();
-    CONTEXT.set(currentLoginUser);
-  }
+	public static void set(CurrentLoginUser currentLoginUser) {
+		upload();
+		CONTEXT.set(currentLoginUser);
+	}
 
-  public static CurrentLoginUser get() {
-    return CONTEXT.get();
-  }
+	public static CurrentLoginUser get() {
+		return CONTEXT.get();
+	}
 }

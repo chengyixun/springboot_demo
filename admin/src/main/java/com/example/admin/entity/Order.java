@@ -15,19 +15,19 @@ import java.util.Date;
 @Builder
 public class Order {
 
-    /**
-     * 订单id
-     */
-    private Long orderId;
+	/**
+	 * 订单id
+	 */
+	private Long orderId;
 
-    /**
-     * 订单编号
-     */
-    private String orderNum;
+	/**
+	 * 订单编号
+	 */
+	private String orderNum;
 
-    /**
-     * 创建时间
-     */
-    private Date createTime;
+	/**
+	 * 创建时间
+	 */
+	private Date createTime;
 
 }

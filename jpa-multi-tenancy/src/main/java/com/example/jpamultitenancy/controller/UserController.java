@@ -10,18 +10,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @ClassName: UserController @Author: amy @Description: UserController @Date: 2021/7/4 @Version:
- * 1.0
+ * @ClassName: UserController @Author: amy @Description: UserController @Date:
+ *             2021/7/4 @Version: 1.0
  */
 @RestController()
 @RequestMapping("/biz/user")
 public class UserController {
 
-  @Autowired private UserService userService;
+	@Autowired
+	private UserService userService;
 
-  @GetMapping()
-  @PreAuthorize(value = "@el.check('user:list')")
-  public ResponseEntity<Object> getAll() {
-    return new ResponseEntity<>(userService.list(), HttpStatus.OK);
-  }
+	@GetMapping()
+	@PreAuthorize(value = "@el.check('user:list')")
+	public ResponseEntity<Object> getAll() {
+		return new ResponseEntity<>(userService.list(), HttpStatus.OK);
+	}
 }

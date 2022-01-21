@@ -15,40 +15,35 @@ import org.springframework.transaction.PlatformTransactionManager;
 import javax.sql.DataSource;
 
 /**
- * @ClassName: JpaPrimaryConfig @Author: amy @Description: JpaPrimaryConfig @Date:
- * 2021/9/18 @Version: 1.0
+ * @ClassName: JpaPrimaryConfig @Author: amy @Description:
+ *             JpaPrimaryConfig @Date: 2021/9/18 @Version: 1.0
  */
 @Configuration
-@EnableJpaRepositories(
-    basePackages = "com.example.jpamultidatasources.dao1",
-    entityManagerFactoryRef = "localContainerEntityManagerFactoryBeanOne",
-    transactionManagerRef = "platformTransactionManagerOne")
+@EnableJpaRepositories(basePackages = "com.example.jpamultidatasources.dao1", entityManagerFactoryRef = "localContainerEntityManagerFactoryBeanOne", transactionManagerRef = "platformTransactionManagerOne")
 public class JpaPrimaryConfig {
 
-  @Autowired
-  @Qualifier(value = "firstDataSource")
-  private DataSource firstDataSource;
+	@Autowired
+	@Qualifier(value = "firstDataSource")
+	private DataSource firstDataSource;
 
-  @Autowired private JpaProperties jpaProperties;
+	@Autowired
+	private JpaProperties jpaProperties;
 
-  @Bean
-  @Primary
-  public LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBeanOne(
-      EntityManagerFactoryBuilder builder) {
-    return builder
-        .dataSource(firstDataSource)
-        .properties(jpaProperties.getProperties())
-        .packages("com.example.jpamultidatasources.entity")
-        // .persistenceUnit("pu1")
-        .build();
-  }
+	@Bean
+	@Primary
+	public LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBeanOne(
+			EntityManagerFactoryBuilder builder) {
+		return builder.dataSource(firstDataSource).properties(jpaProperties.getProperties())
+				.packages("com.example.jpamultidatasources.entity")
+				// .persistenceUnit("pu1")
+				.build();
+	}
 
-  @Bean
-  @Primary
-  public PlatformTransactionManager platformTransactionManagerOne(
-      EntityManagerFactoryBuilder builder) {
-    LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean =
-        localContainerEntityManagerFactoryBeanOne(builder);
-    return new JpaTransactionManager(localContainerEntityManagerFactoryBean.getObject());
-  }
+	@Bean
+	@Primary
+	public PlatformTransactionManager platformTransactionManagerOne(EntityManagerFactoryBuilder builder) {
+		LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean = localContainerEntityManagerFactoryBeanOne(
+				builder);
+		return new JpaTransactionManager(localContainerEntityManagerFactoryBean.getObject());
+	}
 }

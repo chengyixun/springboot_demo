@@ -16,36 +16,35 @@ import java.util.LinkedHashSet;
 @Data
 @Builder
 public class ResponseMessage<T> implements Serializable {
-    private static final long serialVersionUID = 8992436576262574064L;
-    /**
-     * 错误消息
-     */
-    private String message;
+	private static final long serialVersionUID = 8992436576262574064L;
+	/**
+	 * 错误消息
+	 */
+	private String message;
 
-    /**
-     * 成功时响应内容
-     */
-    private T result;
+	/**
+	 * 成功时响应内容
+	 */
+	private T result;
 
-    /**
-     * 状态码
-     */
-    private int status;
+	/**
+	 * 状态码
+	 */
+	private int status;
 
-    /**
-     * 业务自定义状态码
-     */
-    private String code;
+	/**
+	 * 业务自定义状态码
+	 */
+	private String code;
 
-    /**
-     * 响应内容的字段
-     */
-    private LinkedHashSet<String> field;
+	/**
+	 * 响应内容的字段
+	 */
+	private LinkedHashSet<String> field;
 
-    /**
-     * 时间戳
-     */
-    private Long timestamp;
-
+	/**
+	 * 时间戳
+	 */
+	private Long timestamp;
 
 }

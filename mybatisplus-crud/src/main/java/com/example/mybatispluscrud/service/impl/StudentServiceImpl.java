@@ -8,10 +8,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 /**
- * @ClassName: StudentServiceImpl @Author: amy @Description: StudentServiceImpl @Date:
- * 2021/11/12 @Version: 1.0
+ * @ClassName: StudentServiceImpl @Author: amy @Description:
+ *             StudentServiceImpl @Date: 2021/11/12 @Version: 1.0
  */
 @Slf4j
 @Service
-public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student>
-    implements StudentService {}
+public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> implements StudentService {
+}

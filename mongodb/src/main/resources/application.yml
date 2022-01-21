@@ -7,8 +7,8 @@ spring:
     name: mongodb
   data:
     mongodb:
-     uri: mongodb://admin:123456@localhost:27017/?authSource=admin
-     database: loser
+      uri: mongodb://admin:123456@localhost:27017/?authSource=admin
+      database: loser
 
 
 

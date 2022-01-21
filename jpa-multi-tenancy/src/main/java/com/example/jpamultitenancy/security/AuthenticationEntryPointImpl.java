@@ -13,21 +13,19 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Objects;
 
 /**
- * @ClassName: AuthenticationEntryPointImpl @Author: amy @Description: 认证失败处理类 返回未授权 @Date:
- * 2021/7/6 @Version: 1.0
+ * @ClassName: AuthenticationEntryPointImpl @Author: amy @Description: 认证失败处理类
+ *             返回未授权 @Date: 2021/7/6 @Version: 1.0
  */
 @Slf4j
 @Component
 public class AuthenticationEntryPointImpl implements AuthenticationEntryPoint {
 
-  @Override
-  public void commence(
-      HttpServletRequest httpServletRequest,
-      HttpServletResponse httpServletResponse,
-      AuthenticationException e) {
-    int code = HttpStatus.UNAUTHORIZED.value();
-    String message = Objects.isNull(e) ? "Unauthorized" : e.getMessage();
-    log.error("请求访问:{},认证失败，无法访问系统资源", httpServletRequest.getRequestURI());
-    ServletUtils.renderString(httpServletResponse, JsonUtils.error(code, message).toString());
-  }
+	@Override
+	public void commence(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
+			AuthenticationException e) {
+		int code = HttpStatus.UNAUTHORIZED.value();
+		String message = Objects.isNull(e) ? "Unauthorized" : e.getMessage();
+		log.error("请求访问:{},认证失败，无法访问系统资源", httpServletRequest.getRequestURI());
+		ServletUtils.renderString(httpServletResponse, JsonUtils.error(code, message).toString());
+	}
 }

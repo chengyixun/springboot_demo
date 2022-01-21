@@ -16,5 +16,7 @@ import java.io.Serializable;
  * @Modified By:
  */
 @NoRepositoryBean
-public interface CrudDao<E extends CrudEntity<PK>, PK extends Serializable> extends InsertDao<E,PK> ,UpdateDao<E,PK>, DeleteDao<E, PK>, QueryDao<E, PK>, DeleteByParamDao, UpdateByParamDao<E>, QueryByParamDao<E>, Repository<E, PK> {
+public interface CrudDao<E extends CrudEntity<PK>, PK extends Serializable>
+		extends InsertDao<E, PK>, UpdateDao<E, PK>, DeleteDao<E, PK>, QueryDao<E, PK>, DeleteByParamDao,
+		UpdateByParamDao<E>, QueryByParamDao<E>, Repository<E, PK> {
 }

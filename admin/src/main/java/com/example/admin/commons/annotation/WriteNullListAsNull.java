@@ -8,7 +8,7 @@ import java.lang.annotation.*;
  * @author <a href="mailto:liyaohui.wang@yunlsp.com">Liyaohui wang</a>
  * @version ${project.version} - 2021-04-09
  */
-@Target({ElementType.TYPE, ElementType.METHOD,ElementType.FIELD})
+@Target({ ElementType.TYPE, ElementType.METHOD, ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited

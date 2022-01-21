@@ -17,49 +17,48 @@ import java.util.Map;
  */
 public class WebUtil {
 
+	static final String[] IP_HEADERS = new String[] { "X-Forwarded-For", "X-Real-IP", "Proxy-Client-IP",
+			"WL-Proxy-Client-IP" };
 
-    static final String[] IP_HEADERS = new String[]{"X-Forwarded-For", "X-Real-IP", "Proxy-Client-IP", "WL-Proxy-Client-IP"};
+	public WebUtil() {
 
+	}
 
-    public WebUtil() {
+	public static HttpServletRequest getHttpServletRequest() {
+		try {
+			return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+		} catch (Exception e) {
+			return null;
+		}
+	}
 
-    }
+	public static Map<String, String> getHeaders(HttpServletRequest request) {
+		Map<String, String> map = new LinkedHashMap<>();
+		Enumeration<String> headerNames = request.getHeaderNames();
 
-    public static HttpServletRequest getHttpServletRequest() {
-        try {
-            return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-        } catch (Exception e) {
-            return null;
-        }
-    }
+		while (headerNames.hasMoreElements()) {
+			String key = headerNames.nextElement();
+			String value = request.getHeader(key);
+			map.put(key, value);
+		}
 
-    public static Map<String, String> getHeaders(HttpServletRequest request) {
-        Map<String, String> map = new LinkedHashMap<>();
-        Enumeration<String> headerNames = request.getHeaderNames();
+		return map;
 
-        while (headerNames.hasMoreElements()) {
-            String key = headerNames.nextElement();
-            String value = request.getHeader(key);
-            map.put(key, value);
-        }
+	}
 
-        return map;
+	public static String getIpAddr(HttpServletRequest request) {
+		String[] var1 = IP_HEADERS;
+		int var2 = var1.length;
 
-    }
+		for (int var3 = 0; var3 < var2; ++var3) {
+			String ipHeader = var1[var3];
+			String ip = request.getHeader(ipHeader);
+			if (!StringUtils.isEmpty(ip) && !ip.contains("unknown")) {
+				return ip;
+			}
+		}
 
-    public static String getIpAddr(HttpServletRequest request){
-        String[] var1 = IP_HEADERS;
-        int var2 = var1.length;
+		return request.getRemoteAddr();
 
-        for(int var3 = 0; var3 < var2; ++var3) {
-            String ipHeader = var1[var3];
-            String ip = request.getHeader(ipHeader);
-            if (!StringUtils.isEmpty(ip) && !ip.contains("unknown")) {
-                return ip;
-            }
-        }
-
-        return request.getRemoteAddr();
-
-    }
+	}
 }

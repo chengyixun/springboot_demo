@@ -10,9 +10,8 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableAccessLogger
 public class AdminApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(AdminApplication.class, args);
-    }
-
+	public static void main(String[] args) {
+		SpringApplication.run(AdminApplication.class, args);
+	}
 
 }

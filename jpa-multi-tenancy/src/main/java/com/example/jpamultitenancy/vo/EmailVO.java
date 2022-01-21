@@ -34,10 +34,13 @@ import java.util.List;
 @NoArgsConstructor
 public class EmailVO {
 
-  /** 收件人，支持多个收件人 */
-  @NotEmpty private List<String> tos;
+	/** 收件人，支持多个收件人 */
+	@NotEmpty
+	private List<String> tos;
 
-  @NotBlank private String subject;
+	@NotBlank
+	private String subject;
 
-  @NotBlank private String content;
+	@NotBlank
+	private String content;
 }

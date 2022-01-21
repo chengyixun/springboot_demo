@@ -33,22 +33,23 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class AuthenticationController {
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
-    @Autowired
-    private JwtTokenUtil jwtTokenUtil;
+	@Autowired
+	private AuthenticationManager authenticationManager;
+	@Autowired
+	private JwtTokenUtil jwtTokenUtil;
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ResponseEntity<?> userLogin(@RequestBody @NotNull UserLoginDTO userLoginDTO) throws AuthenticationException {
-        log.info("userLogin() method call...");
-        if(null == userLoginDTO.getUserName() || userLoginDTO.getUserName().isEmpty()){
-            return new ResponseEntity<>("User name is required", HttpStatus.BAD_REQUEST);
-        }
-        final Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userLoginDTO.getUserName(), userLoginDTO.getPassword()));
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        final String token = jwtTokenUtil.generateToken(userDetails.getUsername(),String.valueOf(userLoginDTO));
-        //Map the value into applicationScope bean
-        return ResponseEntity.ok(new AuthResponse(userDetails.getUsername(),token));
-    }
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public ResponseEntity<?> userLogin(@RequestBody @NotNull UserLoginDTO userLoginDTO) throws AuthenticationException {
+		log.info("userLogin() method call...");
+		if (null == userLoginDTO.getUserName() || userLoginDTO.getUserName().isEmpty()) {
+			return new ResponseEntity<>("User name is required", HttpStatus.BAD_REQUEST);
+		}
+		final Authentication authentication = authenticationManager.authenticate(
+				new UsernamePasswordAuthenticationToken(userLoginDTO.getUserName(), userLoginDTO.getPassword()));
+		SecurityContextHolder.getContext().setAuthentication(authentication);
+		UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+		final String token = jwtTokenUtil.generateToken(userDetails.getUsername(), String.valueOf(userLoginDTO));
+		// Map the value into applicationScope bean
+		return ResponseEntity.ok(new AuthResponse(userDetails.getUsername(), token));
+	}
 }

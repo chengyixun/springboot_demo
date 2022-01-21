@@ -18,15 +18,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/perm")
 public class PermController {
 
-    @GetMapping("/list")
-    @PermissionOperation(code = "perm:list", describe = "查询")
-    public void list() {
+	@GetMapping("/list")
+	@PermissionOperation(code = "perm:list", describe = "查询")
+	public void list() {
 
-    }
+	}
 
-    @PostMapping("/edit")
-    @PermissionOperation(code = "perm:edit", describe = "编辑")
-    public void edit() {
+	@PostMapping("/edit")
+	@PermissionOperation(code = "perm:edit", describe = "编辑")
+	public void edit() {
 
-    }
+	}
 }

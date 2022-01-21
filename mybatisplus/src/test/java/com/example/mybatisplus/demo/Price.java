@@ -13,24 +13,23 @@ import lombok.Data;
 @Builder
 @Data
 public class Price {
-  private Integer firstWeight;
-  private String firstPrice;
-  private AddPrice addPrice;
+	private Integer firstWeight;
+	private String firstPrice;
+	private AddPrice addPrice;
 
-  public static void main(String[] args) {
-    AddPrice addPrice =
-        AddPrice.builder().begin(1).end(2).createTime(System.currentTimeMillis()).build();
+	public static void main(String[] args) {
+		AddPrice addPrice = AddPrice.builder().begin(1).end(2).createTime(System.currentTimeMillis()).build();
 
-    Price price = Price.builder().addPrice(addPrice).firstPrice("333").firstWeight(34).build();
+		Price price = Price.builder().addPrice(addPrice).firstPrice("333").firstWeight(34).build();
 
-    PriceVO priceVO = new PriceVO();
-    // BeanUtils.copyProperties(price, priceVO);
-    // System.out.println(priceVO);
+		PriceVO priceVO = new PriceVO();
+		// BeanUtils.copyProperties(price, priceVO);
+		// System.out.println(priceVO);
 
-    // 使用 gson 的序列化与反序列化
-    Gson gson = new Gson();
-    String json = gson.toJson(price);
-    PriceVO vo = gson.fromJson(json, PriceVO.class);
-    System.out.println(vo);
-  }
+		// 使用 gson 的序列化与反序列化
+		Gson gson = new Gson();
+		String json = gson.toJson(price);
+		PriceVO vo = gson.fromJson(json, PriceVO.class);
+		System.out.println(vo);
+	}
 }

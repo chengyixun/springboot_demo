@@ -10,30 +10,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @ClassName: TenantInterceptor @Author: amy @Description: TenantInterceptor @Date:
- * 2021/10/10 @Version: 1.0
+ * @ClassName: TenantInterceptor @Author: amy @Description:
+ *             TenantInterceptor @Date: 2021/10/10 @Version: 1.0
  */
 @Slf4j
 public class TenantInterceptor implements HandlerInterceptor {
-  @Override
-  public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-      throws Exception {
-    String tenant = request.getParameter("tenant");
-    if (StringUtils.isNotEmpty(tenant)) {
-      DynamicDataSourceContextHolder.setDataSourceKey(tenant);
-      log.info("拦截器里头截获租户tenant为:{}", tenant);
-      return true;
-    }
-    return false;
-  }
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
+		String tenant = request.getParameter("tenant");
+		if (StringUtils.isNotEmpty(tenant)) {
+			DynamicDataSourceContextHolder.setDataSourceKey(tenant);
+			log.info("拦截器里头截获租户tenant为:{}", tenant);
+			return true;
+		}
+		return false;
+	}
 
-  @Override
-  public void postHandle(
-      HttpServletRequest request,
-      HttpServletResponse response,
-      Object handler,
-      ModelAndView modelAndView)
-      throws Exception {
-    DynamicDataSourceContextHolder.clearDataSourceKey();
-  }
+	@Override
+	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+			ModelAndView modelAndView) throws Exception {
+		DynamicDataSourceContextHolder.clearDataSourceKey();
+	}
 }

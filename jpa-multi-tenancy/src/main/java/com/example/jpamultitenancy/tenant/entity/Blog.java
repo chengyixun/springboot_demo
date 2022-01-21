@@ -17,7 +17,10 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-/** @ClassName: Blog @Author: amy @Description: Blog @Date: 2021/5/25 @Version: 1.0 */
+/**
+ * @ClassName: Blog @Author: amy @Description: Blog @Date: 2021/5/25 @Version:
+ *             1.0
+ */
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -26,16 +29,16 @@ import javax.validation.constraints.NotNull;
 @Table(name = "biz_blog")
 public class Blog extends BaseEntity {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @NotNull(groups = Update.class)
-  private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NotNull(groups = Update.class)
+	private Long id;
 
-  @NotBlank(message = "标题不能为空")
-  private String title;
+	@NotBlank(message = "标题不能为空")
+	private String title;
 
-  private String content;
+	private String content;
 
-  @ManyToOne(fetch = FetchType.EAGER)
-  private User user;
+	@ManyToOne(fetch = FetchType.EAGER)
+	private User user;
 }

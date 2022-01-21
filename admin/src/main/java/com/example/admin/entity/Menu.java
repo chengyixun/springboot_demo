@@ -14,14 +14,14 @@ import java.util.List;
 @Data
 public class Menu {
 
-    private String id;
+	private String id;
 
-    private String name;
+	private String name;
 
-    private Order order;
+	private Order order;
 
-    private Long time;
+	private Long time;
 
-    @JSONField
-    private List<Menu> children;
+	@JSONField
+	private List<Menu> children;
 }

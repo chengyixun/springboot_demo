@@ -4,18 +4,21 @@ import com.example.jpamultitenancy.tenant.entity.User;
 
 import java.util.List;
 
-/** @ClassName: UserService @Author: amy @Description: UserService @Date: 2021/5/25 @Version: 1.0 */
+/**
+ * @ClassName: UserService @Author: amy @Description: UserService @Date:
+ *             2021/5/25 @Version: 1.0
+ */
 public interface UserService {
 
-  List<User> list();
+	List<User> list();
 
-  User getOne(Long id);
+	User getOne(Long id);
 
-  void save(User user);
+	void save(User user);
 
-  User findById(Long id);
+	User findById(Long id);
 
-  User findByUsername(String username);
+	User findByUsername(String username);
 
-  void saveAll(List<User> users);
+	void saveAll(List<User> users);
 }

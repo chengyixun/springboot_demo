@@ -13,19 +13,18 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 // @Configuration
 public class InterceptorConfig implements WebMvcConfigurer {
 
-  /**
-   * 1. 登陆 url 2.
-   *
-   * @param registry
-   */
-  @Override
-  public void addInterceptors(InterceptorRegistry registry) {
-    // login intercept
-    registry
-        .addInterceptor(new TenantInterceptor())
-        // url scope
-        .addPathPatterns("/**")
-        // exclude paths /api/auth/signIn
-        .excludePathPatterns("/api/csv");
-  }
+	/**
+	 * 1. 登陆 url 2.
+	 *
+	 * @param registry
+	 */
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		// login intercept
+		registry.addInterceptor(new TenantInterceptor())
+				// url scope
+				.addPathPatterns("/**")
+				// exclude paths /api/auth/signIn
+				.excludePathPatterns("/api/csv");
+	}
 }

@@ -10,5 +10,5 @@ import com.example.mybatisplus.entity.TenantInfo;
  * @Date: 2021/10/11
  * @Version: 1.0
  */
-public interface TenantInfoService  extends IService<TenantInfo> {
+public interface TenantInfoService extends IService<TenantInfo> {
 }

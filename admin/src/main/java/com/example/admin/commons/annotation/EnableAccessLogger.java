@@ -11,10 +11,10 @@ import java.lang.annotation.*;
  * @Description:
  * @Modified By:
  */
-@Target({ElementType.TYPE, ElementType.METHOD})
+@Target({ ElementType.TYPE, ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@ImportAutoConfiguration({AopAccessLoggerSupportAutoConfiguration.class})
+@ImportAutoConfiguration({ AopAccessLoggerSupportAutoConfiguration.class })
 public @interface EnableAccessLogger {
 }

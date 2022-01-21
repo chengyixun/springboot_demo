@@ -14,27 +14,27 @@ import lombok.Data;
 @Builder
 public class Article {
 
-    @JestId
-    private Long id;
-    /**
-     * 题目
-     */
-    private String title;
-    /**
-     * 评论
-     */
-    private String content;
-    /**
-     * 汇总
-     */
-    private String summary;
+	@JestId
+	private Long id;
+	/**
+	 * 题目
+	 */
+	private String title;
+	/**
+	 * 评论
+	 */
+	private String content;
+	/**
+	 * 汇总
+	 */
+	private String summary;
 
-    /**
-     * 评分
-     */
-    private Long pv;
-    /**
-     * 作者
-     */
-    private String author;
+	/**
+	 * 评分
+	 */
+	private Long pv;
+	/**
+	 * 作者
+	 */
+	private String author;
 }

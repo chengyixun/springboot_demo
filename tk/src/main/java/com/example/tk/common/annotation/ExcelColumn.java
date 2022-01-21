@@ -13,21 +13,21 @@ import java.lang.annotation.Target;
  * @Date: 2021/8/15
  * @Version: 1.0
  */
-@Target({ElementType.FIELD})
+@Target({ ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface ExcelColumn {
-    /**
-     * excel header name unique
-     *
-     * @return value
-     */
-    String value() default "";
+	/**
+	 * excel header name unique
+	 *
+	 * @return value
+	 */
+	String value() default "";
 
-    /**
-     * excel row index
-     *
-     * @return col
-     */
-    int col() default 0;
+	/**
+	 * excel row index
+	 *
+	 * @return col
+	 */
+	int col() default 0;
 }

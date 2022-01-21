@@ -11,4 +11,5 @@ import org.springframework.stereotype.Repository;
  * @date 5/31/21
  */
 @Repository
-public class TabRepositoryImpl extends BaseMongoRepositoryImpl<TabModel> implements TabRepository {}
+public class TabRepositoryImpl extends BaseMongoRepositoryImpl<TabModel> implements TabRepository {
+}

@@ -19,12 +19,11 @@ import java.util.List;
 @RequestMapping("/user")
 public class SysUserController {
 
+	@Autowired
+	private SysUserService sysUserService;
 
-  @Autowired
-  private SysUserService sysUserService;
-
-  @GetMapping
-  public List<SysUser> list() {
-    return sysUserService.list();
-  }
+	@GetMapping
+	public List<SysUser> list() {
+		return sysUserService.list();
+	}
 }

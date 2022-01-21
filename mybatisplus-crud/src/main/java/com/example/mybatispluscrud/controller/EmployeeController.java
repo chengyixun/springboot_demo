@@ -13,37 +13,38 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * @ClassName: EmployeeController @Author: amy @Description: EmployeeController @Date:
- * 2021/11/2 @Version: 1.0
+ * @ClassName: EmployeeController @Author: amy @Description:
+ *             EmployeeController @Date: 2021/11/2 @Version: 1.0
  */
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
 
-  @Autowired private EmployeeService employeeService;
+	@Autowired
+	private EmployeeService employeeService;
 
-  @GetMapping
-  public List<Employee> list() {
-    return employeeService.list();
-  }
+	@GetMapping
+	public List<Employee> list() {
+		return employeeService.list();
+	}
 
-  @PostMapping
-  public void save(@RequestBody Employee employee) {
-    employeeService.delAndSave(employee);
-  }
+	@PostMapping
+	public void save(@RequestBody Employee employee) {
+		employeeService.delAndSave(employee);
+	}
 
-  @PostMapping("/save")
-  public void save2(@RequestBody Employee employee) {
-    employeeService.queryAndSave(employee);
-  }
+	@PostMapping("/save")
+	public void save2(@RequestBody Employee employee) {
+		employeeService.queryAndSave(employee);
+	}
 
-  @GetMapping("/test1")
-  public void testTransaction1() {
-    employeeService.testNoTRequestHasT();
-  }
+	@GetMapping("/test1")
+	public void testTransaction1() {
+		employeeService.testNoTRequestHasT();
+	}
 
-  @PostMapping("/update/{id}")
-  public void updateByIdTest(@PathVariable Long id) {
-    employeeService.updateById(id);
-  }
+	@PostMapping("/update/{id}")
+	public void updateByIdTest(@PathVariable Long id) {
+		employeeService.updateById(id);
+	}
 }

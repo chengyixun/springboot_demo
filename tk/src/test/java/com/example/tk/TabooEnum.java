@@ -12,23 +12,21 @@ import lombok.Getter;
 @Getter
 public enum TabooEnum {
 
-    DUST("Dust"),
-    X_RAY("X-ray");
+	DUST("Dust"), X_RAY("X-ray");
 
-    private String value;
+	private String value;
 
-    TabooEnum(String value){
-        this.value = value;
-    }
+	TabooEnum(String value) {
+		this.value = value;
+	}
 
-    public static Integer getIndex(String value){
-        for (TabooEnum tabooEnum:values()){
-            if(tabooEnum.getValue().equalsIgnoreCase(value)){
-                return tabooEnum.ordinal();
-            }
-        }
-        return null;
-    }
-
+	public static Integer getIndex(String value) {
+		for (TabooEnum tabooEnum : values()) {
+			if (tabooEnum.getValue().equalsIgnoreCase(value)) {
+				return tabooEnum.ordinal();
+			}
+		}
+		return null;
+	}
 
 }

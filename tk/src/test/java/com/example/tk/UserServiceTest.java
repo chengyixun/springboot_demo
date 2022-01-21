@@ -20,15 +20,15 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @Slf4j
 public class UserServiceTest {
-    @Autowired
-    private UserMapper userMapper;
+	@Autowired
+	private UserMapper userMapper;
 
-    @Test
-    public void testUpdate1() {
-        User user = new User();
-        user.setId(22234);
-        user.setName("333");
-        int i = userMapper.updateByPrimaryKeySelective(user);
-        System.out.println(i);
-    }
+	@Test
+	public void testUpdate1() {
+		User user = new User();
+		user.setId(22234);
+		user.setName("333");
+		int i = userMapper.updateByPrimaryKeySelective(user);
+		System.out.println(i);
+	}
 }

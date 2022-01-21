@@ -15,27 +15,25 @@ import javax.persistence.Table;
 import java.util.Date;
 import java.util.Set;
 
-/** @ClassName: Department @Author: amy @Description: Department @Date: 2021/5/25 @Version: 1.0 */
+/**
+ * @ClassName: Department @Author: amy @Description: Department @Date:
+ *             2021/5/25 @Version: 1.0
+ */
 @Data
 @Entity
 @Table(name = "sys_dept")
 public class Department {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-  private String code;
-  private String name;
+	private String code;
+	private String name;
 
-  @OneToMany(
-      cascade = {CascadeType.PERSIST, CascadeType.MERGE},
-      fetch = FetchType.EAGER)
-  @JoinTable(
-      name = "sys_dept_user",
-      joinColumns = @JoinColumn(name = "dept_id"),
-      inverseJoinColumns = @JoinColumn(name = "user_id"))
-  private Set<User> users;
+	@OneToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.EAGER)
+	@JoinTable(name = "sys_dept_user", joinColumns = @JoinColumn(name = "dept_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+	private Set<User> users;
 
-  private Date createTime;
-  private Date updateTime;
+	private Date createTime;
+	private Date updateTime;
 }

@@ -12,37 +12,34 @@ import org.springframework.context.ApplicationContextAware;
 import javax.annotation.Resource;
 
 /**
- * @ClassName: ApolloConfigListener @Author: amy @Description: ApolloConfigListener
- * apollo配置监听 @Date: 2021/12/27 @Version: 1.0
+ * @ClassName: ApolloConfigListener @Author: amy @Description:
+ *             ApolloConfigListener apollo配置监听 @Date: 2021/12/27 @Version: 1.0
  */
 @Slf4j
 // @Component
 public class ApolloConfigListener implements ApplicationContextAware {
 
-  private ApplicationContext applicationContext;
+	private ApplicationContext applicationContext;
 
-  @Resource private RefreshScope refreshScope;
+	@Resource
+	private RefreshScope refreshScope;
 
-  @Override
-  public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-    this.applicationContext = applicationContext;
-  }
+	@Override
+	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+		this.applicationContext = applicationContext;
+	}
 
-  // @ApolloConfigChangeListener(value =
-  // {"applicaton","test1","test2"},interestedKeyPrefixes={"mpc.common"})
-  private void onChangeConfig(ConfigChangeEvent changeEvent) {
-    log.info(">> apollo-config-change start……");
-    for (String key : changeEvent.changedKeys()) {
-      ConfigChange change = changeEvent.getChange(key);
-      log.info(
-          "key:{},propertyName:{},oldValue:{},newValue:{}",
-          key,
-          change.getPropertyName(),
-          change.getOldValue(),
-          change.getNewValue());
-      this.applicationContext.publishEvent(new EnvironmentChangeEvent(changeEvent.changedKeys()));
-      refreshScope.refreshAll();
-    }
-    log.info(">> apollo-config-change end……");
-  }
+	// @ApolloConfigChangeListener(value =
+	// {"applicaton","test1","test2"},interestedKeyPrefixes={"mpc.common"})
+	private void onChangeConfig(ConfigChangeEvent changeEvent) {
+		log.info(">> apollo-config-change start……");
+		for (String key : changeEvent.changedKeys()) {
+			ConfigChange change = changeEvent.getChange(key);
+			log.info("key:{},propertyName:{},oldValue:{},newValue:{}", key, change.getPropertyName(),
+					change.getOldValue(), change.getNewValue());
+			this.applicationContext.publishEvent(new EnvironmentChangeEvent(changeEvent.changedKeys()));
+			refreshScope.refreshAll();
+		}
+		log.info(">> apollo-config-change end……");
+	}
 }

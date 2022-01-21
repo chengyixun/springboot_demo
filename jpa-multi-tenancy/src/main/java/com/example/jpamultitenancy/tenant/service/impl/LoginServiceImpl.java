@@ -21,39 +21,41 @@ import javax.annotation.Resource;
 import java.util.Objects;
 
 /**
- * @ClassName: LoginServiceImpl @Author: amy @Description: LoginServiceImpl @Date:
- * 2021/6/22 @Version: 1.0
+ * @ClassName: LoginServiceImpl @Author: amy @Description:
+ *             LoginServiceImpl @Date: 2021/6/22 @Version: 1.0
  */
 @Service
 @Slf4j
 public class LoginServiceImpl implements LoginService {
 
-  @Resource private AuthenticationManager authenticationManager;
+	@Resource
+	private AuthenticationManager authenticationManager;
 
-  @Autowired private MasterTenantService masterTenantService;
+	@Autowired
+	private MasterTenantService masterTenantService;
 
-  @Autowired private JwtTokenUtils jwtTokenUtils;
+	@Autowired
+	private JwtTokenUtils jwtTokenUtils;
 
-  @Override
-  public LoginUser login(LoginVO loginVO) {
-    // 1. check tenant
-    MasterTenant tenant = masterTenantService.findByTenant(loginVO.getTenant());
-    if (Objects.isNull(tenant)) {
-      throw new ServerRestException("Please contact service provider.");
-    }
-    TenantContextHolder.setTenant(tenant.getTenant());
-    // 2. check username and password
-    final Authentication authentication =
-        authenticationManager.authenticate(
-            new UsernamePasswordAuthenticationToken(loginVO.getUsername(), loginVO.getPassword()));
-    // 3. setAuthentication
-    SecurityContextHolder.getContext().setAuthentication(authentication);
-    // 4. get UserDetails
-    LoginUser loginUser = (LoginUser) authentication.getPrincipal();
-    // 5. generateToken
-    String token = jwtTokenUtils.generateToken(loginUser.getUsername(), loginVO.getTenant());
-    loginUser.setToken(JWTConstants.TOKEN_PREFIX + token);
-    loginUser.setTenant(loginVO.getTenant());
-    return loginUser;
-  }
+	@Override
+	public LoginUser login(LoginVO loginVO) {
+		// 1. check tenant
+		MasterTenant tenant = masterTenantService.findByTenant(loginVO.getTenant());
+		if (Objects.isNull(tenant)) {
+			throw new ServerRestException("Please contact service provider.");
+		}
+		TenantContextHolder.setTenant(tenant.getTenant());
+		// 2. check username and password
+		final Authentication authentication = authenticationManager
+				.authenticate(new UsernamePasswordAuthenticationToken(loginVO.getUsername(), loginVO.getPassword()));
+		// 3. setAuthentication
+		SecurityContextHolder.getContext().setAuthentication(authentication);
+		// 4. get UserDetails
+		LoginUser loginUser = (LoginUser) authentication.getPrincipal();
+		// 5. generateToken
+		String token = jwtTokenUtils.generateToken(loginUser.getUsername(), loginVO.getTenant());
+		loginUser.setToken(JWTConstants.TOKEN_PREFIX + token);
+		loginUser.setTenant(loginVO.getTenant());
+		return loginUser;
+	}
 }

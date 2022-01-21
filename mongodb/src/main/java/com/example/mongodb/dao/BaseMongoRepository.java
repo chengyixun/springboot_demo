@@ -14,25 +14,25 @@ import java.util.List;
  */
 public interface BaseMongoRepository<T extends BaseModel> {
 
-  T findOne(T entity, Query query);
+	T findOne(T entity, Query query);
 
-  List<T> find(T entity, Query query);
+	List<T> find(T entity, Query query);
 
-  long count(T entity, Query query);
+	long count(T entity, Query query);
 
-  void insert(T entity);
+	void insert(T entity);
 
-  void insertMany(List<T> entities);
+	void insertMany(List<T> entities);
 
-  void save(T entity);
+	void save(T entity);
 
-  void updateOneSelective(T entity);
+	void updateOneSelective(T entity);
 
-  void updateOne(T entity, Query query, Update update);
+	void updateOne(T entity, Query query, Update update);
 
-  void updateMulti(T entity, Query query, Update update);
+	void updateMulti(T entity, Query query, Update update);
 
-  void remove(T entity);
+	void remove(T entity);
 
-  void removeByQuery(Query query, T entity);
+	void removeByQuery(Query query, T entity);
 }

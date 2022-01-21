@@ -22,15 +22,15 @@ import java.util.UUID;
 @Slf4j
 public class KafkaTest {
 
-    @Autowired
-    private OrderProvider orderProvider;
+	@Autowired
+	private OrderProvider orderProvider;
 
-    @Test
-    public void testSendMeg() {
-        for (int i = 0; i < 5; i++) {
-            String uuid = UUID.randomUUID().toString();
-            orderProvider.sendMessage(Long.valueOf(i), uuid, new DateTime());
-        }
+	@Test
+	public void testSendMeg() {
+		for (int i = 0; i < 5; i++) {
+			String uuid = UUID.randomUUID().toString();
+			orderProvider.sendMessage(Long.valueOf(i), uuid, new DateTime());
+		}
 
-    }
+	}
 }

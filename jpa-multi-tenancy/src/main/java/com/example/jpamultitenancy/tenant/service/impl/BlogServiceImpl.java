@@ -10,22 +10,23 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * @ClassName: BlogServiceImpl @Author: amy @Description: BlogServiceImpl @Date: 2021/6/16 @Version:
- * 1.0
+ * @ClassName: BlogServiceImpl @Author: amy @Description: BlogServiceImpl @Date:
+ *             2021/6/16 @Version: 1.0
  */
 @Slf4j
 @Service
 public class BlogServiceImpl implements BlogService {
 
-  @Autowired private BlogRepository blogRepository;
+	@Autowired
+	private BlogRepository blogRepository;
 
-  @Override
-  public void create(Blog blog) {
-    blogRepository.save(blog);
-  }
+	@Override
+	public void create(Blog blog) {
+		blogRepository.save(blog);
+	}
 
-  @Override
-  public List<Blog> list() {
-    return blogRepository.findAll();
-  }
+	@Override
+	public List<Blog> list() {
+		return blogRepository.findAll();
+	}
 }

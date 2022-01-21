@@ -12,5 +12,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface OrderRepository extends BaseCrudRepository<Order> {
 
-   // Page<Order> queryOrderPage(@Param("request")OrderPageVO pageVO);
+	// Page<Order> queryOrderPage(@Param("request")OrderPageVO pageVO);
 }

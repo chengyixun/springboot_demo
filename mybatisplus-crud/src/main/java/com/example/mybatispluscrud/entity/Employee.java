@@ -27,37 +27,40 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Employee {
 
-  @TableId(value = "id", type = IdType.AUTO)
-  private Long id;
+	@TableId(value = "id", type = IdType.AUTO)
+	private Long id;
 
-  @TableField(condition = SqlCondition.LIKE_RIGHT)
-  private String name;
+	@TableField(condition = SqlCondition.LIKE_RIGHT)
+	private String name;
 
-  private Integer age;
+	private Integer age;
 
-  private String email;
+	private String email;
 
-  private Long managerId;
+	private Long managerId;
 
-  private String operateDate;
+	private String operateDate;
 
-  @TableField(fill = FieldFill.INSERT)
-  private LocalDateTime createTime;
+	@TableField(fill = FieldFill.INSERT)
+	private LocalDateTime createTime;
 
-  @TableField(fill = FieldFill.INSERT_UPDATE)
-  private LocalDateTime updateTime;
+	@TableField(fill = FieldFill.INSERT_UPDATE)
+	private LocalDateTime updateTime;
 
-  /**
-   * 在读多写少的场景下，乐观锁比较适用，能够减少加锁操作导致的性能开销，提高系统吞吐量
-   *
-   * <p>在写多读少的场景下，悲观锁比较使用，否则会因为乐观锁不断失败重试，反而导致性能下降。
-   */
-  @Version private Integer version;
+	/**
+	 * 在读多写少的场景下，乐观锁比较适用，能够减少加锁操作导致的性能开销，提高系统吞吐量
+	 *
+	 * <p>
+	 * 在写多读少的场景下，悲观锁比较使用，否则会因为乐观锁不断失败重试，反而导致性能下降。
+	 */
+	@Version
+	private Integer version;
 
-  /**
-   * 若要对某些表进行单独配置，在实体类的对应字段上使用@TableLogic @TableLogic(value = "0", delval = "1")
-   *
-   * <p>若想要SELECT的列，不包括逻辑删除的那一列，则可以在实体类中通过@TableField进行配置
-   */
-  private Integer deleted;
+	/**
+	 * 若要对某些表进行单独配置，在实体类的对应字段上使用@TableLogic @TableLogic(value = "0", delval = "1")
+	 *
+	 * <p>
+	 * 若想要SELECT的列，不包括逻辑删除的那一列，则可以在实体类中通过@TableField进行配置
+	 */
+	private Integer deleted;
 }

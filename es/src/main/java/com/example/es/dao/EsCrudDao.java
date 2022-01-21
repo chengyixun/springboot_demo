@@ -1,6 +1,5 @@
 package com.example.es.dao;
 
-
 import com.example.es.commons.param.CrudEntity;
 import com.example.es.commons.param.aggregation.AggregationParam;
 import io.searchbox.core.search.aggregation.Aggregation;
@@ -18,5 +17,5 @@ import java.util.List;
 @NoRepositoryBean
 public interface EsCrudDao<E extends CrudEntity<PK>, PK extends Serializable> extends CrudDao<E, PK> {
 
-    <T> List<T> select(AggregationParam var1, Class<T> var2);
+	<T> List<T> select(AggregationParam var1, Class<T> var2);
 }

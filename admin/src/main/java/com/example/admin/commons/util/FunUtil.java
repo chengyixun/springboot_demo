@@ -8,24 +8,26 @@ package com.example.admin.commons.util;
  */
 public class FunUtil {
 
-  private static boolean param = false;
+	private static boolean param = false;
 
-  private FunUtil() {}
+	private FunUtil() {
+	}
 
-  public static class Builder<R> {
+	public static class Builder<R> {
 
-    private R result;
+		private R result;
 
-    public Builder(){
+		public Builder() {
 
-    }
-    public Builder(R result) {
-      this.result = result;
-    }
+		}
 
-    public static <R> Builder<R> condition(boolean condition){
-        param = condition;
-        return new Builder<>();
-    }
-  }
+		public Builder(R result) {
+			this.result = result;
+		}
+
+		public static <R> Builder<R> condition(boolean condition) {
+			param = condition;
+			return new Builder<>();
+		}
+	}
 }

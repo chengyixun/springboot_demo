@@ -8,12 +8,12 @@ package com.example.admin.fun;
  */
 public class Demo04Runnable {
 
-  public static void main(String[] args) {
-    //
-    startThread(() -> System.out.println("线程1"));
-  }
+	public static void main(String[] args) {
+		//
+		startThread(() -> System.out.println("线程1"));
+	}
 
-  private static void startThread(Runnable runnable) {
-    new Thread(runnable).start();
-  }
+	private static void startThread(Runnable runnable) {
+		new Thread(runnable).start();
+	}
 }

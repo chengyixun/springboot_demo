@@ -11,7 +11,7 @@ import lombok.Data;
 @Data
 public class AddPriceVO {
 
-    private Integer begin;
-    private Integer end;
-    private Long createTime;
+	private Integer begin;
+	private Integer end;
+	private Long createTime;
 }

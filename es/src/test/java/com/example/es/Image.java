@@ -11,12 +11,12 @@ import lombok.Data;
  * @Modified By:
  */
 @Data
-@Entity(index = "viid",type = "image",alias = "viid")
+@Entity(index = "viid", type = "image", alias = "viid")
 public class Image {
 
-    @JestId
-    private String id;
+	@JestId
+	private String id;
 
-    private String code;
+	private String code;
 
 }

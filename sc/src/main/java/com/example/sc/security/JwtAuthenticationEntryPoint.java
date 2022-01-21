@@ -23,13 +23,14 @@ import java.util.Objects;
  */
 @Component
 @Slf4j
-public class JwtAuthenticationEntryPoint  implements AuthenticationEntryPoint {
+public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
-    @Override
-    public void commence(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
-        int code = HttpStatus.UNAUTHORIZED.value();
-        String message = Objects.isNull(e) ? "Unauthorized" : e.getMessage();
-        log.error("请求访问:{},认证失败，无法访问系统资源", httpServletRequest.getRequestURI());
-        ServletUtils.renderString(httpServletResponse, JsonUtils.error(code, message).toString());
-    }
+	@Override
+	public void commence(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
+			AuthenticationException e) throws IOException, ServletException {
+		int code = HttpStatus.UNAUTHORIZED.value();
+		String message = Objects.isNull(e) ? "Unauthorized" : e.getMessage();
+		log.error("请求访问:{},认证失败，无法访问系统资源", httpServletRequest.getRequestURI());
+		ServletUtils.renderString(httpServletResponse, JsonUtils.error(code, message).toString());
+	}
 }

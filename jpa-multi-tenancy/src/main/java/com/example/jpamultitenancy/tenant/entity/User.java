@@ -19,7 +19,10 @@ import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Set;
 
-/** @ClassName: User @Author:amy @Description: User @Date: 2021/5/25 @Version: 1.0 */
+/**
+ * @ClassName: User @Author:amy @Description: User @Date: 2021/5/25 @Version:
+ *             1.0
+ */
 @Builder
 @Data
 @Entity
@@ -27,25 +30,24 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User extends BaseEntity implements Serializable {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "user_id")
-  private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "user_id")
+	private Long id;
 
-  @Column(nullable = false, unique = true)
-  private String username;
+	@Column(nullable = false, unique = true)
+	private String username;
 
-  private String password;
+	private String password;
 
-  private String tenant;
+	private String tenant;
 
-  @ManyToMany(fetch = FetchType.EAGER)
-  @JoinTable(
-      name = "sys_users_roles",
-      joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "user_id")},
-      inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "role_id")})
-  private Set<Role> roles;
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "sys_users_roles", joinColumns = {
+			@JoinColumn(name = "user_id", referencedColumnName = "user_id") }, inverseJoinColumns = {
+					@JoinColumn(name = "role_id", referencedColumnName = "role_id") })
+	private Set<Role> roles;
 
-  /** 0：不是 1：是的 */
-  private Boolean isSuperAdmin;
+	/** 0：不是 1：是的 */
+	private Boolean isSuperAdmin;
 }

@@ -7,9 +7,9 @@ package com.example.es.commons.param;
  * @Modified By:
  */
 public enum SortEnum {
-    ASC, DESC;
+	ASC, DESC;
 
-    private SortEnum() {
+	private SortEnum() {
 
-    }
+	}
 }

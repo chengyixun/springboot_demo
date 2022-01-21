@@ -1,6 +1,5 @@
 package com.example.jpacrud.commons.utils;
 
-
 import com.example.jpacrud.commons.exception.Exceptions;
 import com.example.jpacrud.commons.exception.ServerException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -26,7 +25,6 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.Function;
-
 
 /**
  * @ClassName: JsonUtil
@@ -66,17 +64,13 @@ public class JsonUtils {
 		}
 	}
 
-/*	public static JsonNode from(String content, boolean... isCompressed) {
-		try {
-			if (isCompressed.length > 0 && isCompressed[0]) {
-				String s = GZipUtils.unzip(content);
-				return INSTANCE.mapper.readTree(s);
-			}
-			return INSTANCE.mapper.readTree(content);
-		} catch (IOException e) {
-			throw new ServiceException(Exceptions.Code.IO_ERROR, e);
-		}
-	}*/
+	/*
+	 * public static JsonNode from(String content, boolean... isCompressed) { try {
+	 * if (isCompressed.length > 0 && isCompressed[0]) { String s =
+	 * GZipUtils.unzip(content); return INSTANCE.mapper.readTree(s); } return
+	 * INSTANCE.mapper.readTree(content); } catch (IOException e) { throw new
+	 * ServiceException(Exceptions.Code.IO_ERROR, e); } }
+	 */
 
 	public static JsonNode from(InputStream is) {
 		try {
@@ -185,14 +179,13 @@ public class JsonUtils {
 		}
 	}
 
-	/*public static String stringify(JsonNode json, boolean pretty, boolean compress) {
-		try {
-			String s = pretty ? format(json) : INSTANCE.mapper.writeValueAsString(json);
-			return compress ? GZipUtils.zip(s) : s;
-		} catch (IOException e) {
-			throw new ServiceException(Exceptions.Code.IO_ERROR, e);
-		}
-	}*/
+	/*
+	 * public static String stringify(JsonNode json, boolean pretty, boolean
+	 * compress) { try { String s = pretty ? format(json) :
+	 * INSTANCE.mapper.writeValueAsString(json); return compress ? GZipUtils.zip(s)
+	 * : s; } catch (IOException e) { throw new
+	 * ServiceException(Exceptions.Code.IO_ERROR, e); } }
+	 */
 
 	public static boolean isCompressed(ObjectNode json) {
 		if (json.has(IS_COMPRESSED_KEY) && json.has(COMPRESSED_CONTENT_KEY)
@@ -201,7 +194,6 @@ public class JsonUtils {
 		}
 		return false;
 	}
-
 
 	public static MultiValueMap<String, String> toMultiValueMap(JsonNode json) {
 		MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
@@ -218,18 +210,15 @@ public class JsonUtils {
 		return map;
 	}
 
-/*	public static JsonNode error(int code,String message) {
-		ObjectNode result = JsonUtils.object().put(SUCCESS, false);
-		ObjectNode error = JsonUtils.object().put(CODE, code);
-		error.put(MESSAGE, message);
-		result.set(ERROR, error);
-		return result;
-	}
-
-	public static JsonNode success(Object  obj) {
-		ObjectNode result = JsonUtils.object().put(SUCCESS, true);
-		result.set(RESULT,JsonUtils.toJson(obj));
-		return result;
-	}*/
+	/*
+	 * public static JsonNode error(int code,String message) { ObjectNode result =
+	 * JsonUtils.object().put(SUCCESS, false); ObjectNode error =
+	 * JsonUtils.object().put(CODE, code); error.put(MESSAGE, message);
+	 * result.set(ERROR, error); return result; }
+	 * 
+	 * public static JsonNode success(Object obj) { ObjectNode result =
+	 * JsonUtils.object().put(SUCCESS, true);
+	 * result.set(RESULT,JsonUtils.toJson(obj)); return result; }
+	 */
 
 }

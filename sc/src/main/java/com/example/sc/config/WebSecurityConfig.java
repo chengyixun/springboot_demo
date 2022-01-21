@@ -32,40 +32,37 @@ import com.example.sc.security.JwtUserDetailsService;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class  WebSecurityConfig  extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private JwtUserDetailsService jwtUserDetailsService;
-    @Autowired
-    private JwtAuthenticationEntryPoint unauthorizedHandler;
+	@Autowired
+	private JwtUserDetailsService jwtUserDetailsService;
+	@Autowired
+	private JwtAuthenticationEntryPoint unauthorizedHandler;
 
-    @Override
-    @Bean
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
-    }
+	@Override
+	@Bean
+	public AuthenticationManager authenticationManagerBean() throws Exception {
+		return super.authenticationManagerBean();
+	}
 
-    @Autowired
-    public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(jwtUserDetailsService).passwordEncoder(passwordEncoder());
-    }
+	@Autowired
+	public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(jwtUserDetailsService).passwordEncoder(passwordEncoder());
+	}
 
-    @Bean
-    public JwtAuthenticationFilter authenticationTokenFilterBean() throws Exception {
-        return new JwtAuthenticationFilter();
-    }
+	@Bean
+	public JwtAuthenticationFilter authenticationTokenFilterBean() throws Exception {
+		return new JwtAuthenticationFilter();
+	}
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable().
-                authorizeRequests()
-                .antMatchers("/api/auth/**").permitAll()
-               // .antMatchers("/api/product/**").authenticated()
-                .and()
-                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        http.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
-    }
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.cors().and().csrf().disable().authorizeRequests().antMatchers("/api/auth/**").permitAll()
+				// .antMatchers("/api/product/**").authenticated()
+				.and().exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and().sessionManagement()
+				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+		http.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
+	}
 
 //    @Bean
 //    public PasswordEncoder passwordEncoder() {
@@ -73,33 +70,32 @@ public class  WebSecurityConfig  extends WebSecurityConfigurerAdapter {
 //        return encoder;
 //    }
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 
-    @Bean
-    public FilterRegistrationBean platformCorsFilter() {
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+	@Bean
+	public FilterRegistrationBean platformCorsFilter() {
+		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 
-        CorsConfiguration configAutenticacao = new CorsConfiguration();
-        configAutenticacao.setAllowCredentials(true);
-        configAutenticacao.addAllowedOrigin("*");
-        configAutenticacao.addAllowedHeader("Authorization");
-        configAutenticacao.addAllowedHeader("Content-Type");
-        configAutenticacao.addAllowedHeader("Accept");
-        configAutenticacao.addAllowedMethod("POST");
-        configAutenticacao.addAllowedMethod("GET");
-        configAutenticacao.addAllowedMethod("DELETE");
-        configAutenticacao.addAllowedMethod("PUT");
-        configAutenticacao.addAllowedMethod("OPTIONS");
-        configAutenticacao.setMaxAge(3600L);
-        source.registerCorsConfiguration("/**", configAutenticacao);
+		CorsConfiguration configAutenticacao = new CorsConfiguration();
+		configAutenticacao.setAllowCredentials(true);
+		configAutenticacao.addAllowedOrigin("*");
+		configAutenticacao.addAllowedHeader("Authorization");
+		configAutenticacao.addAllowedHeader("Content-Type");
+		configAutenticacao.addAllowedHeader("Accept");
+		configAutenticacao.addAllowedMethod("POST");
+		configAutenticacao.addAllowedMethod("GET");
+		configAutenticacao.addAllowedMethod("DELETE");
+		configAutenticacao.addAllowedMethod("PUT");
+		configAutenticacao.addAllowedMethod("OPTIONS");
+		configAutenticacao.setMaxAge(3600L);
+		source.registerCorsConfiguration("/**", configAutenticacao);
 
-        FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
-        bean.setOrder(-110);
-        return bean;
-    }
-
+		FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
+		bean.setOrder(-110);
+		return bean;
+	}
 
 }

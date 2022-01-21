@@ -8,8 +8,8 @@ import lombok.Data;
 @Data
 @ConfigurationProperties(prefix = "spring.redis")
 public class RedisProperties {
-  private int database;
-  private String host;
-  private int port;
-  private String password;
+	private int database;
+	private String host;
+	private int port;
+	private String password;
 }

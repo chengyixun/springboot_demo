@@ -14,12 +14,12 @@ import lombok.Data;
 @Builder
 public class ScheduleBreak {
 
-    private String unit;
+	private String unit;
 
-    private String personId;
+	private String personId;
 
-    private String scheduleDate;
+	private String scheduleDate;
 
-    private Integer status;
+	private Integer status;
 
 }

@@ -11,26 +11,26 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
- * @ClassName: MybatisPlusConfig @Author: amy @Description: MybatisPlusConfig @Date:
- * 2021/11/15 @Version: 1.0
+ * @ClassName: MybatisPlusConfig @Author: amy @Description:
+ *             MybatisPlusConfig @Date: 2021/11/15 @Version: 1.0
  */
 @Slf4j
 @EnableTransactionManagement // 开启事务
 @Configuration
 @MapperScan("com.example.mybatispluscrud.mapper")
 public class MybatisPlusConfig {
-  /**
-   * 新版本mp分页
-   *
-   * @return
-   */
-  @Bean
-  public MybatisPlusInterceptor mybatisPlusInterceptor() {
-    MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
-    // 乐观锁配置
-    interceptor.addInnerInterceptor(new OptimisticLockerInnerInterceptor());
-    // 分页配置
-    interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));
-    return interceptor;
-  }
+	/**
+	 * 新版本mp分页
+	 *
+	 * @return
+	 */
+	@Bean
+	public MybatisPlusInterceptor mybatisPlusInterceptor() {
+		MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
+		// 乐观锁配置
+		interceptor.addInnerInterceptor(new OptimisticLockerInnerInterceptor());
+		// 分页配置
+		interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));
+		return interceptor;
+	}
 }

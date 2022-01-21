@@ -8,5 +8,5 @@ package com.example.admin.commons.constant;
  */
 public class RedisConstant {
 
-    public static final String TOKEN_KEY ="token_key";
+	public static final String TOKEN_KEY = "token_key";
 }

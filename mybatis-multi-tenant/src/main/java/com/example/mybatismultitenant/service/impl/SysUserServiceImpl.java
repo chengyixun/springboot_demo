@@ -7,9 +7,9 @@ import com.example.mybatismultitenant.service.SysUserService;
 import org.springframework.stereotype.Service;
 
 /**
- * @ClassName: SysUserServiceImpl @Author: amy @Description: SysUserServiceImpl @Date:
- * 2021/10/12 @Version: 1.0
+ * @ClassName: SysUserServiceImpl @Author: amy @Description:
+ *             SysUserServiceImpl @Date: 2021/10/12 @Version: 1.0
  */
 @Service
-public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser>
-    implements SysUserService {}
+public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements SysUserService {
+}

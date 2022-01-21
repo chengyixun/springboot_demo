@@ -11,7 +11,7 @@ import com.example.es.dao.Dao;
  */
 public interface UpdateByParamDao<E> extends Dao {
 
-    int update(UpdateParam<E> var1);
+	int update(UpdateParam<E> var1);
 
-    int patch(UpdateParam<E> var1);
+	int patch(UpdateParam<E> var1);
 }

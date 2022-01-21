@@ -10,7 +10,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableAsync
 public class MybatisplusCrudApplication {
 
-  public static void main(String[] args) {
-    SpringApplication.run(MybatisplusCrudApplication.class, args);
-  }
+	public static void main(String[] args) {
+		SpringApplication.run(MybatisplusCrudApplication.class, args);
+	}
 }

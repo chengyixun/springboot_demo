@@ -10,7 +10,7 @@ import lombok.Data;
  */
 @Data
 public class PriceVO {
-  private Integer firstWeight;
-  private String firstPrice;
-  private AddPriceVO addPrice;
+	private Integer firstWeight;
+	private String firstPrice;
+	private AddPriceVO addPrice;
 }

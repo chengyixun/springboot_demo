@@ -10,6 +10,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public abstract class DeviceMaxIn {
 
-    DeviceMaxIn(@JsonProperty("name") String name) {
-    }
+	DeviceMaxIn(@JsonProperty("name") String name) {
+	}
 }

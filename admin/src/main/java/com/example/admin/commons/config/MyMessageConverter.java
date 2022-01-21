@@ -16,31 +16,29 @@ import java.lang.annotation.Annotation;
  */
 public class MyMessageConverter extends FastJsonHttpMessageConverter {
 
-    /**
-     * 表明只处理 没有 WriteNullListAsNull 注解的实体类
-     *
-     * @param clazz
-     * @return
-     */
-    @Override
-    protected boolean supports(Class<?> clazz) {
-        Annotation[] declaredAnnotations = clazz.getDeclaredAnnotations();
-        for (Annotation ann : declaredAnnotations) {
+	/**
+	 * 表明只处理 没有 WriteNullListAsNull 注解的实体类
+	 *
+	 * @param clazz
+	 * @return
+	 */
+	@Override
+	protected boolean supports(Class<?> clazz) {
+		Annotation[] declaredAnnotations = clazz.getDeclaredAnnotations();
+		for (Annotation ann : declaredAnnotations) {
 
-        }
-       clazz.getComponentType();
+		}
+		clazz.getComponentType();
 
-        WriteNullListAsNull annotation = clazz.getAnnotation(WriteNullListAsNull.class);
-        return null != annotation;
-    }
+		WriteNullListAsNull annotation = clazz.getAnnotation(WriteNullListAsNull.class);
+		return null != annotation;
+	}
 
+	@Override
+	protected Object readInternal(Class<?> clazz, HttpInputMessage inputMessage)
+			throws IOException, HttpMessageNotReadableException {
 
-    @Override
-    protected Object readInternal(Class<?> clazz, HttpInputMessage inputMessage) throws IOException, HttpMessageNotReadableException {
-
-
-        return super.readInternal(clazz, inputMessage);
-    }
-
+		return super.readInternal(clazz, inputMessage);
+	}
 
 }

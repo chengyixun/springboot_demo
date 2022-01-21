@@ -15,19 +15,18 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 public @interface AccessLogger {
 
+	/**
+	 * 日志值
+	 *
+	 * @return
+	 */
+	String value();
 
-    /**
-     * 日志值
-     *
-     * @return
-     */
-    String value();
-
-    /**
-     * 关闭日志 默认不关闭
-     *
-     * @return
-     */
-    boolean ignore() default false;
+	/**
+	 * 关闭日志 默认不关闭
+	 *
+	 * @return
+	 */
+	boolean ignore() default false;
 
 }

@@ -11,7 +11,7 @@ import com.example.sc.entity.User;
  * @Date: 2021/7/7
  * @Version: 1.0
  */
-public interface UserRepository extends JpaRepository<User,Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
-    User findByUsername(String username);
+	User findByUsername(String username);
 }

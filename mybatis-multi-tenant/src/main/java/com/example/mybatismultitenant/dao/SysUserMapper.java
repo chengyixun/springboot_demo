@@ -6,4 +6,5 @@ import com.example.mybatismultitenant.model.SysUser;
 /**
  * @author amy
  */
-public interface SysUserMapper extends BaseMapper<SysUser> {}
+public interface SysUserMapper extends BaseMapper<SysUser> {
+}

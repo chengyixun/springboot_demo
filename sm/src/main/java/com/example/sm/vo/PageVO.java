@@ -9,13 +9,13 @@ package com.example.sm.vo;
 
 public class PageVO {
 
-  private Integer pageNum;
-  private Integer pageSize;
-  private String orderBy;
+	private Integer pageNum;
+	private Integer pageSize;
+	private String orderBy;
 
-  public PageVO(Integer pageNum, Integer pageSize) {
-    this.pageNum = pageNum;
-    this.pageSize = pageSize;
-  }
+	public PageVO(Integer pageNum, Integer pageSize) {
+		this.pageNum = pageNum;
+		this.pageSize = pageSize;
+	}
 
 }

@@ -13,8 +13,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ClassUtilTest {
 
-    public static void main(String[] args) {
-        Entity annotation = ClassUtil.getAnnotation(VideoSlice.class, Entity.class);
-        System.out.println(annotation);
-    }
+	public static void main(String[] args) {
+		Entity annotation = ClassUtil.getAnnotation(VideoSlice.class, Entity.class);
+		System.out.println(annotation);
+	}
 }

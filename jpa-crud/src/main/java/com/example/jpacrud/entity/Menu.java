@@ -33,40 +33,43 @@ import javax.persistence.Table;
 @Table(name = "sys_menu")
 public class Menu extends BaseEntity {
 
-  @Id
-  @Column(name = "menu_id")
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+	@Id
+	@Column(name = "menu_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-  /* @JSONField(serialize = false)
-  @ManyToMany(mappedBy = "menus",fetch = FetchType.LAZY)
-  private Set<Role> roles; */
+	/*
+	 * @JSONField(serialize = false)
+	 * 
+	 * @ManyToMany(mappedBy = "menus",fetch = FetchType.LAZY) private Set<Role>
+	 * roles;
+	 */
 
-  private String title;
+	private String title;
 
-  private String name;
+	private String name;
 
-  private Integer menuSort = 999;
+	private Integer menuSort = 999;
 
-  private String component;
+	private String component;
 
-  private String path;
+	private String path;
 
-  private Integer type;
+	private Integer type;
 
-  private String permission;
+	private String permission;
 
-  private String icon;
+	private String icon;
 
-  @Column(columnDefinition = "bit(1) default 0")
-  private Boolean cache;
+	@Column(columnDefinition = "bit(1) default 0")
+	private Boolean cache;
 
-  @Column(columnDefinition = "bit(1) default 0")
-  private Boolean hidden;
+	@Column(columnDefinition = "bit(1) default 0")
+	private Boolean hidden;
 
-  private Long pid;
+	private Long pid;
 
-  private Integer subCount = 0;
+	private Integer subCount = 0;
 
-  private Boolean iFrame;
+	private Boolean iFrame;
 }

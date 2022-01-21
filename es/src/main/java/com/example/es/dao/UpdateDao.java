@@ -10,16 +10,16 @@ import java.util.List;
  */
 public interface UpdateDao<E, PK> extends Dao {
 
-    PK update(E var1);
+	PK update(E var1);
 
-    <S extends E> List<PK> update(Iterable<S> var1);
+	<S extends E> List<PK> update(Iterable<S> var1);
 
-    PK upsert(E var1);
+	PK upsert(E var1);
 
-    <S extends E> List<PK> upsert(Iterable<S> var1);
+	<S extends E> List<PK> upsert(Iterable<S> var1);
 
-    PK patch(E var1);
+	PK patch(E var1);
 
-    <S extends E> List<PK> patch(Iterable<S> var1);
+	<S extends E> List<PK> patch(Iterable<S> var1);
 
 }

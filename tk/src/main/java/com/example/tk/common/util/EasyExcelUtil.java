@@ -23,7 +23,6 @@ import java.util.List;
 @Slf4j
 public class EasyExcelUtil {
 
-
 	public static void exportWeb(HttpServletResponse response, String excelName, String sheetName, Class clazz,
 			List data) {
 		response.setContentType("application/vnd.ms-excel");
@@ -59,7 +58,7 @@ public class EasyExcelUtil {
 
 			ClassPathResource cpr = new ClassPathResource("/templates/" + inFileName);
 			inputStream = cpr.getInputStream();
-			//	inputStream = getClass().getResourceAsStream("/templates/" + inFileName);
+			// inputStream = getClass().getResourceAsStream("/templates/" + inFileName);
 			byte[] buff = new byte[1024];
 			int length;
 			while ((length = inputStream.read(buff)) != -1) {

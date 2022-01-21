@@ -8,32 +8,31 @@ import java.lang.annotation.*;
  * @Description:
  * @Modified By:
  */
-@Target({ElementType.METHOD, ElementType.TYPE})
+@Target({ ElementType.METHOD, ElementType.TYPE })
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
 @Documented
 public @interface Entity {
 
-    /**
-     * 索引名
-     *
-     * @return
-     */
-    String index();
+	/**
+	 * 索引名
+	 *
+	 * @return
+	 */
+	String index();
 
-    /**
-     * 类型
-     *
-     * @return
-     */
-    String type();
+	/**
+	 * 类型
+	 *
+	 * @return
+	 */
+	String type();
 
-    /**
-     * 别名
-     *
-     * @return
-     */
-    String alias();
-
+	/**
+	 * 别名
+	 *
+	 * @return
+	 */
+	String alias();
 
 }

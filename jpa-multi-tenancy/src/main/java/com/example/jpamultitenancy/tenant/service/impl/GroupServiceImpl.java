@@ -13,29 +13,30 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * @ClassName: GroupServiceImpl @Author: amy @Description: GroupServiceImpl @Date:
- * 2021/5/28 @Version: 1.0
+ * @ClassName: GroupServiceImpl @Author: amy @Description:
+ *             GroupServiceImpl @Date: 2021/5/28 @Version: 1.0
  */
 @Service
 @Slf4j
 public class GroupServiceImpl implements GroupService {
 
-  @Autowired private GroupRepository groupRepository;
+	@Autowired
+	private GroupRepository groupRepository;
 
-  @Override
-  public List<Group> getGroups() {
-    return groupRepository.findAll();
-  }
+	@Override
+	public List<Group> getGroups() {
+		return groupRepository.findAll();
+	}
 
-  @Override
- // @Cacheable(cacheNames = "group", key = "#id")
-  public Group getGroupById(Long id) {
-    return groupRepository.findById(id).orElseThrow(() -> Exceptions.NOT_FOUND());
-  }
+	@Override
+	// @Cacheable(cacheNames = "group", key = "#id")
+	public Group getGroupById(Long id) {
+		return groupRepository.findById(id).orElseThrow(() -> Exceptions.NOT_FOUND());
+	}
 
-  @Override
-  //@Cacheable(cacheNames = "groupMap")
-  public Map<Long, Group> getAllGroup() {
-    return groupRepository.findAll().stream().collect(Collectors.toMap(Group::getId, o -> o));
-  }
+	@Override
+	// @Cacheable(cacheNames = "groupMap")
+	public Map<Long, Group> getAllGroup() {
+		return groupRepository.findAll().stream().collect(Collectors.toMap(Group::getId, o -> o));
+	}
 }

@@ -10,4 +10,5 @@ import org.apache.ibatis.annotations.Mapper;
  * @date 7/15/21
  */
 @Mapper
-public interface ShopTabRepository extends BaseCrudRepository<ShopTabModel> {}
+public interface ShopTabRepository extends BaseCrudRepository<ShopTabModel> {
+}

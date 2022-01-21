@@ -15,7 +15,9 @@ import javax.persistence.TemporalType;
 import java.io.Serializable;
 import java.util.Date;
 
-/** @ClassName: Group @Author: amy @Description: 组 @Date: 2021/5/28 @Version: 1.0 */
+/**
+ * @ClassName: Group @Author: amy @Description: 组 @Date: 2021/5/28 @Version: 1.0
+ */
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,15 +25,15 @@ import java.util.Date;
 @Entity
 @Table(name = "biz_group")
 public class Group implements Serializable {
-  private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-  private String code;
-  private String name;
+	private String code;
+	private String name;
 
-  @Temporal(TemporalType.TIMESTAMP)
-  private Date updateTime;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date updateTime;
 }

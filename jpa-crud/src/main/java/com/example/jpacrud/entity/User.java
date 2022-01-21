@@ -38,22 +38,21 @@ import java.util.Set;
 @Table(name = "sys_user")
 public class User extends BaseEntity {
 
-  @Id
-  @Column(name = "user_id")
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+	@Id
+	@Column(name = "user_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-  @ManyToMany(fetch = FetchType.EAGER)
-  @JoinTable(
-      name = "sys_users_roles",
-      joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "user_id")},
-      inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "role_id")})
-  private Set<Role> roles;
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "sys_users_roles", joinColumns = {
+			@JoinColumn(name = "user_id", referencedColumnName = "user_id") }, inverseJoinColumns = {
+					@JoinColumn(name = "role_id", referencedColumnName = "role_id") })
+	private Set<Role> roles;
 
-  @Column(unique = true)
-  private String username;
+	@Column(unique = true)
+	private String username;
 
-  private String password;
+	private String password;
 
-  private String gender;
+	private String gender;
 }

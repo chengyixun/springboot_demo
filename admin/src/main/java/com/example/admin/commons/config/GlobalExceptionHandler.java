@@ -22,32 +22,29 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @RestControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
+	@ExceptionHandler(CheckException.class)
+	@ResponseStatus(HttpStatus.OK)
+	public HttpResult businessExceptionHandler(CheckException ce) {
+		String message = ce.getMessage();
+		int code = ce.getErrCode();
+		log.info("参数校验错误", message);
+		return HttpResult.fail(code, message);
+	}
 
-    @ExceptionHandler(CheckException.class)
-    @ResponseStatus(HttpStatus.OK)
-    public HttpResult businessExceptionHandler(CheckException ce) {
-        String message = ce.getMessage();
-        int code = ce.getErrCode();
-        log.info("参数校验错误", message);
-        return HttpResult.fail(code, message);
-    }
+	@ExceptionHandler(OperationException.class)
+	@ResponseStatus(HttpStatus.OK)
+	public HttpResult businessExceptionHandler(OperationException e) {
+		String message = e.getMessage();
+		int code = e.getErrCode();
+		log.error("业务操作错误", message);
+		return HttpResult.fail(code, message);
+	}
 
-    @ExceptionHandler(OperationException.class)
-    @ResponseStatus(HttpStatus.OK)
-    public HttpResult businessExceptionHandler(OperationException e) {
-        String message = e.getMessage();
-        int code = e.getErrCode();
-        log.error("业务操作错误", message);
-        return HttpResult.fail(code, message);
-    }
-
-
-    @ExceptionHandler(Exception.class)
-    public HttpResult exceptionHandler(Exception e) {
-        log.error("系统异常", e.getLocalizedMessage());
-        e.printStackTrace();
-        return HttpResult.fail(e.getLocalizedMessage());
-    }
-
+	@ExceptionHandler(Exception.class)
+	public HttpResult exceptionHandler(Exception e) {
+		log.error("系统异常", e.getLocalizedMessage());
+		e.printStackTrace();
+		return HttpResult.fail(e.getLocalizedMessage());
+	}
 
 }

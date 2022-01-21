@@ -14,9 +14,9 @@ import java.util.List;
 @Data
 public class CompanyVO {
 
-    private String id;
+	private String id;
 
-    private String name;
+	private String name;
 
-    private List<Integer> results;
+	private List<Integer> results;
 }

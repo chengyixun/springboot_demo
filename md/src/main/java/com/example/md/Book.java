@@ -18,11 +18,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Builder
 public class Book {
 
-    @Id
-    private String id;
+	@Id
+	private String id;
 
-    private String name;
+	private String name;
 
-    private String code;
+	private String code;
 
 }

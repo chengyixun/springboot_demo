@@ -14,6 +14,6 @@ import java.util.List;
  */
 public interface BookSecondDao extends JpaRepository<Book, Long> {
 
-    List<Book> findAllByUsername(String username);
+	List<Book> findAllByUsername(String username);
 
 }

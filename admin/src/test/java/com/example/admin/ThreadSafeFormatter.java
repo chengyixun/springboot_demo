@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
  */
 public class ThreadSafeFormatter {
 
-    public static ThreadLocal<SimpleDateFormat> dateFormatThreadLocal
-            = ThreadLocal.withInitial(() -> new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
+	public static ThreadLocal<SimpleDateFormat> dateFormatThreadLocal = ThreadLocal
+			.withInitial(() -> new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
 
 }

@@ -8,32 +8,31 @@ package com.example.admin.commons.exception;
  */
 public class OperationException extends RuntimeException {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * 错误code
-     */
-    private int errCode = 500;
+	/**
+	 * 错误code
+	 */
+	private int errCode = 500;
 
-    public OperationException(String message) {
-        super(message);
-    }
+	public OperationException(String message) {
+		super(message);
+	}
 
-    public OperationException(String message, int code) {
-        super(message);
-        this.errCode = code;
-    }
+	public OperationException(String message, int code) {
+		super(message);
+		this.errCode = code;
+	}
 
-    public OperationException(Throwable cause) {
-        super(cause);
-    }
+	public OperationException(Throwable cause) {
+		super(cause);
+	}
 
-    public OperationException(String message, Throwable cause) {
-        super(message, cause);
-    }
+	public OperationException(String message, Throwable cause) {
+		super(message, cause);
+	}
 
-
-    public int getErrCode() {
-        return errCode;
-    }
+	public int getErrCode() {
+		return errCode;
+	}
 }

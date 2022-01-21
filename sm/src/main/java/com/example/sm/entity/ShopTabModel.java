@@ -11,12 +11,10 @@ import javax.persistence.Table;
 @Table(name = "biz_shop_tab")
 public class ShopTabModel extends BaseModel {
 
-    /** 店铺ID */
-    private Long shopId;
+	/** 店铺ID */
+	private Long shopId;
 
-    /** 店铺导航标签页ID */
-    private Long tabId;
-
-
+	/** 店铺导航标签页ID */
+	private Long tabId;
 
 }

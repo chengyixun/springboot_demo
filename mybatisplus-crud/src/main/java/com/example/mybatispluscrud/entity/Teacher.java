@@ -22,10 +22,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Teacher {
 
-    @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+	@TableId(value = "id", type = IdType.AUTO)
+	private Long id;
 
-    private String name;
+	private String name;
 
-    private Integer age;
+	private Integer age;
 }

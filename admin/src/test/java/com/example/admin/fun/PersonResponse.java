@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 public class PersonResponse {
 
-    private String personId;
+	private String personId;
 
-    private List<Support> supportList;
+	private List<Support> supportList;
 }

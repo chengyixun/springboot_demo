@@ -13,39 +13,36 @@ import lombok.Data;
  */
 @Data
 public class Device {
-    private String id;
+	private String id;
 
-    private String name;
+	private String name;
 
-    private String code;
+	private String code;
 
-    Device(String name) {
-        this.name = name;
-    }
+	Device(String name) {
+		this.name = name;
+	}
 
-    public static void main(String[] args) throws JsonProcessingException {
-        Device device = new Device("Mpxxxx");
-        device.setId("111");
-        device.setCode("333");
+	public static void main(String[] args) throws JsonProcessingException {
+		Device device = new Device("Mpxxxx");
+		device.setId("111");
+		device.setCode("333");
 
-        String string = device.toString();
-        System.out.println(string);
+		String string = device.toString();
+		System.out.println(string);
 
-        //@JsonProperty 搭配jackson  @JSONField 搭配fastJson
+		// @JsonProperty 搭配jackson @JSONField 搭配fastJson
 //        Device device1 = JSONObject.parseObject(string, Device.class);
 //        System.out.println(device1);
 
+		ObjectMapper objectMapper = new ObjectMapper();
+		String value = objectMapper.writeValueAsString(device);
+		System.out.println("对象转为字符串：" + value);
 
-        ObjectMapper objectMapper = new ObjectMapper();
-        String value = objectMapper.writeValueAsString(device);
-        System.out.println("对象转为字符串：" + value);
+		// device没有无参构造器，通过 定义 抽象类 DeviceMaxIn
+		objectMapper.addMixIn(Device.class, DeviceMaxIn.class);
+		Device readValue = objectMapper.readValue(value, Device.class);
+		System.out.println("JSON字符串转为对象：" + readValue);
 
-        //device没有无参构造器，通过 定义 抽象类 DeviceMaxIn
-        objectMapper.addMixIn(Device.class, DeviceMaxIn.class);
-        Device readValue = objectMapper.readValue(value, Device.class);
-        System.out.println("JSON字符串转为对象：" + readValue);
-
-
-
-    }
+	}
 }

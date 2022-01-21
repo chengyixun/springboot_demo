@@ -9,17 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/** @ClassName: LogoutSuccessHandlerImpl @Author: amy @Description: @Date: 2021/7/6 @Version: 1.0 */
+/**
+ * @ClassName: LogoutSuccessHandlerImpl @Author: amy @Description: @Date:
+ *             2021/7/6 @Version: 1.0
+ */
 @Configuration
 public class LogoutSuccessHandlerImpl implements LogoutSuccessHandler {
 
-  @Override
-  public void onLogoutSuccess(
-      HttpServletRequest httpServletRequest,
-      HttpServletResponse httpServletResponse,
-      Authentication authentication)
-      throws IOException, ServletException {
+	@Override
+	public void onLogoutSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
+			Authentication authentication) throws IOException, ServletException {
 
-
-  }
+	}
 }

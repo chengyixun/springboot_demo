@@ -26,48 +26,37 @@ import java.io.IOException;
 @Slf4j
 public class ArticleTest {
 
-    @Autowired
-    private JestClient jestClient;
+	@Autowired
+	private JestClient jestClient;
 
-    @Test
-    public void test() {
-        Article article = Article.builder()
-                .id(2L)
-                .author("xxx")
-                .content("swduieuef")
-                .summary("sum")
-                .pv(100L)
-                .build();
-        Index index = new Index.Builder(article).index("blog").type("article").build();
-        try {
-            DocumentResult execute = jestClient.execute(index);
-            String id = execute.getId();
-            System.out.println("id:" + id);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+	@Test
+	public void test() {
+		Article article = Article.builder().id(2L).author("xxx").content("swduieuef").summary("sum").pv(100L).build();
+		Index index = new Index.Builder(article).index("blog").type("article").build();
+		try {
+			DocumentResult execute = jestClient.execute(index);
+			String id = execute.getId();
+			System.out.println("id:" + id);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
+	}
 
-    }
+	@Test
+	public void testSearch() {
 
-    @Test
-    public void testSearch(){
+		String json = "{\n" + "    \"query\" : {\n" + "        \"match\" : {\n"
+				+ "            \"content\" : \"spring\"\n" + "        }\n" + "    }\n" + "}";
 
-        String json = "{\n" + "    \"query\" : {\n" + "        \"match\" : {\n"
-                + "            \"content\" : \"spring\"\n" + "        }\n"
-                + "    }\n" + "}";
-
-        //构建搜索
-        Search search = new Search.Builder(json).addIndex("blog").addType("article").build();
-        try {
-            SearchResult result = jestClient.execute(search);
-            System.out.println(result.getJsonString());
-        } catch(IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-
+		// 构建搜索
+		Search search = new Search.Builder(json).addIndex("blog").addType("article").build();
+		try {
+			SearchResult result = jestClient.execute(search);
+			System.out.println(result.getJsonString());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 }

@@ -13,10 +13,10 @@ import lombok.Data;
  */
 @Data
 @Entity(index = "viid", type = "videoSlice", alias = "viid")
-public class VideoSlice  {
+public class VideoSlice {
 
-    @JestId
-    private String id;
+	@JestId
+	private String id;
 
-    private String code;
+	private String code;
 }

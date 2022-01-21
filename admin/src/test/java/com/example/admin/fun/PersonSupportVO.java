@@ -14,9 +14,9 @@ import lombok.Data;
 @Builder
 public class PersonSupportVO {
 
-    private String personId;
+	private String personId;
 
-    private String supportDate;
+	private String supportDate;
 
-    private String supportUnitId;
+	private String supportUnitId;
 }

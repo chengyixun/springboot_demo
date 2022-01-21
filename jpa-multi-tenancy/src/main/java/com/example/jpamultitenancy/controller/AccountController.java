@@ -14,21 +14,22 @@ import com.example.jpamultitenancy.tenant.entity.Account;
 import com.example.jpamultitenancy.tenant.service.AccountService;
 
 /**
- * @ClassName: AccountController @Author: amy @Description: AccountController @Date:
- * 2021/6/28 @Version: 1.0
+ * @ClassName: AccountController @Author: amy @Description:
+ *             AccountController @Date: 2021/6/28 @Version: 1.0
  */
 @RestController()
 @RequestMapping("/api/account")
 public class AccountController {
-  @Autowired private AccountService accountService;
+	@Autowired
+	private AccountService accountService;
 
-  @PostMapping
-  public void create(@RequestBody Account account) {
-    accountService.create(account);
-  }
+	@PostMapping
+	public void create(@RequestBody Account account) {
+		accountService.create(account);
+	}
 
-  @GetMapping
-  public ResponseEntity<Account> query(@RequestParam Long accountId) {
-    return new ResponseEntity<>(accountService.findById(accountId), HttpStatus.OK);
-  }
+	@GetMapping
+	public ResponseEntity<Account> query(@RequestParam Long accountId) {
+		return new ResponseEntity<>(accountService.findById(accountId), HttpStatus.OK);
+	}
 }

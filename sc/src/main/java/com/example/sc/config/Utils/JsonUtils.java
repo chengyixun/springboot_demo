@@ -1,6 +1,5 @@
 package com.example.sc.config.Utils;
 
-
 import com.example.sc.config.exception.Exceptions;
 import com.example.sc.config.exception.ServerException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -68,7 +67,7 @@ public class JsonUtils {
 	public static JsonNode from(String content, boolean... isCompressed) {
 		try {
 			if (isCompressed.length > 0 && isCompressed[0]) {
-				String s ="";
+				String s = "";
 				return INSTANCE.mapper.readTree(s);
 			}
 			return INSTANCE.mapper.readTree(content);
@@ -233,7 +232,7 @@ public class JsonUtils {
 		return map;
 	}
 
-	public static JsonNode error(int code,String message) {
+	public static JsonNode error(int code, String message) {
 		ObjectNode result = JsonUtils.object().put("success", false);
 		ObjectNode error = JsonUtils.object().put("code", code);
 		error.put("message", message);

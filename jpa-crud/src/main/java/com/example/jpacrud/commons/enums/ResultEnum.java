@@ -15,38 +15,37 @@ import java.util.EnumSet;
  * @date 10/7/21
  */
 public enum ResultEnum {
-  SUCCESS("success"),
-  ERROR("error"),
-  OTHER("other");
+	SUCCESS("success"), ERROR("error"), OTHER("other");
 
-  /** 返回值详情 */
-  private String message;
+	/** 返回值详情 */
+	private String message;
 
-  private MessageSource messageSource;
+	private MessageSource messageSource;
 
-  ResultEnum(String message) {
-    this.message = message;
-  }
+	ResultEnum(String message) {
+		this.message = message;
+	}
 
-  public ResultEnum setMessageSource(MessageSource messageSource) {
-    this.messageSource = messageSource;
-    return this;
-  }
+	public ResultEnum setMessageSource(MessageSource messageSource) {
+		this.messageSource = messageSource;
+		return this;
+	}
 
-  @Component
-  public static class ReportTypeServiceInjector {
+	@Component
+	public static class ReportTypeServiceInjector {
 
-    @Autowired private MessageSource messageSource;
+		@Autowired
+		private MessageSource messageSource;
 
-    @PostConstruct
-    public void init() {
-      for (ResultEnum re : EnumSet.allOf(ResultEnum.class)) {
-        re.setMessageSource(messageSource);
-      }
-    }
-  }
+		@PostConstruct
+		public void init() {
+			for (ResultEnum re : EnumSet.allOf(ResultEnum.class)) {
+				re.setMessageSource(messageSource);
+			}
+		}
+	}
 
-  public String getMessage() {
-    return messageSource.getMessage(message, null, LocaleContextHolder.getLocale());
-  }
+	public String getMessage() {
+		return messageSource.getMessage(message, null, LocaleContextHolder.getLocale());
+	}
 }

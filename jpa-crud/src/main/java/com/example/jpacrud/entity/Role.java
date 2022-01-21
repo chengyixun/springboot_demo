@@ -40,28 +40,30 @@ import java.util.Set;
 @Table(name = "sys_role")
 public class Role extends BaseEntity {
 
-  @Id
-  @Column(name = "role_id")
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+	@Id
+	@Column(name = "role_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-  /* @JSONField(serialize = false)
-  @ManyToMany(mappedBy = "roles",fetch = FetchType.LAZY)
-  private Set<User> users; */
+	/*
+	 * @JSONField(serialize = false)
+	 * 
+	 * @ManyToMany(mappedBy = "roles",fetch = FetchType.LAZY) private Set<User>
+	 * users;
+	 */
 
-  @ManyToMany(fetch = FetchType.EAGER)
-  @JoinTable(
-      name = "sys_roles_menus",
-      joinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "role_id")},
-      inverseJoinColumns = {@JoinColumn(name = "menu_id", referencedColumnName = "menu_id")})
-  private Set<Menu> menus;
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "sys_roles_menus", joinColumns = {
+			@JoinColumn(name = "role_id", referencedColumnName = "role_id") }, inverseJoinColumns = {
+					@JoinColumn(name = "menu_id", referencedColumnName = "menu_id") })
+	private Set<Menu> menus;
 
-  private String name;
+	private String name;
 
-  private String dataScope;
+	private String dataScope;
 
-  @Column(name = "level")
-  private Integer level = 3;
+	@Column(name = "level")
+	private Integer level = 3;
 
-  private String description;
+	private String description;
 }

@@ -281,10 +281,8 @@ public class ExcelUtil {
 	 * @param headers  header list
 	 * @param fileName file name
 	 */
-	public static void writeExcel(@NotNull HttpServletResponse response,
-								  @NotNull Map<String, List<String>> dataList,
-								  @NotNull List<String> headers,
-								  @NotNull String fileName) {
+	public static void writeExcel(@NotNull HttpServletResponse response, @NotNull Map<String, List<String>> dataList,
+			@NotNull List<String> headers, @NotNull String fileName) {
 		Workbook wb = getWorkbookWithHeaders(dataList, headers);
 		// 浏览器下载excel
 		buildExcelDocument(fileName, wb, response);

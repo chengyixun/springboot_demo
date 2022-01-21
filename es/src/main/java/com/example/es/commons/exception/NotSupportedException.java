@@ -10,11 +10,11 @@ import com.example.base.commons.exception.CommonException;
  */
 public class NotSupportedException extends CommonException {
 
-    public NotSupportedException() {
-        super("Error occurred in bean mapper");
-    }
+	public NotSupportedException() {
+		super("Error occurred in bean mapper");
+	}
 
-    public NotSupportedException(String message) {
-        super(message);
-    }
+	public NotSupportedException(String message) {
+		super(message);
+	}
 }

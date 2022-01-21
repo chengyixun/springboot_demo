@@ -8,6 +8,6 @@ package com.example.es.dao;
  */
 public interface QueryDao<E, PK> extends Dao {
 
-    E findOne(PK var1);
+	E findOne(PK var1);
 
 }

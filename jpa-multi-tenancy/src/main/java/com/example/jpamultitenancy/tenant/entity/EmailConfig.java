@@ -35,17 +35,22 @@ import java.io.Serializable;
 @Table(name = "tool_email_config")
 public class EmailConfig implements Serializable {
 
-  @Id
-  @Column(name = "config_id")
-  private Long id;
+	@Id
+	@Column(name = "config_id")
+	private Long id;
 
-  @NotBlank private String host;
+	@NotBlank
+	private String host;
 
-  @NotBlank private String port;
+	@NotBlank
+	private String port;
 
-  @NotBlank private String user;
+	@NotBlank
+	private String user;
 
-  @NotBlank private String pass;
+	@NotBlank
+	private String pass;
 
-  @NotBlank private String fromUser;
+	@NotBlank
+	private String fromUser;
 }

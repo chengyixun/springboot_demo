@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface InsertDao<E, PK> extends Dao {
 
-    PK insert(E var1);
+	PK insert(E var1);
 
-    <S extends E> List<PK> insert(Iterable<S> var1);
+	<S extends E> List<PK> insert(Iterable<S> var1);
 }

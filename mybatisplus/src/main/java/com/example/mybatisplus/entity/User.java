@@ -15,33 +15,33 @@ import java.util.Date;
 @TableName(value = "sys_user")
 public class User {
 
-  private Long id;
+	private Long id;
 
-  private String name;
+	private String name;
 
-  private String nickName;
+	private String nickName;
 
-  private String avatar;
+	private String avatar;
 
-  private String password;
+	private String password;
 
-  private String salt;
+	private String salt;
 
-  private String email;
+	private String email;
 
-  private String mobile;
+	private String mobile;
 
-  private Byte status;
+	private Byte status;
 
-  private Long deptId;
+	private Long deptId;
 
-  private String createBy;
+	private String createBy;
 
-  private Date createTime;
+	private Date createTime;
 
-  private String lastUpdateBy;
+	private String lastUpdateBy;
 
-  private Date lastUpdateTime;
+	private Date lastUpdateTime;
 
-  private Byte delFlag;
+	private Byte delFlag;
 }

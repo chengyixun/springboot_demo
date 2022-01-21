@@ -12,11 +12,11 @@ import com.example.mybatispluscrud.entity.Employee;
  */
 public interface EmployeeService extends IService<Employee> {
 
-    void delAndSave(Employee employee);
+	void delAndSave(Employee employee);
 
-    void queryAndSave(Employee employee);
+	void queryAndSave(Employee employee);
 
-    void testNoTRequestHasT();
+	void testNoTRequestHasT();
 
-    void updateById(Long id);
+	void updateById(Long id);
 }

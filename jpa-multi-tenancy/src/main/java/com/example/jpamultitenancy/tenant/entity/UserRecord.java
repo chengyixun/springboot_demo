@@ -11,7 +11,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/** @ClassName: UserRecord @Author: amy @Description: UserRecord @Date: 2021/5/25 @Version: 1.0 */
+/**
+ * @ClassName: UserRecord @Author: amy @Description: UserRecord @Date:
+ *             2021/5/25 @Version: 1.0
+ */
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,13 +22,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "biz_user_record")
 public class UserRecord {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-  private String username;
+	private String username;
 
-  private Long offlineNum;
+	private Long offlineNum;
 
-  private Long onlineNum;
+	private Long onlineNum;
 }

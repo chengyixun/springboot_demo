@@ -26,7 +26,8 @@ public class MongoDbService {
 
 	@Test
 	public void testInsert() {
-		//Book save = mongoTemplate.save(Book.builder().id("1").name("name").code("code111").build());
+		// Book save =
+		// mongoTemplate.save(Book.builder().id("1").name("name").code("code111").build());
 		List<Task> tasks = mongoTemplate.find(new Query(), Task.class);
 
 		System.out.println(tasks);

@@ -6,14 +6,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 /**
- * @ClassName: MybatisplusApplication @Author: amy @Description: MybatisplusApplication @Date:
- * 2021/8/21 @Version: 1.0
+ * @ClassName: MybatisplusApplication @Author: amy @Description:
+ *             MybatisplusApplication @Date: 2021/8/21 @Version: 1.0
  */
 
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })
 @MapperScan(basePackages = "com.example.mybatisplus.mapper")
 public class MybatisplusApplication {
-  public static void main(String[] args) {
-    SpringApplication.run(MybatisplusApplication.class, args);
-  }
+	public static void main(String[] args) {
+		SpringApplication.run(MybatisplusApplication.class, args);
+	}
 }

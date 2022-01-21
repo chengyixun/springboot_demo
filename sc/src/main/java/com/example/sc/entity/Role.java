@@ -21,7 +21,7 @@ import java.util.Set;
 /**
  * @ClassName: Role
  * @Author: amy
- * @Description: 角色 简单考虑下  人员/角色/部门 以及登陆这块 写个demo
+ * @Description: 角色 简单考虑下 人员/角色/部门 以及登陆这块 写个demo
  * @Date: 2021/5/26
  * @Version: 1.0
  */
@@ -41,14 +41,12 @@ public class Role {
 
 	private String description;
 
-	@ManyToMany(mappedBy = "roles",cascade=CascadeType.ALL)
+	@ManyToMany(mappedBy = "roles", cascade = CascadeType.ALL)
 	private Set<User> users;
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(name = "sys_roles_menus",
-			joinColumns = {@JoinColumn(name = "role_id")},
-			inverseJoinColumns = {@JoinColumn(name = "menu_id")})
+	@JoinTable(name = "sys_roles_menus", joinColumns = { @JoinColumn(name = "role_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "menu_id") })
 	private Set<Menu> menus;
-
 
 }

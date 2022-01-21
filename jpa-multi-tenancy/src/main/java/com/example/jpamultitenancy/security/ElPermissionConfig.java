@@ -11,16 +11,16 @@ import java.util.Set;
 import static com.example.jpamultitenancy.common.constant.JWTConstants.SUPER_ADMIN;
 
 /**
- * @ClassName: ElPermissionConfig @Author: amy @Description: ElPermissionConfig @Date:
- * 2021/7/8 @Version: 1.0
+ * @ClassName: ElPermissionConfig @Author: amy @Description:
+ *             ElPermissionConfig @Date: 2021/7/8 @Version: 1.0
  */
 @Service(value = "el")
 public class ElPermissionConfig {
 
-  public Boolean check(String... permission) {
-    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-    LoginUser loginUser = (LoginUser) authentication.getPrincipal();
-    Set<String> roles = loginUser.getRoles();
-    return roles.contains(SUPER_ADMIN) || roles.contains(permission);
-  }
+	public Boolean check(String... permission) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		LoginUser loginUser = (LoginUser) authentication.getPrincipal();
+		Set<String> roles = loginUser.getRoles();
+		return roles.contains(SUPER_ADMIN) || roles.contains(permission);
+	}
 }

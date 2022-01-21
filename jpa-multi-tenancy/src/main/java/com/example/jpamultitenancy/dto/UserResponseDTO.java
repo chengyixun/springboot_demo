@@ -16,11 +16,11 @@ import java.util.List;
 @Builder
 public class UserResponseDTO {
 
-  private String token;
+	private String token;
 
-  private String username;
+	private String username;
 
-  private String password;
+	private String password;
 
-  private List<GrantedAuthority> authorities;
+	private List<GrantedAuthority> authorities;
 }

@@ -46,9 +46,8 @@ public class User extends BaseEntity {
 	private String tenant;
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(name = "sys_users_roles",
-			joinColumns = { @JoinColumn(name = "user_id") },
-			inverseJoinColumns = {@JoinColumn(name = "role_id") })
+	@JoinTable(name = "sys_users_roles", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "role_id") })
 	private Set<Role> roles;
 
 }

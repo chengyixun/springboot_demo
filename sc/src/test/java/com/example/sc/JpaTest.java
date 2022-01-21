@@ -19,13 +19,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 public class JpaTest {
 
-    @Autowired
-    private UserRepository userRepository;
+	@Autowired
+	private UserRepository userRepository;
 
-    @Test
-    public void test1(){
+	@Test
+	public void test1() {
 
-        User user = userRepository.findByUsername("test1");
-        System.out.println(user);
-    }
+		User user = userRepository.findByUsername("test1");
+		System.out.println(user);
+	}
 }

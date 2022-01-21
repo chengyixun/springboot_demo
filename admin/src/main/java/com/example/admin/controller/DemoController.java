@@ -21,21 +21,19 @@ import org.springframework.web.bind.annotation.RestController;
 @AccessLogger(value = "demo", describe = "demoController")
 public class DemoController {
 
-    @Autowired
-    private RedisDistributedLockService lockService;
+	@Autowired
+	private RedisDistributedLockService lockService;
 
-    @GetMapping("/test")
-    @AccessLogger("query")
-    public void testLock() {
-        lockService.testLog();
-    }
+	@GetMapping("/test")
+	@AccessLogger("query")
+	public void testLock() {
+		lockService.testLog();
+	}
 
-
-    @GetMapping("/log/{id}/{code}")
-    @AccessLogger(value = "test_accesslog_query", describe = "testAccessLogMethod")
-    public void testAccessLog(@PathVariable Integer id,
-                              @PathVariable String code) {
-        log.info("=====accessLog====== id:{},code:{}", id, code);
-    }
+	@GetMapping("/log/{id}/{code}")
+	@AccessLogger(value = "test_accesslog_query", describe = "testAccessLogMethod")
+	public void testAccessLog(@PathVariable Integer id, @PathVariable String code) {
+		log.info("=====accessLog====== id:{},code:{}", id, code);
+	}
 
 }

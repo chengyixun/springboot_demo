@@ -8,7 +8,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/** @ClassName: Student @Author: amy @Description: Student @Date: 2021/11/12 @Version: 1.0 */
+/**
+ * @ClassName: Student @Author: amy @Description: Student @Date:
+ *             2021/11/12 @Version: 1.0
+ */
 @Data
 @TableName(value = "biz_student")
 @Builder
@@ -16,10 +19,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Student {
 
-  @TableId(value = "id", type = IdType.AUTO)
-  private Long id;
+	@TableId(value = "id", type = IdType.AUTO)
+	private Long id;
 
-  private Long teacherId;
+	private Long teacherId;
 
-  private String name;
+	private String name;
 }

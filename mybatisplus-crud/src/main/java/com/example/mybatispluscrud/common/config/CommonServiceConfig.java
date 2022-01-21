@@ -11,6 +11,6 @@ import org.springframework.stereotype.Component;
 @Component
 @ConfigurationProperties(prefix = "mpc.common")
 public class CommonServiceConfig {
-  /** 算法云服务 */
-  private String algorithmCloudUrl;
+	/** 算法云服务 */
+	private String algorithmCloudUrl;
 }

@@ -24,94 +24,89 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 /**
- * @ClassName: MasterDatabaseConfig @Author: amy @Description: MasterDatabaseConfig @Date:
- * 2021/7/4 @Version: 1.0
+ * @ClassName: MasterDatabaseConfig @Author: amy @Description:
+ *             MasterDatabaseConfig @Date: 2021/7/4 @Version: 1.0
  */
 @Configuration
 @Slf4j
 @EnableTransactionManagement
-@EnableJpaRepositories(
-    basePackages = {
-      "com.example.jpamultitenancy.master.entity",
-      "com.example.jpamultitenancy.master.repository"
-    },
-    entityManagerFactoryRef = "masterEntityManagerFactory",
-    transactionManagerRef = "masterTransactionManager")
+@EnableJpaRepositories(basePackages = { "com.example.jpamultitenancy.master.entity",
+		"com.example.jpamultitenancy.master.repository" }, entityManagerFactoryRef = "masterEntityManagerFactory", transactionManagerRef = "masterTransactionManager")
 public class MasterDatabaseConfig {
 
-  @Autowired private JpaProperties jpaProperties;
-  @Autowired private MasterDatabaseProperties dataSourceProperties;
+	@Autowired
+	private JpaProperties jpaProperties;
+	@Autowired
+	private MasterDatabaseProperties dataSourceProperties;
 
-  @Bean(name = "masterDataSource")
-  public DataSource masterDataSource() {
-    HikariDataSource dataSource = new HikariDataSource();
-    dataSource.setJdbcUrl(dataSourceProperties.getUrl());
-    dataSource.setDriverClassName(dataSourceProperties.getDriverClassName());
-    dataSource.setUsername(dataSourceProperties.getUsername());
-    dataSource.setPassword(dataSourceProperties.getPassword());
-    dataSource.setPoolName(dataSourceProperties.getPoolName());
-    dataSource.setMaximumPoolSize(dataSourceProperties.getMaxPoolSize());
-    dataSource.setMinimumIdle(dataSourceProperties.getMinIdle());
-    dataSource.setConnectionTimeout(dataSourceProperties.getConnectionTimeout());
-    dataSource.setIdleTimeout(dataSourceProperties.getIdleTimeout());
-    log.info("Setup of masterDatasource successfully.");
-    return dataSource;
-  }
+	@Bean(name = "masterDataSource")
+	public DataSource masterDataSource() {
+		HikariDataSource dataSource = new HikariDataSource();
+		dataSource.setJdbcUrl(dataSourceProperties.getUrl());
+		dataSource.setDriverClassName(dataSourceProperties.getDriverClassName());
+		dataSource.setUsername(dataSourceProperties.getUsername());
+		dataSource.setPassword(dataSourceProperties.getPassword());
+		dataSource.setPoolName(dataSourceProperties.getPoolName());
+		dataSource.setMaximumPoolSize(dataSourceProperties.getMaxPoolSize());
+		dataSource.setMinimumIdle(dataSourceProperties.getMinIdle());
+		dataSource.setConnectionTimeout(dataSourceProperties.getConnectionTimeout());
+		dataSource.setIdleTimeout(dataSourceProperties.getIdleTimeout());
+		log.info("Setup of masterDatasource successfully.");
+		return dataSource;
+	}
 
-  /**
-   * 配置实体管理器
-   *
-   * @return
-   */
-  @Primary
-  @Bean(name = "masterEntityManagerFactory")
-  public LocalContainerEntityManagerFactoryBean masterEntityManagerFactory() {
-    LocalContainerEntityManagerFactoryBean lb = new LocalContainerEntityManagerFactoryBean();
-    // 注入数据源
-    lb.setDataSource(masterDataSource());
-    // 设置扫描基本包
-    lb.setPackagesToScan(
-        new String[] {
-          MasterTenant.class.getPackage().getName(),
-          MasterTenantRepository.class.getPackage().getName()
-        });
-    // Setting a name for the persistence unit as Spring sets it as 'default' if not defined.
-    lb.setPersistenceUnitName("master-database-persistence-unit");
+	/**
+	 * 配置实体管理器
+	 *
+	 * @return
+	 */
+	@Primary
+	@Bean(name = "masterEntityManagerFactory")
+	public LocalContainerEntityManagerFactoryBean masterEntityManagerFactory() {
+		LocalContainerEntityManagerFactoryBean lb = new LocalContainerEntityManagerFactoryBean();
+		// 注入数据源
+		lb.setDataSource(masterDataSource());
+		// 设置扫描基本包
+		lb.setPackagesToScan(new String[] { MasterTenant.class.getPackage().getName(),
+				MasterTenantRepository.class.getPackage().getName() });
+		// Setting a name for the persistence unit as Spring sets it as 'default' if not
+		// defined.
+		lb.setPersistenceUnitName("master-database-persistence-unit");
 
-    // 注入jpa厂商适配器
-    // Setting Hibernate as the JPA provider.
-    JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-    lb.setJpaVendorAdapter(vendorAdapter);
+		// 注入jpa厂商适配器
+		// Setting Hibernate as the JPA provider.
+		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+		lb.setJpaVendorAdapter(vendorAdapter);
 
-    // Setting the hibernate properties
-    lb.setJpaProperties(hibernateProperties());
+		// Setting the hibernate properties
+		lb.setJpaProperties(hibernateProperties());
 
-    log.info("Setup of masterEntityManagerFactory successfully.");
+		log.info("Setup of masterEntityManagerFactory successfully.");
 
-    return lb;
-  }
+		return lb;
+	}
 
-  // 配置jpa事务管理器
-  @Bean(name = "masterTransactionManager")
-  public JpaTransactionManager masterTransactionManager(
-      @Qualifier("masterEntityManagerFactory") EntityManagerFactory emf) {
-    JpaTransactionManager transactionManager = new JpaTransactionManager();
-    transactionManager.setEntityManagerFactory(emf);
-    log.info("Setup of masterTransactionManager successfully.");
-    return transactionManager;
-  }
+	// 配置jpa事务管理器
+	@Bean(name = "masterTransactionManager")
+	public JpaTransactionManager masterTransactionManager(
+			@Qualifier("masterEntityManagerFactory") EntityManagerFactory emf) {
+		JpaTransactionManager transactionManager = new JpaTransactionManager();
+		transactionManager.setEntityManagerFactory(emf);
+		log.info("Setup of masterTransactionManager successfully.");
+		return transactionManager;
+	}
 
-  @Bean
-  public PersistenceExceptionTranslationPostProcessor exceptionTranslationPostProcessor() {
-    return new PersistenceExceptionTranslationPostProcessor();
-  }
+	@Bean
+	public PersistenceExceptionTranslationPostProcessor exceptionTranslationPostProcessor() {
+		return new PersistenceExceptionTranslationPostProcessor();
+	}
 
-  private Properties hibernateProperties() {
-    Properties properties = new Properties();
-    properties.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
-    properties.put(Environment.SHOW_SQL, true);
-    properties.put(Environment.FORMAT_SQL, true);
-    properties.put(Environment.HBM2DDL_AUTO, "update");
-    return properties;
-  }
+	private Properties hibernateProperties() {
+		Properties properties = new Properties();
+		properties.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
+		properties.put(Environment.SHOW_SQL, true);
+		properties.put(Environment.FORMAT_SQL, true);
+		properties.put(Environment.HBM2DDL_AUTO, "update");
+		return properties;
+	}
 }

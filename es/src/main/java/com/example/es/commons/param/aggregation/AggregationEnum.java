@@ -10,14 +10,9 @@ import lombok.Getter;
  */
 @Getter
 public enum AggregationEnum {
-    SUM,
-    COUNT,
-    AVG,
-    MAX,
-    MIN,
-    STATS;
+	SUM, COUNT, AVG, MAX, MIN, STATS;
 
-    private AggregationEnum() {
+	private AggregationEnum() {
 
-    }
+	}
 }

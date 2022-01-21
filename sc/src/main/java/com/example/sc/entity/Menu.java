@@ -39,7 +39,7 @@ public class Menu extends BaseEntity {
 	 */
 	private Long pid;
 
-	@ManyToMany(mappedBy = "menus",cascade= CascadeType.ALL)
+	@ManyToMany(mappedBy = "menus", cascade = CascadeType.ALL)
 	private Set<Role> roles;
 
 	/**

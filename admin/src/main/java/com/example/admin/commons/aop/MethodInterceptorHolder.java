@@ -24,48 +24,43 @@ import java.util.Objects;
 @Builder
 public class MethodInterceptorHolder {
 
-    public static final ParameterNameDiscoverer NAME_DISCOVERER = new LocalVariableTableParameterNameDiscoverer();
-    private String id;
-    private Method method;
-    private Object target;
-    private Map<String, Object> args;
+	public static final ParameterNameDiscoverer NAME_DISCOVERER = new LocalVariableTableParameterNameDiscoverer();
+	private String id;
+	private Method method;
+	private Object target;
+	private Map<String, Object> args;
 
+	public MethodInterceptorHolder(String id, Method method, Object target, Map<String, Object> args) {
+		Objects.requireNonNull(id);
+		Objects.requireNonNull(id);
+		Objects.requireNonNull(method);
+		Objects.requireNonNull(target);
+		Objects.requireNonNull(args);
+		this.id = id;
+		this.method = method;
+		this.target = target;
+		this.args = args;
+	}
 
-    public MethodInterceptorHolder(String id, Method method, Object target, Map<String, Object> args) {
-        Objects.requireNonNull(id);
-        Objects.requireNonNull(id);
-        Objects.requireNonNull(method);
-        Objects.requireNonNull(target);
-        Objects.requireNonNull(args);
-        this.id = id;
-        this.method = method;
-        this.target = target;
-        this.args = args;
-    }
+	public static MethodInterceptorHolder create(MethodInvocation invocation) {
+		String id = DigestUtils.md5DigestAsHex(String.valueOf(invocation.getMethod()).getBytes());
+		String[] argNames = NAME_DISCOVERER.getParameterNames(invocation.getMethod());
+		Object[] args = invocation.getArguments();
+		Map<String, Object> argMap = new LinkedHashMap<>();
+		int i = 0;
+		for (int len = args.length; i < len; ++i) {
+			argMap.put(argNames != null && argNames[i] != null ? argNames[i] : "arg" + i, args[i]);
+		}
+		return new MethodInterceptorHolder(id, invocation.getMethod(), invocation.getThis(), argMap);
 
-    public static MethodInterceptorHolder create(MethodInvocation invocation) {
-        String id = DigestUtils.md5DigestAsHex(String.valueOf(invocation.getMethod()).getBytes());
-        String[] argNames = NAME_DISCOVERER.getParameterNames(invocation.getMethod());
-        Object[] args = invocation.getArguments();
-        Map<String, Object> argMap = new LinkedHashMap<>();
-        int i = 0;
-        for (int len = args.length; i < len; ++i) {
-            argMap.put(argNames != null && argNames[i] != null ? argNames[i] : "arg" + i, args[i]);
-        }
-        return new MethodInterceptorHolder(id, invocation.getMethod(), invocation.getThis(), argMap);
+	}
 
-    }
+	public <T extends Annotation> T findMethodAnnotation(Class<T> annClass) {
+		return AopUtil.findMethodAnnotation(this.target.getClass(), this.method, annClass);
+	}
 
-    public <T extends Annotation> T findMethodAnnotation(Class<T> annClass) {
-        return AopUtil.findMethodAnnotation(this.target.getClass(), this.method, annClass);
-    }
-
-    public <T extends Annotation> T findClassAnnotation(Class<T> annClass) {
-        return AopUtil.findAnnotation(this.target.getClass(), annClass);
-    }
-
-
-
+	public <T extends Annotation> T findClassAnnotation(Class<T> annClass) {
+		return AopUtil.findAnnotation(this.target.getClass(), annClass);
+	}
 
 }
-

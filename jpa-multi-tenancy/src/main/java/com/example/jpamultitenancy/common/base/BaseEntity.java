@@ -13,23 +13,28 @@ import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 import java.util.Date;
 
-/** @ClassName: BaseEntity @Author: amy @Description: BaseEntity @Date: 2021/6/16 @Version: 1.0 */
+/**
+ * @ClassName: BaseEntity @Author: amy @Description: BaseEntity @Date:
+ *             2021/6/16 @Version: 1.0
+ */
 @Data
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class) // 开启审计监听
 public abstract class BaseEntity implements Serializable {
 
-  private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-  @CreatedBy
-  @Column(updatable = false)
-  private String createBy;
+	@CreatedBy
+	@Column(updatable = false)
+	private String createBy;
 
-  @CreatedDate
-  @Column(updatable = false)
-  private Date createTime;
+	@CreatedDate
+	@Column(updatable = false)
+	private Date createTime;
 
-  @LastModifiedBy private String updateBy;
+	@LastModifiedBy
+	private String updateBy;
 
-  @LastModifiedDate private Date updateTime;
+	@LastModifiedDate
+	private Date updateTime;
 }

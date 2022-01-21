@@ -19,12 +19,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.jpacrud.entity.Role;
 
-
 /**
  * @author Zheng Jie
  * @date 2018-12-03
  */
 public interface RoleRepository extends JpaRepository<Role, Long> {
-
 
 }

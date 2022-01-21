@@ -1,6 +1,5 @@
 package com.example.admin;
 
-
 import com.google.common.util.concurrent.RateLimiter;
 
 import java.util.concurrent.ConcurrentHashMap;
@@ -13,12 +12,10 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class LimitDemo {
 
-    public static ConcurrentHashMap<String, RateLimiter> limiterConcurrentHashMap
-            = new ConcurrentHashMap<>();
+	public static ConcurrentHashMap<String, RateLimiter> limiterConcurrentHashMap = new ConcurrentHashMap<>();
 
-    static {
+	static {
 
-    }
-
+	}
 
 }

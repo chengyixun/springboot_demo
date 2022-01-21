@@ -8,30 +8,30 @@ package com.example.admin.commons.exception;
  */
 public class CheckException extends RuntimeException {
 
-    private static final long serialVersionUID = 1L;
-    /**
-     * 错误code
-     */
-    private int errCode = 500;
+	private static final long serialVersionUID = 1L;
+	/**
+	 * 错误code
+	 */
+	private int errCode = 500;
 
-    public CheckException(String message) {
-        super(message);
-    }
+	public CheckException(String message) {
+		super(message);
+	}
 
-    public CheckException(String message, int code) {
-        super(message);
-        this.errCode = code;
-    }
+	public CheckException(String message, int code) {
+		super(message);
+		this.errCode = code;
+	}
 
-    public CheckException(Throwable cause) {
-        super(cause);
-    }
+	public CheckException(Throwable cause) {
+		super(cause);
+	}
 
-    public CheckException(String message, Throwable cause) {
-        super(message, cause);
-    }
+	public CheckException(String message, Throwable cause) {
+		super(message, cause);
+	}
 
-    public int getErrCode() {
-        return errCode;
-    }
+	public int getErrCode() {
+		return errCode;
+	}
 }

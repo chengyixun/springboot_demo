@@ -15,42 +15,42 @@ import java.util.Map;
 @Document(collection = "biz_tab")
 public class TabModel extends BaseModel {
 
-  /** 语言 */
-  private Integer langType;
+	/** 语言 */
+	private Integer langType;
 
-  /** tab 名称 */
-  private String name;
+	/** tab 名称 */
+	private String name;
 
-  /** tab路由 */
-  private String router;
+	/** tab路由 */
+	private String router;
 
-  /** 路由参数 */
-  private Map<String, Object> param;
+	/** 路由参数 */
+	private Map<String, Object> param;
 
-  /** 排序 从小到大 */
-  private Integer sort;
+	/** 排序 从小到大 */
+	private Integer sort;
 
-  /** 排序 开关 */
-  private Boolean enableSort;
+	/** 排序 开关 */
+	private Boolean enableSort;
 
-  /** 类型 0：pc，1: 小程序 */
-  private Integer type;
+	/** 类型 0：pc，1: 小程序 */
+	private Integer type;
 
-  /** true:展示，false：隐藏 */
-  private Boolean show;
+	/** true:展示，false：隐藏 */
+	private Boolean show;
 
-  /** 展示/隐藏 开关 ，true：可以操作，false：不可以操作 */
-  private Boolean enableShow;
+	/** 展示/隐藏 开关 ，true：可以操作，false：不可以操作 */
+	private Boolean enableShow;
 
-  /** 装修控制 开关 */
-  private Boolean flag;
+	/** 装修控制 开关 */
+	private Boolean flag;
 
-  /** 描述 */
-  private String description;
+	/** 描述 */
+	private String description;
 
-  /** tab对应的路径 */
-  private String path;
+	/** tab对应的路径 */
+	private String path;
 
-  /** 页签标识 */
-  private String key;
+	/** 页签标识 */
+	private String key;
 }

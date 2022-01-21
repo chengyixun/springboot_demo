@@ -22,9 +22,8 @@ public class JpaRepositoryTest {
 	@Autowired
 	private UserRepository userRepository;
 
-
 	@Test
-	public void test1(){
+	public void test1() {
 		User user = userRepository.findByUsername("test1");
 		System.out.println(user.getRoles());
 

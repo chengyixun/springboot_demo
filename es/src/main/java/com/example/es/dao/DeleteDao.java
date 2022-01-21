@@ -10,9 +10,9 @@ import java.io.Serializable;
  */
 public interface DeleteDao<E, PK extends Serializable> extends Dao {
 
-    void delete(PK var1);
+	void delete(PK var1);
 
-    void delete(E var1);
+	void delete(E var1);
 
-    void delete(Iterable<? extends E> var1);
+	void delete(Iterable<? extends E> var1);
 }
