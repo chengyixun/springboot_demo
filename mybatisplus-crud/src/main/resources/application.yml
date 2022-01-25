@@ -5,7 +5,7 @@ spring:
   application:
     name: mpc
   profiles:
-    active: online
+    active: offline
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8   # \u8BBE\u7F6E\u5168\u5C40\u65F6\u533A
@@ -30,7 +30,7 @@ app:
 
 apollo:
   bootstrap:
-    enabled: true
+    enabled: false
   meta: http://106.54.227.205:8080
 
 

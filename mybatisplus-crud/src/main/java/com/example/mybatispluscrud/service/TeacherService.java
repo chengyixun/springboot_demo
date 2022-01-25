@@ -11,4 +11,6 @@ import com.example.mybatispluscrud.entity.Teacher;
  * @Version: 1.0
  */
 public interface TeacherService extends IService<Teacher> {
+
+    void test1();
 }

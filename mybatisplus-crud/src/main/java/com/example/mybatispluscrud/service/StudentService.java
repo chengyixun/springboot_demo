@@ -8,4 +8,6 @@ import com.example.mybatispluscrud.entity.Student;
  *             2021/11/12 @Version: 1.0
  */
 public interface StudentService extends IService<Student> {
+
+
 }

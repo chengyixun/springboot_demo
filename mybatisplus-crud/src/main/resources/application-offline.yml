@@ -19,6 +19,8 @@ spring:
     # namespaces: application
 
 apollo:
+  value:
+    demoKey1: 2222
   cacheDir: /Users/amy
   meta: http://106.54.227.205:8080
 mpc:
