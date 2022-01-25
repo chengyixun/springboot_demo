@@ -25,6 +25,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -835,7 +836,25 @@ public class StreamTest {
   }
 
   @Test
-  public void testParallelStream2() {}
+  public void testParallelStream2() {
+    IntStream range = IntStream.range(0, 10);
+    Set<Thread> threadSet = new CopyOnWriteArraySet<>();
+
+    range
+        .parallel()
+        .forEach(
+            i -> {
+              Thread thread = Thread.currentThread();
+              log.info("integer：{},currentThread:{}", i, thread.getName());
+              threadSet.add(thread);
+            });
+
+    log.info(
+        "all threads：{}"
+            + threadSet.stream().map(Thread::getName).collect(Collectors.joining(":")));
+    int num = Runtime.getRuntime().availableProcessors();
+    log.info("core size:{}",num);
+  }
 
   @Test
   public void testSort3() {
@@ -1128,9 +1147,8 @@ public class StreamTest {
       laborDemands.add(
           LaborDemandVO.of("xxx", productionLineId, workSectionId, postId, getShifts()));
       laborDemands.add(
-              LaborDemandVO.of("xxx", productionLineId, workSectionId, postId+1, getShifts()));
+          LaborDemandVO.of("xxx", productionLineId, workSectionId, postId + 1, getShifts()));
     }
     log.info("result:{}", laborDemands);
-
   }
 }
