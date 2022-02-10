@@ -1,0 +1,18 @@
+server:
+  port: 9006
+
+
+spring:
+  application:
+    name: mongodb
+  data:
+    mongodb:
+      uri: mongodb://admin:123456@localhost:27017/?authSource=admin
+      database: loser
+
+
+
+
+  # uri: mongodb://\u8D26\u53F7:\u5BC6\u7801@x.x.x.x:\u7AEF\u53E3/?authSource=admin
+  # database: \u6570\u636E\u5E93\u540D
+

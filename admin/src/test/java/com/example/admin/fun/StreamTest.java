@@ -1151,4 +1151,16 @@ public class StreamTest {
     }
     log.info("result:{}", laborDemands);
   }
+
+
+  @Test
+  public void testAddAll(){
+    List<String> results = Lists.newArrayList("1","2","4","7");
+
+    List<String> results1 = Lists.newArrayList("1","2","4","7","8");
+
+    results.addAll(results1);
+
+    System.out.println(results);
+  }
 }
