@@ -5,7 +5,7 @@ import com.example.jpamultitenancy.tenant.entity.Group;
 import com.google.common.collect.Range;
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.util.Lists;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.time.DayOfWeek;
 import java.time.Duration;
@@ -164,11 +164,13 @@ public class DateTest {
 
 		Range<String> s = Range.closed(s1, s2);
 
+
 		if (c.isConnected(s)) {
 			Range<String> intersection = c.intersection(s);
 			System.out.println("connect");
 			System.out.println(intersection.lowerEndpoint());
 			System.out.println(intersection.upperEndpoint());
+
 		}
 	}
 

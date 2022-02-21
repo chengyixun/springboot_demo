@@ -1163,4 +1163,20 @@ public class StreamTest {
 
     System.out.println(results);
   }
+
+  @Test
+  public void  testMapPutAllApi(){
+
+    Map<String,String> result = new HashMap<>();
+    result.put("1","first status");
+
+    Map<String,String> result2 = new HashMap<>();
+    result2.put("1","new status");
+    result2.put("2","xx");
+
+
+    result.putAll(result2);
+
+    System.out.println(result);
+  }
 }
