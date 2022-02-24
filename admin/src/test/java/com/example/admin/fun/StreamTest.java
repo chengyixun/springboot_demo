@@ -1156,12 +1156,30 @@ public class StreamTest {
   @Test
   public void testAddAll(){
     List<String> results = Lists.newArrayList("1","2","4","7");
+    String max = results.stream().max(String::compareTo).get();
+    String min = results.stream().min(String::compareTo).get();
 
-    List<String> results1 = Lists.newArrayList("1","2","4","7","8");
+  }
 
-    results.addAll(results1);
+  @Test
+  public void testRetry(){
+    int retry = 0;
+    boolean isRetry = true;
+    String result = "";
+    while (isRetry && retry <= 3){
+      try{
+        result = "request server api";
+      }catch (Exception e){
+        retry++;
+        try {
+          Thread.sleep(2*1000);
+        } catch (InterruptedException interruptedException) {
+          interruptedException.printStackTrace();
+        }
+      }
+      isRetry = false;
+    }
 
-    System.out.println(results);
   }
 
   @Test
