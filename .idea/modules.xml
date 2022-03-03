@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/admin/admin.iml" filepath="$PROJECT_DIR$/admin/admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/amqp-demo/amqp-demo.iml" filepath="$PROJECT_DIR$/amqp-demo/amqp-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base/base.iml" filepath="$PROJECT_DIR$/base/base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo.iml" filepath="$PROJECT_DIR$/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/es/es.iml" filepath="$PROJECT_DIR$/es/es.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jpa-crud/jpa-crud.iml" filepath="$PROJECT_DIR$/jpa-crud/jpa-crud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jpa-demo/jpa-demo.iml" filepath="$PROJECT_DIR$/jpa-demo/jpa-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jpa-multi-data-sources/jpa-multi-data-sources.iml" filepath="$PROJECT_DIR$/jpa-multi-data-sources/jpa-multi-data-sources.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jpa-multi-tenancy/jpa-multi-tenancy.iml" filepath="$PROJECT_DIR$/jpa-multi-tenancy/jpa-multi-tenancy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/md/md.iml" filepath="$PROJECT_DIR$/md/md.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mongodb/mongodb.iml" filepath="$PROJECT_DIR$/mongodb/mongodb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mongodb-crud/mongodb-crud.iml" filepath="$PROJECT_DIR$/mongodb-crud/mongodb-crud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis-multi-tenant/mybatis-multi-tenant.iml" filepath="$PROJECT_DIR$/mybatis-multi-tenant/mybatis-multi-tenant.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatisplus/mybatisplus.iml" filepath="$PROJECT_DIR$/mybatisplus/mybatisplus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatisplus-crud/mybatisplus-crud.iml" filepath="$PROJECT_DIR$/mybatisplus-crud/mybatisplus-crud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sc/sc.iml" filepath="$PROJECT_DIR$/sc/sc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sm/sm.iml" filepath="$PROJECT_DIR$/sm/sm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tk/tk.iml" filepath="$PROJECT_DIR$/tk/tk.iml" />
+    </modules>
+  </component>
+</project>

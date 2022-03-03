@@ -1,0 +1,33 @@
+server:
+  port: 7001
+
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/base_info_backup?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
+    hikari:
+      #\u6700\u5927\u8FDE\u63A5\u6570
+      maximum-pool-size: 20
+      #\u8FDE\u63A5\u8D85\u65F6\u6BEB\u79D2
+      connection-timeout: 60000
+      #\u7A7A\u95F2\u7684\u8FDE\u63A5\u7684\u751F\u547D\u65F6\u957F\u6BEB\u79D2
+      idle-timeout: 60000
+      #\u8FDE\u63A5\u7684\u751F\u547D\u65F6\u957F\u6BEB\u79D2
+      max-lifetime: 60000
+      #\u9A8C\u8BC1\u8FDE\u63A5\u6709\u6548\u6027\u6BEB\u79D2
+      validation-timeout: 3000
+      #\u767B\u5F55\u8D85\u65F6\u6BEB\u79D2
+      login-timeout: 5
+  jpa:
+    show-sql: true  # \u6253\u5370sql \u7EBF\u4E0A\u5EFA\u8BAE\u5173\u95ED
+    hibernate:
+      ddl-auto: update # update\uFF1A\u81EA\u52A8\u66F4\u65B0\u6216\u8005\u521B\u5EFA\u6570\u636E\u8868\u7ED3\u6784 \u5EFA\u8BAE\u7EBF\u4E0A\u5173\u95ED Hibernate Auto DDL \u529F\u80FD
+      open-in-view: true
+  messages:
+    basename: i18n.messages
+    encoding: UTF-8

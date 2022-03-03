@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="jpa-multi-tenancy:war">
+    <output-path>$PROJECT_DIR$/jpa-multi-tenancy/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>jpa-multi-tenancy</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="jpa.war">
+      <element id="artifact" artifact-name="jpa-multi-tenancy:war exploded" />
+    </root>
+  </artifact>
+</component>

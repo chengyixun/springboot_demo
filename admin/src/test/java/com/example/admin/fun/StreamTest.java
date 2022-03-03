@@ -1197,4 +1197,24 @@ public class StreamTest {
 
     System.out.println(result);
   }
+
+  @Test
+  public void  testHashSet(){
+    Set<String> results = new HashSet<>();
+    results.add("1");
+    results.add("2");
+    results.add("3");
+    results.add("6");
+
+    Set<String> results1 = new HashSet<>();
+    results1.add("1");
+    results1.add("3");
+    results1.add("7");
+
+    Set<String> finnalResults = results.stream().filter(f -> !results1.contains(f)).collect(toSet());
+
+    System.out.println(finnalResults);
+    //results1: [1,3]
+  //  results1.retainAll(results);
+  }
 }

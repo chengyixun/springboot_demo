@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="jpa-crud" />
+        <module name="mybatisplus-crud" />
+        <module name="admin" />
+        <module name="mongodb" />
+        <module name="amqp-demo" />
+        <module name="es" />
+        <module name="mybatisplus" />
+        <module name="mybatis-multi-tenant" />
+        <module name="jpa-multi-tenancy" />
+        <module name="jpa-multi-data-sources" />
+        <module name="base" />
+        <module name="sm" />
+        <module name="mongodb-crud" />
+        <module name="tk" />
+        <module name="jpa-demo" />
+        <module name="md" />
+        <module name="sc" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="admin" target="1.8" />
+      <module name="amqp-demo" target="1.8" />
+      <module name="base" target="1.8" />
+      <module name="demo" target="1.8" />
+      <module name="demo (1)" target="1.8" />
+      <module name="es" target="1.8" />
+      <module name="jpa" target="1.8" />
+      <module name="jpa-crud" target="1.8" />
+      <module name="jpa-demo" target="1.8" />
+      <module name="jpa-multi-data-sources" target="1.8" />
+      <module name="jpa-multi-tenancy" target="1.8" />
+      <module name="md" target="1.8" />
+      <module name="mongodb" target="1.8" />
+      <module name="mongodb-crud" target="1.8" />
+      <module name="mp-multi-tenancy" target="1.8" />
+      <module name="mybatis-multi-tenant" target="1.8" />
+      <module name="mybatisplus" target="1.8" />
+      <module name="mybatisplus-crud" target="1.8" />
+      <module name="sc" target="1.8" />
+      <module name="sm" target="1.8" />
+      <module name="tk" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="admin" options="-parameters" />
+      <module name="amqp-demo" options="-parameters" />
+      <module name="base" options="-parameters" />
+      <module name="demo (1)" options="-parameters" />
+      <module name="es" options="-parameters" />
+      <module name="jpa" options="-parameters" />
+      <module name="jpa-crud" options="-parameters" />
+      <module name="jpa-demo" options="-parameters" />
+      <module name="jpa-multi-data-sources" options="-parameters" />
+      <module name="jpa-multi-tenancy" options="-parameters" />
+      <module name="md" options="-parameters" />
+      <module name="mongodb" options="-parameters" />
+      <module name="mongodb-crud" options="-parameters" />
+      <module name="mp-multi-tenancy" options="-parameters" />
+      <module name="mybatis-multi-tenant" options="-parameters" />
+      <module name="mybatisplus" options="-parameters" />
+      <module name="mybatisplus-crud" options="-parameters" />
+      <module name="sc" options="-parameters" />
+      <module name="sm" options="-parameters" />
+      <module name="tk" options="-parameters" />
+    </option>
+  </component>
+</project>
