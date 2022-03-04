@@ -23,18 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df887455-0510-4c9c-b246-25fbc6fe5214" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/jpa-demo/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jpa-demo/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jpa-demo/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jpa-demo/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jpa-demo/src/main/java/com/example/jpademo/JpaDemoApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jpa-demo/src/main/java/com/example/jpademo/controller/TestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jpa-demo/src/main/java/com/example/jpademo/entity/Content.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jpa-demo/src/main/java/com/example/jpademo/entity/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jpa-demo/src/main/java/com/example/jpademo/repository/TestRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jpa-demo/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jpa-demo/src/test/java/com/example/jpademo/JpaDemoApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/test/java/com/example/admin/fun/StreamTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/test/java/com/example/admin/fun/StreamTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jpa-demo/src/main/java/com/example/jpademo/entity/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jpa-demo/src/test/java/com/example/jpademo/MenuTreeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,23 +135,7 @@
       <recent name="$PROJECT_DIR$/tk/src/main/resources/templates" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.JpaDemoApplication">
-    <configuration name="AmqpDemoApplicationTests.testConcurrencyConsumer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="amqp-demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.amqpdemo.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.amqpdemo" />
-      <option name="MAIN_CLASS_NAME" value="com.example.amqpdemo.AmqpDemoApplicationTests" />
-      <option name="METHOD_NAME" value="testConcurrencyConsumer" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.MenuTreeTest.test1">
     <configuration name="JpaDemoApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="jpa-demo" />
       <extension name="coverage">
@@ -188,6 +163,22 @@
       <option name="PACKAGE_NAME" value="com.example.jpademo" />
       <option name="MAIN_CLASS_NAME" value="com.example.jpademo.JpaDemoApplicationTests" />
       <option name="METHOD_NAME" value="testInsert" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MenuTreeTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jpa-demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.jpademo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.jpademo" />
+      <option name="MAIN_CLASS_NAME" value="com.example.jpademo.MenuTreeTest" />
+      <option name="METHOD_NAME" value="test1" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -333,9 +324,10 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.AmqpDemoApplicationTests.testConcurrencyConsumer" />
       <item itemvalue="JUnit.StreamTest.testAddAll" />
       <item itemvalue="JUnit.StreamTest.testHashSet" />
+      <item itemvalue="JUnit.JpaDemoApplicationTests.contextLoads" />
+      <item itemvalue="JUnit.JpaDemoApplicationTests.testInsert" />
       <item itemvalue="Spring Boot.DemoApplication" />
       <item itemvalue="Spring Boot.DemoApplication (1)" />
       <item itemvalue="Spring Boot.JpaMultiTenancyApplication" />
@@ -351,16 +343,15 @@
       <item itemvalue="Spring Boot.MybatisplusCrudApplication" />
       <item itemvalue="Spring Boot.MongodbCrudApplication" />
       <item itemvalue="Spring Boot.AmqpDemoApplication" />
-      <item itemvalue="JUnit.JpaDemoApplicationTests.contextLoads" />
-      <item itemvalue="JUnit.JpaDemoApplicationTests.testInsert" />
+      <item itemvalue="JUnit.MenuTreeTest.test1" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MenuTreeTest.test1" />
         <item itemvalue="JUnit.JpaDemoApplicationTests.testInsert" />
         <item itemvalue="JUnit.JpaDemoApplicationTests.contextLoads" />
         <item itemvalue="JUnit.StreamTest.testHashSet" />
         <item itemvalue="JUnit.StreamTest.testAddAll" />
-        <item itemvalue="JUnit.AmqpDemoApplicationTests.testConcurrencyConsumer" />
       </list>
     </recent_temporary>
   </component>
@@ -469,14 +460,9 @@
       <workItem from="1645158239626" duration="36883000" />
       <workItem from="1645756350824" duration="1402000" />
       <workItem from="1646019055924" duration="2330000" />
-      <workItem from="1646114559546" duration="18456000" />
-    </task>
-    <task id="LOCAL-00038" summary="add  mybatis demo">
-      <created>1630056804374</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1630056804374</updated>
+      <workItem from="1646114559546" duration="19752000" />
+      <workItem from="1646294076715" duration="1388000" />
+      <workItem from="1646359777027" duration="1960000" />
     </task>
     <task id="LOCAL-00039" summary="add test">
       <created>1630916180032</created>
@@ -814,7 +800,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645690929451</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="add jpa json demo">
+      <created>1646270985602</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1646270985605</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -834,7 +827,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add mybatis-plus simple api" />
     <MESSAGE value="add mybatis-plus simple api 2" />
     <MESSAGE value="add AsyncTask" />
     <MESSAGE value="add test 事务失效的demo" />
@@ -859,7 +851,8 @@
     <MESSAGE value="add amqp demo" />
     <MESSAGE value="add amqp demo2" />
     <MESSAGE value="add stream test" />
-    <option name="LAST_COMMIT_MESSAGE" value="add stream test" />
+    <MESSAGE value="add jpa json demo" />
+    <option name="LAST_COMMIT_MESSAGE" value="add jpa json demo" />
   </component>
   <component name="WindowStateProjectService">
     <state x="354" y="132" key="#Inspections" timestamp="1644570284990">
@@ -892,11 +885,11 @@
     <state x="120" y="194" width="1164" height="585" key="#xdebugger.evaluate/0.0.1440.900/1440.44.1920.1080@0.0.1440.900" timestamp="1646129178283" />
     <state x="443" y="315" width="862" height="585" key="#xdebugger.evaluate/0.0.1440.900@0.0.1440.900" timestamp="1638083534721" />
     <state x="1639" y="400" key="#xdebugger.evaluate/0.25.1440.875/1440.44.1920.1018@1440.44.1920.1018" timestamp="1638846440474" />
-    <state x="304" y="21" width="891" height="843" key="CommitChangelistDialog2" timestamp="1645690929189">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="1845" y="69" width="891" height="843" key="CommitChangelistDialog2" timestamp="1646270984935">
+      <screen x="1440" y="44" width="1920" height="1080" />
     </state>
     <state x="304" y="21" key="CommitChangelistDialog2/0.0.1440.900/1440.44.1920.1080@0.0.1440.900" timestamp="1645690929189" />
-    <state x="1845" y="69" key="CommitChangelistDialog2/0.0.1440.900/1440.44.1920.1080@1440.44.1920.1080" timestamp="1644458935905" />
+    <state x="1845" y="69" key="CommitChangelistDialog2/0.0.1440.900/1440.44.1920.1080@1440.44.1920.1080" timestamp="1646270984935" />
     <state x="304" y="21" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1638924804924" />
     <state width="1072" height="334" key="DebuggerActiveHint" timestamp="1643011527765">
       <screen x="0" y="0" width="1440" height="900" />
@@ -1078,16 +1071,17 @@
     </state>
     <state x="279" y="71" key="SettingsEditor/0.0.1440.900/-1920.0.1920.1080@0.0.1440.900" timestamp="1638150209332" />
     <state x="0" y="25" width="1440" height="826" key="SettingsEditor/0.0.1440.900/1440.44.1920.1080@0.0.1440.900" timestamp="1642649898933" />
-    <state x="320" y="187" key="Vcs.Push.Dialog.v2" timestamp="1645690995776">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="1867" y="268" key="Vcs.Push.Dialog.v2" timestamp="1646270994818">
+      <screen x="1440" y="44" width="1920" height="1080" />
     </state>
     <state x="320" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900/1440.44.1920.1080@0.0.1440.900" timestamp="1645690995776" />
-    <state x="1867" y="268" key="Vcs.Push.Dialog.v2/0.0.1440.900/1440.44.1920.1080@1440.44.1920.1080" timestamp="1644458942422" />
+    <state x="1867" y="268" key="Vcs.Push.Dialog.v2/0.0.1440.900/1440.44.1920.1080@1440.44.1920.1080" timestamp="1646270994818" />
     <state x="320" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1638924812619" />
-    <state x="511" y="367" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1642670875534">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="2121" y="484" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1646270945614">
+      <screen x="1440" y="44" width="1920" height="1080" />
     </state>
     <state x="511" y="367" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900/1440.44.1920.1080@0.0.1440.900" timestamp="1642670875534" />
+    <state x="2121" y="484" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900/1440.44.1920.1080@1440.44.1920.1080" timestamp="1646270945614" />
     <state x="511" y="359" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1440.818/-1920.25.1920.1055@0.25.1440.818" timestamp="1637480107913" />
     <state x="421" y="69" width="897" height="727" key="find.popup" timestamp="1646129088160">
       <screen x="0" y="0" width="1440" height="900" />
