@@ -1,6 +1,7 @@
 package com.example.amqpdemo;
 
 import com.alibaba.fastjson.JSONObject;
+import com.example.amqpdemo.common.config.RabbitFanoutConfig;
 import com.example.amqpdemo.entity.OrderMessage;
 import org.junit.jupiter.api.Test;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -35,6 +36,14 @@ class AmqpDemoApplicationTests {
     }
   }
 
+  @Test
+  public void testDirect() {
+    OrderMessage orderMessage = OrderMessage.builder().id("2").name("测试张三").build();
+    rabbitTemplate.convertAndSend("hello-queue", orderMessage);
+  }
 
-
+  @Test
+  public void testFanout() {
+    rabbitTemplate.convertAndSend(RabbitFanoutConfig.FANOUTNAME, null, "hello fanout!!!");
+  }
 }
