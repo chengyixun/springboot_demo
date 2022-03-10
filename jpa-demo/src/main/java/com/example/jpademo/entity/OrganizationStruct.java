@@ -19,16 +19,11 @@ import javax.persistence.Id;
 @Entity
 public class OrganizationStruct {
 
-  @Id private String id;
+  @Id private String versionId;
 
   /** 有效日期 */
   private String effectDate;
 
   /** 失效日期 */
   private String expireDate;
-
-  private String versionId;
-
-
-
 }

@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  * @ClassName: OrganizationHierarchy @Author: amy @Description: OrganizationHierarchy @Date:
@@ -21,12 +23,13 @@ public class OrganizationHierarchy {
 
   @Id private String id;
 
+  private String parentId;
+
   private String path;
 
   private String unitId;
 
-  private String parentId;
-
-  private String versionId;
-
+  @ManyToOne
+  @JoinColumn(name = "versionId")
+  private OrganizationStruct organizationStruct;
 }

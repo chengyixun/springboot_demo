@@ -16,7 +16,9 @@ import javax.persistence.Id;
 @Entity
 public class OrganizationUnit {
 
-  @Id private String id;
+  @Id private String versionId;
+
+  private String id;
 
   private String code;
 
@@ -37,6 +39,4 @@ public class OrganizationUnit {
   private String costCenterId;
 
   private Integer sortNumber;
-
-  private String versionId;
 }
