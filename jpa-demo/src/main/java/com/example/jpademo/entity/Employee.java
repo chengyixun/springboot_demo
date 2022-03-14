@@ -1,6 +1,7 @@
 package com.example.jpademo.entity;
 
 import com.example.jpademo.commons.Gender;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import java.time.LocalDate;
 
 /** @ClassName: Employee @Author: amy @Description: Employee @Date: 2022/3/10 @Version: 1.0 */
@@ -41,4 +43,6 @@ public class Employee {
   private LocalDate turnoverDate;
   /** 所在部门 */
   @ManyToOne private Dept dept;
+
+  @JsonUnwrapped @Transient private Address address;
 }

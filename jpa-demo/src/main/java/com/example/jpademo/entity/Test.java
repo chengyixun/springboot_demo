@@ -1,5 +1,6 @@
 package com.example.jpademo.entity;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.vladmihalcea.hibernate.type.json.JsonStringType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -34,7 +35,7 @@ public class Test {
 
   @Type(type = "json")
   @Column(columnDefinition = "json")
-  private Content content;
+  private JsonNode content;
 
   @Builder.Default
   @Temporal(TemporalType.TIMESTAMP)

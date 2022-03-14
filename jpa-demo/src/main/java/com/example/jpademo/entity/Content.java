@@ -15,4 +15,6 @@ public class Content {
   private String name;
 
   private String host;
+
+  private String remark;
 }

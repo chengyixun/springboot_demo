@@ -1,6 +1,7 @@
 package com.example.jpademo;
 
 import com.example.jpademo.commons.Gender;
+import com.example.jpademo.commons.utils.JsonUtils;
 import com.example.jpademo.entity.Content;
 import com.example.jpademo.entity.Dept;
 import com.example.jpademo.entity.Employee;
@@ -52,9 +53,9 @@ class JpaDemoApplicationTests {
 
   @Test
   void testInsert() {
-    Content content = Content.builder().name("amy").host("www.amy.com").build();
+    Content content = Content.builder().name("ack").host("www.ack.com").remark("test").build();
     com.example.jpademo.entity.Test test = new com.example.jpademo.entity.Test();
-    test.setContent(content);
+    test.setContent(JsonUtils.toJsonNode(content));
     testRepository.save(test);
   }
 

@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
 import java.util.List;
 
 /** @ClassName: Menu @Author: amy @Description: Menu @Date: 2022/3/4 @Version: 1.0 */
@@ -21,6 +22,8 @@ public class Menu {
   private Integer parentId;
   /** 子节点信息 */
   private List<Menu> childList;
+
+  private Date createDate;
 
   public Menu(Integer id, String name, Integer parentId) {
     this.id = id;
