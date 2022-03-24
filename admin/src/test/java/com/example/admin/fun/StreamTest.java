@@ -853,7 +853,7 @@ public class StreamTest {
         "all threads：{}"
             + threadSet.stream().map(Thread::getName).collect(Collectors.joining(":")));
     int num = Runtime.getRuntime().availableProcessors();
-    log.info("core size:{}",num);
+    log.info("core size:{}", num);
   }
 
   @Test
@@ -1152,46 +1152,42 @@ public class StreamTest {
     log.info("result:{}", laborDemands);
   }
 
-
   @Test
-  public void testAddAll(){
-    List<String> results = Lists.newArrayList("1","2","4","7");
+  public void testAddAll() {
+    List<String> results = Lists.newArrayList("1", "2", "4", "7");
     String max = results.stream().max(String::compareTo).get();
     String min = results.stream().min(String::compareTo).get();
-
   }
 
   @Test
-  public void testRetry(){
+  public void testRetry() {
     int retry = 0;
     boolean isRetry = true;
     String result = "";
-    while (isRetry && retry <= 3){
-      try{
+    while (isRetry && retry <= 3) {
+      try {
         result = "request server api";
-      }catch (Exception e){
+      } catch (Exception e) {
         retry++;
         try {
-          Thread.sleep(2*1000);
+          Thread.sleep(2 * 1000);
         } catch (InterruptedException interruptedException) {
           interruptedException.printStackTrace();
         }
       }
       isRetry = false;
     }
-
   }
 
   @Test
-  public void  testMapPutAllApi(){
+  public void testMapPutAllApi() {
 
-    Map<String,String> result = new HashMap<>();
-    result.put("1","first status");
+    Map<String, String> result = new HashMap<>();
+    result.put("1", "first status");
 
-    Map<String,String> result2 = new HashMap<>();
-    result2.put("1","new status");
-    result2.put("2","xx");
-
+    Map<String, String> result2 = new HashMap<>();
+    result2.put("1", "new status");
+    result2.put("2", "xx");
 
     result.putAll(result2);
 
@@ -1199,22 +1195,30 @@ public class StreamTest {
   }
 
   @Test
-  public void  testHashSet(){
-    Set<String> results = new HashSet<>();
-    results.add("1");
-    results.add("2");
-    results.add("3");
-    results.add("6");
+  public void testHashSet() {
 
-    Set<String> results1 = new HashSet<>();
-    results1.add("1");
-    results1.add("3");
-    results1.add("7");
+    Set<Integer> ids = new HashSet<>();
 
-    Set<String> finnalResults = results.stream().filter(f -> !results1.contains(f)).collect(toSet());
+    ids.add(1);
+    ids.add(2);
+    ids.add(3);
+    ids.add(4);
+    ids.add(5);
+    ids.add(6);
+    ids.add(7);
 
-    System.out.println(finnalResults);
-    //results1: [1,3]
-  //  results1.retainAll(results);
+    Set<Integer> temp = new HashSet<>();
+    for (Integer id : ids) {
+      temp.add(id);
+      if (temp.size() >= 2) {
+        // scheduleResultDAO.deleteScheduleResultByIds(temp);
+        log.info("temp:{}", temp);
+        temp.removeAll(temp);
+      }
+    }
+    if(!temp.isEmpty()){
+      log.info("temp:{}", temp);
+    }
+
   }
 }
